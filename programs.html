@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francistown School Of Chess - Programs</title>
+    <link rel="icon" type="image/png" href="logo.png">
+  
+    <!-- Main website stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* -------------------- URGENCY TIMER STYLES -------------------- */
+        .limited-spots-banner {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: white;
+            box-shadow: 0 10px 25px rgba(220,38,38,0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .spots-countdown {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .spots-number {
+            background: white;
+            color: #dc2626;
+            font-size: 1.8rem;
+            font-weight: 700;
+            padding: 5px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+        
+        /* -------------------- TRUST BADGES STYLES -------------------- */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 50px 0 30px;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .trust-badge:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .trust-badge i {
+            font-size: 2rem;
+            color: #3b5b9b;
+        }
+        
+        .trust-badge-text {
+            font-weight: 600;
+            color: #0f172a;
+        }
+        
+        .trust-badge-sub {
+            font-size: 0.8rem;
+            color: #64748b;
+        }
+        
+        /* -------------------- FLOATING BUTTONS STYLES -------------------- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0;                     
+            align-items: center;       
+            z-index: 999;
+        }
+        
+        .floating-btn {
+            width: 48px;          
+            height: 48px;        
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;    
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20b958;
+        }
+        
+        .share-btn {
+            background: #3b5b9b;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .share-btn:hover {
+            background: #2c4a7a;
+        }
+        
+        .share-wrapper {
+            position: relative;
+            margin-left: -15px;          
+        }
+        
+        .share-popup {
+            position: absolute;
+            bottom: 58px;                
+            right: 0;                    
+            background: white;
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: none;
+            gap: 12px;
+            white-space: nowrap;
+            z-index: 1000;              
+        }
+        
+        .share-popup a {
+            color: #3b5b9b;
+            font-size: 1.3rem;     
+            transition: color 0.2s;
+        }
+        
+        .share-popup a:hover {
+            color: #f59e0b;
+        }
+        
+        /* -------------------- RESPONSIVE STYLES -------------------- */
+        @media (max-width: 768px) {
+            .limited-spots-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .trust-badges {
+                gap: 20px;
+            }
+            
+            .trust-badge {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            .floating-btn {
+                width: 42px;        
+                height: 42px;      
+                font-size: 1.4rem;  
+            }
+            .share-wrapper {
+                margin-left: -8px;        
+            }
+            .share-popup {
+                bottom: 52px;             
+                padding: 6px 10px;
+                gap: 10px;
+            }
+            .share-popup a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* -------------------- LEGAL LINK STYLES -------------------- */
+        .legal-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .legal-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="page-load">
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo slide-in-left">
+                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            </a>
+            <ul class="nav-links slide-in-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programs.html" class="active">Programs</a></li>
+                <li><a href="coaches.html">Coaches</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- ========== MAIN PROGRAMS SECTION ========== -->
+    <section style="padding-top: 40px;">
+        <div class="container">
+            <!-- URGENCY TIMER - LIMITED SPOTS -->
+            <div class="limited-spots-banner fade-in-up">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                    <div style="font-size: 2.5rem;">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <div>
+                        <h3 style="color: white; margin-bottom: 5px; font-size: 1.3rem;">
+                            <i class="bi bi-exclamation-triangle-fill"></i> LIMITED SPOTS AVAILABLE
+                        </h3>
+                        <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 1.1rem;">
+                            Enroll now before they're gone!
+                        </p>
+                    </div>
+                </div>
+                <div style="background: rgba(255,255,255,0.2); padding: 10px 25px; border-radius: 50px;">
+                    <span style="font-weight: 600; font-size: 1.1rem;">
+                        <i class="bi bi-lightning-charge-fill"></i> ACT NOW
+                    </span>
+                </div>
+            </div>
+
+            <!-- Page Header -->
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <h1 class="fade-in-up" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Programs Offered</h1>
+                <p class="fade-in-up" style="font-size: 1.2rem; color: #475569; margin-bottom: 3rem; animation-delay: 0.2s; max-width: 600px;">
+                    Find the perfect class for your skill level
+                </p>
+            </div>
+            
+            <!-- Programs Grid -->
+            <div class="card-grid stagger-children">
+                <!-- Pawn Pals - Beginner -->
+                <div class="card hover-lift">
+                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">BEGINNER</span>
+                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Pawn Pals</h3>
+                    <p style="color: #475569;">Ages 4-9 · No experience needed</p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Piece movement & basic rules</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Checkmate patterns</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Simple tactics</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> 1:4 coach ratio</li>
+                    </ul>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
+                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
+                </div>
+
+                <!-- Competitive Squad - Intermediate -->
+                <div class="card hover-lift">
+                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">INTERMEDIATE</span>
+                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Competitive Squad</h3>
+                    <p style="color: #475569;">Ages 8-14 · Knows basic rules</p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening principles</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Tactical motifs</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Endgame fundamentals</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Tournament preparation</li>
+                    </ul>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
+                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
+                </div>
+
+                <!-- Advanced -->
+                <div class="card hover-lift">
+                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">ADVANCED</span>
+                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Advanced</h3>
+                    <p style="color: #475569;">Ages 18+ · Casual or competitive</p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Strategic planning</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Positional play</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening repertoires</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Weekly game analysis</li>
+                    </ul>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
+                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
+                </div>
+
+                <!-- Private Coaching -->
+                <div class="card hover-lift">
+                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">1-ON-1</span>
+                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Private Coaching</h3>
+                    <p style="color: #475569;">All ages · Personalized curriculum</p>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <ul style="list-style: none; margin-bottom: 1.5rem;">
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Customized lesson plan</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Game analysis</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening preparation</li>
+                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Flexible scheduling</li>
+                    </ul>
+                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 200/hour</p>
+                    <a href="contact.html" class="btn btn-outline hover-lift" style="width: 100%; text-align: center;">Contact for Availability</a>
+                </div>
+            </div>
+            
+            <!-- TRUST BADGES -->
+            <div class="trust-badges fade-in-up">
+                <div class="trust-badge hover-lift">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <div>
+                        <div class="trust-badge-text">FIDE Certified Trainers</div>
+                    </div>
+                </div>
+                <div class="trust-badge hover-lift">
+                    <i class="bi bi-trophy-fill"></i>
+                    <div>
+                        <div class="trust-badge-text">Botswana Chess Fed.</div>
+                        <div class="trust-badge-sub">Official Partner</div>
+                    </div>
+                </div>
+                <div class="trust-badge hover-lift">
+                    <i class="bi bi-award-fill"></i>
+                    <div>
+                        <div class="trust-badge-text">10+ Years</div>
+                        <div class="trust-badge-sub">Excellence in Teaching</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <!-- About Section -->
+            <div>
+                <h4>Francistown School Of Chess</h4>
+                <p style="color: #cbd5e1;">Building champions since 2013</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
+                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
+                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Coaches</a></p>
+                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
+                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
+                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h4>Contact Us</h4>
+                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
+                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
+            </div>
+            <!-- Legal Links -->
+            <div>
+                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
+                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
+                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
+                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
+            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
+           class="floating-btn whatsapp-btn" 
+           target="_blank" 
+           title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        
+        <!-- Share Button with Popup -->
+        <div class="share-wrapper">
+            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
+                <i class="bi bi-share-fill"></i>
+            </button>
+            <!-- Share Popup Menu -->
+            <div class="share-popup" id="sharePopup">
+                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
+                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+       
+        // Toggle share popup visibility
+        function toggleSharePopup() {
+            const popup = document.getElementById('sharePopup');
+            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Share on social media platforms
+        function shareOn(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${title}&body=${url}`;
+                    break;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            toggleSharePopup(); // Close popup after sharing
+        }
+
+        // Copy page link to clipboard
+        function copyPageLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+                toggleSharePopup(); // Close popup
+            });
+        }
+
+        // Close share popup when clicking outside
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('sharePopup');
+            const shareBtn = document.querySelector('.share-btn');
+            
+            // Close if click is outside popup AND outside share button
+            if (popup && shareBtn && 
+                popup.style.display === 'flex' &&
+                !popup.contains(e.target) && 
+                !shareBtn.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+
+    
+<!-- ========== SITE LOADER ========== -->
+        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Three bouncing dots -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+                </div>
+                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes bounce {
+                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+                30% { transform: translateY(-12px); opacity: 1; }
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }, 600);
+            });
+        </script>
+
+</body>
+</html>

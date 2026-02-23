@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francistown School Of Chess - Home</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- ========== EXTERNAL CSS LIBRARIES ========== -->
+    <!-- Local Bootstrap Icons -->
+    <link rel="stylesheet" href="CSS/bootstrap-icons.css">
+    <!-- Bootstrap Icons CDN (fallback) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Main website stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Osano Cookie Consent CSS (3rd party) -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+    
+    <style>
+        /* -------------------- COOKIE POPUP STYLES -------------------- */
+        /* Makes Osano cookie popup */
+        .cc-window {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+            position: fixed !important;
+            bottom: 80px !important;
+            left: 20px !important;
+            right: auto !important;
+            background: white !important;
+            padding: 20px !important;
+            border-radius: 12px !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+            z-index: 10000 !important;
+            max-width: 350px !important;
+            border: 2px solid #3b5b9b !important;
+            animation: slideInUp 0.5s ease !important;
+        }
+        
+        /* Cookie message text styling */
+        .cc-message {
+            color: #1e293b !important;
+            font-size: 0.95rem !important;
+            line-height: 1.6 !important;
+            margin-bottom: 15px !important;
+            display: block !important;
+        }
+        
+        /* Adds Bootstrap info icon before message */
+        .cc-message::before {
+            content: '\F430'; /* Unicode for bi-info-circle-fill */
+            font-family: 'bootstrap-icons' !important;
+            color: #3b5b9b;
+            margin-right: 8px;
+            font-size: 1rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Button container - flex layout */
+        .cc-compliance {
+            display: flex !important;
+            gap: 10px !important;
+        }
+        
+        /* Base button styles for both Accept and Learn More */
+        .cc-btn {
+            flex: 1 !important;
+            padding: 0.5rem 1rem !important;
+            font-size: 0.9rem !important;
+            border-radius: 6px !important;
+            font-weight: 500 !important;
+            border: none !important;
+            transition: all 0.2s !important;
+            text-align: center !important;
+            cursor: pointer !important;
+            height: auto !important;
+            line-height: normal !important;
+        }
+        
+        /* Accept button - solid blue */
+        .cc-dismiss {
+            background: #3b5b9b !important;
+            color: white !important;
+            border: none !important;
+        }
+        
+        .cc-dismiss:hover {
+            background: #2c4a7a !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        /* Learn More button - outlined */
+        .cc-link {
+            background: transparent !important;
+            border: 2px solid #3b5b9b !important;
+            color: #3b5b9b !important;
+            text-decoration: none !important;
+            padding: 0.5rem 1rem !important;
+            margin: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        
+        .cc-link:hover {
+            background: #3b5b9b !important;
+            color: white !important;
+            transform: translateY(-2px) !important;
+        }
+        
+        /* -------------------- MOBILE RESPONSIVE STYLES -------------------- */
+        @media (max-width: 768px) {
+            .cc-window {
+                bottom: 70px !important;
+                left: 15px !important;
+                right: 15px !important;
+                max-width: none !important;
+            }
+            
+            .cc-compliance {
+                flex-direction: row !important;
+            }
+        }
+        
+        /* -------------------- ANIMATIONS -------------------- */
+        /* Slide up animation for cookie popup */
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Container for WhatsApp and Share buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0;                     
+            align-items: center;       
+            z-index: 999;
+        }
+        
+        /* Base styles for floating buttons */
+        .floating-btn {
+            width: 48px;          
+            height: 48px;        
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;    
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* WhatsApp button specific color */
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20b958;
+        }
+        
+        /* Share button specific color */
+        .share-btn {
+            background: #3b5b9b;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .share-btn:hover {
+            background: #2c4a7a;
+        }
+        
+        /* Wrapper for share button popup positioning */
+        .share-wrapper {
+            position: relative;
+            margin-left: -15px;          
+        }
+        
+        /* Share popup menu */
+        .share-popup {
+            position: absolute;
+            bottom: 58px;                
+            right: 0;                    
+            background: white;
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: none;
+            gap: 12px;
+            white-space: nowrap;
+            z-index: 1000;              
+        }
+        
+        .share-popup a {
+            color: #3b5b9b;
+            font-size: 1.3rem;     
+            transition: color 0.2s;
+        }
+        
+        .share-popup a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Mobile responsive for floating buttons */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            .floating-btn {
+                width: 42px;        
+                height: 42px;      
+                font-size: 1.4rem;  
+            }
+            .share-wrapper {
+                margin-left: -8px;        
+            }
+            .share-popup {
+                bottom: 52px;             
+                padding: 6px 10px;
+                gap: 10px;
+            }
+            .share-popup a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Styles for footer legal links */
+        .legal-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .legal-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="page-load">
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo slide-in-left">
+                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            </a>
+            <ul class="nav-links slide-in-right">
+                <li><a href="index.html"class="active">Home</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="coaches.html">Coaches</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero">
+        <!-- Chess piece decorations -->
+        <div class="testimonial-chess-piece piece-1">♞</div>
+        <div class="testimonial-chess-piece piece-2">♝</div>
+        <div class="testimonial-chess-piece piece-3">♜</div>
+        <div class="testimonial-chess-piece piece-4">♛</div>  
+        <div class="testimonial-chess-piece piece-5">♚</div> 
+        <div class="testimonial-chess-piece piece-6">♟</div> 
+        
+        <div class="container text-center">
+            <h1 class="fade-in-up">Where Grandmasters Are Made</h1>
+            <p class="fade-in-up" style="color: white; font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; animation-delay: 0.2s;">
+                FIDE-certified coaches · Small groups · Weekly tournaments
+            </p>
+            <div class="fade-in-up" style="animation-delay: 0.4s;">
+                <a href="contact.html" class="btn btn-primary pulse" style="margin-right: 1rem;">Enroll Now</a>
+                <a href="programs.html" class="btn btn-outline" style="background: white; color: #0f172a;">View Programs</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY CHOOSE US SECTION ========== -->
+    <section>
+        <div class="container">
+            <h2 class="text-center glow">Why Choose Us?</h2>
+            <div class="card-grid stagger-children">
+                <!-- Elite Coaches Card -->
+                <div class="card text-center hover-lift">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
+                        <i class="bi bi-people-fill float"></i>
+                    </div>
+                    <h3>Elite Coaches</h3>
+                    <p>Learn from FIDE-certified instructors with 10+ years of teaching experience.</p>
+                </div>
+                <!-- Tournament Ready Card -->
+                <div class="card text-center hover-lift">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
+                        <i class="bi bi-trophy-fill float"></i>
+                    </div>
+                    <h3>Tournament Ready</h3>
+                    <p>Monthly in-house tournaments and external competition preparation.</p>
+                </div>
+                <!-- Progress Tracking Card -->
+                <div class="card text-center hover-lift">
+                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
+                        <i class="bi bi-bar-chart-fill float"></i>
+                    </div>
+                    <h3>Progress Tracking</h3>
+                    <p>Regular assessments, rating tracking, and personalized feedback.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIAL SLIDER SECTION ========== -->
+    <section class="testimonial-section" style="padding: 80px 0;">
+        <div class="testimonial-chess-piece piece-1">♞</div>
+        <div class="testimonial-chess-piece piece-2">♝</div>
+        <div class="testimonial-chess-piece piece-3">♜</div>
+        
+        <div class="container">
+            <h2 style="color: white; text-align: center; margin-bottom: 20px; position: relative; z-index: 2;">
+                <i class="bi bi-chat-square-quote-fill" style="margin-right: 10px; color: #f59e0b;"></i> 
+                What Parents Say
+            </h2>
+            <p style="color: #cbd5e1; text-align: center; margin-bottom: 50px; font-size: 1.2rem;">
+                Join hundreds of happy parents and students
+            </p>
+            
+            <div class="testimonial-container">
+                <!-- Testimonial Card (populated by JavaScript) -->
+                <div class="testimonial-card fade-in-up" id="testimonialCard">
+                    <div class="testimonial-quote" id="testimonialText">
+                        "My son went from knowing how pieces move to winning his first tournament in 6 months. The coaches are phenomenal."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 id="testimonialName">Priya M.</h4>
+                            <p>
+                                <i class="bi bi-geo-alt-fill" style="color: #3b5b9b;"></i> 
+                                <span id="testimonialDetail">parent of Arjun (age 9)</span>
+                            </p>
+                            <div class="testimonial-rating" id="testimonialRating">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="slider-btn" onclick="prevTestimonial()" aria-label="Previous testimonial">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    
+                    <div class="slider-dots" id="sliderDots">
+                        <button class="dot active" onclick="goToTestimonial(0)"></button>
+                        <button class="dot" onclick="goToTestimonial(1)"></button>
+                        <button class="dot" onclick="goToTestimonial(2)"></button>
+                        <button class="dot" onclick="goToTestimonial(3)"></button>
+                        <button class="dot" onclick="goToTestimonial(4)"></button>
+                    </div>
+                    
+                    <button class="slider-btn" onclick="nextTestimonial()" aria-label="Next testimonial">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CALL TO ACTION SECTION ========== -->
+    <section>
+        <div class="container text-center">
+            <h2 class="fade-in-up">Ready to Begin?</h2>
+            <p class="fade-in-up" style="margin-bottom: 2rem; font-size: 1.2rem; animation-delay: 0.2s;">Join Francistown School Of Chess today.</p>
+            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <!-- About Section -->
+            <div>
+                <h4>Francistown School Of Chess</h4>
+                <p style="color: #cbd5e1;">Building champions since 2013</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
+                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
+                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Coaches</a></p>
+                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
+                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
+                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h4>Contact Us</h4>
+                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
+                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
+            </div>
+            <!-- Legal Links -->
+            <div>
+                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
+                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
+                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
+                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
+            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
+           class="floating-btn whatsapp-btn" 
+           target="_blank" 
+           title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        
+        <!-- Share Button with Popup -->
+        <div class="share-wrapper">
+            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
+                <i class="bi bi-share-fill"></i>
+            </button>
+            <!-- Share Popup Menu -->
+            <div class="share-popup" id="sharePopup">
+                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
+                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Osano Cookie Consent Library -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    
+    
+    <script>
+        // COOKIE CONSENT - Osano Plugin Configuration
+        // Handles: GDPR compliance, user consent storage, popup display
+        window.cookieconsent.initialise({
+            "palette": {
+                "popup": {
+                    "background": "#ffffff",  // White background (matches design)
+                    "text": "#1e293b"         // Dark text for readability
+                },
+                "button": {
+                    "background": "#3b5b9b",  // Brand blue for Accept button
+                    "text": "#ffffff",
+                    "border": "transparent"
+                }
+            },
+            "theme": "classic",
+            "position": "bottom-left",        
+            "static": false,                    // Popup disappears after clicking
+            "content": {
+                "message": "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
+                "dismiss": "Accept",            // Accept button text
+                "link": "Learn More",           // Learn More button text
+                "href": "privacy-policy.html"   // Link to privacy policy
+            },
+            "onAccept": function() {
+                console.log('Cookies accepted - popup hidden'); // Optional logging
+                // Popup auto-hides, this is just for debugging
+            }
+        });
+
+        // TESTIMONIAL SLIDER - Data and Functionality
+        // Handles: Rotating testimonials, auto-slide, dot navigation
+        
+        // Testimonial data array
+        const testimonials = [
+            {
+                text: "My son went from knowing how pieces move to winning his first tournament in 6 months. The coaches are phenomenal.",
+                name: "Priya M.",
+                detail: "parent of Arjun (age 9)",
+                rating: 5
+            },
+            {
+                text: "The online classes are very engaging. My daughter actually looks forward to chess every week. The coaches make learning fun!",
+                name: "Rajesh K.",
+                detail: "parent of Ananya (age 7)",
+                rating: 5
+            },
+            {
+                text: "As an adult beginner, I was nervous, but the coaches made learning chess fun and accessible. I've improved so much in just 3 months!",
+                name: "Thabo M.",
+                detail: "Adult Improver, 3 months",
+                rating: 5
+            },
+            {
+                text: "The Competitive Squad program prepared my son for national tournaments. He's now ranked in the top 10 for his age group in Botswana!",
+                name: "Keitumetse B.",
+                detail: "parent of Tshepo (age 12)",
+                rating: 5
+            },
+            {
+                text: "Excellent coaching staff and a very welcoming environment. My twins love their Saturday morning chess classes!",
+                name: "Lerato M.",
+                detail: "parent of twins (age 8)",
+                rating: 5
+            }
+        ];
+
+        let currentTestimonial = 0;
+        let autoSlideInterval;
+
+        // Updates the displayed testimonial based on index
+        function updateTestimonial(index) {
+            currentTestimonial = index;
+            const t = testimonials[currentTestimonial];
+            const card = document.getElementById('testimonialCard');
+            if (!card) return;
+            
+            // Fade out effect
+            card.style.opacity = '0.5';
+            
+            setTimeout(() => {
+                // Update text content
+                document.getElementById('testimonialText').innerHTML = `"${t.text}"`;
+                document.getElementById('testimonialName').innerHTML = t.name;
+                document.getElementById('testimonialDetail').innerHTML = t.detail;
+                
+                // Update rating stars
+                const ratingContainer = document.getElementById('testimonialRating');
+                ratingContainer.innerHTML = '';
+                for (let i = 0; i < 5; i++) {
+                    ratingContainer.innerHTML += i < t.rating ? 
+                        '<i class="bi bi-star-fill"></i>' : 
+                        '<i class="bi bi-star"></i>';
+                }
+                
+                // Fade in effect
+                card.style.opacity = '1';
+            }, 200);
+            
+            updateDots();
+        }
+
+        // Next testimonial (used by auto-slide and next button)
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            updateTestimonial(currentTestimonial);
+            resetAutoSlide();
+        }
+
+        // Previous testimonial (used by previous button)
+        function prevTestimonial() {
+            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+            updateTestimonial(currentTestimonial);
+            resetAutoSlide();
+        }
+
+        // Jump to specific testimonial (used by dots)
+        function goToTestimonial(index) {
+            updateTestimonial(index);
+            resetAutoSlide();
+        }
+
+        // Update navigation dots active state
+        function updateDots() {
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentTestimonial);
+            });
+        }
+
+        // Start auto-sliding
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextTestimonial, 5000); // Change every 5 seconds
+        }
+
+        // Reset auto-slide timer (used when manually navigating)
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+     
+        // SHARE FUNCTIONALITY - Floating Share Button
+        // Handles: Share popup toggle, social media sharing, link copying
+
+        // Toggle share popup visibility
+        function toggleSharePopup() {
+            const popup = document.getElementById('sharePopup');
+            if (popup) {
+                popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+            }
+        }
+
+        // Share on social media platforms
+        function shareOn(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${title}&body=Check out Francistown School Of Chess: ${url}`;
+                    break;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            
+            // Close popup after sharing
+            const popup = document.getElementById('sharePopup');
+            if (popup) popup.style.display = 'none';
+        }
+
+        // Copy page link to clipboard
+        function copyPageLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+                const popup = document.getElementById('sharePopup');
+                if (popup) popup.style.display = 'none';
+            });
+        }
+
+        
+        // EVENT LISTENERS
+        
+        // Close share popup when clicking outside
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('sharePopup');
+            const shareBtn = document.querySelector('.share-btn');
+            
+            if (popup && shareBtn && 
+                popup.style.display === 'flex' &&
+                !popup.contains(e.target) && 
+                !shareBtn.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+
+        // Initialize everything when page loads
+        window.addEventListener('load', function() {
+            // Start testimonial slider
+            if (document.getElementById('testimonialCard')) {
+                updateTestimonial(0);
+                startAutoSlide();
+                
+                // Pause auto-slide on hover
+                const testimonialCard = document.getElementById('testimonialCard');
+                if (testimonialCard) {
+                    testimonialCard.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+                    testimonialCard.addEventListener('mouseleave', startAutoSlide);
+                }
+            }
+        });
+
+        // Keyboard navigation for testimonials (left/right arrows)
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevTestimonial();
+            } else if (e.key === 'ArrowRight') {
+                nextTestimonial();
+            }
+        });
+    </script>
+
+
+<!-- ========== SITE LOADER ========== -->
+        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Three bouncing dots -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+                </div>
+                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes bounce {
+                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+                30% { transform: translateY(-12px); opacity: 1; }
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }, 600);
+            });
+        </script>
+</body>
+</html>
+
+

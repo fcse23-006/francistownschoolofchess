@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francistown School Of Chess - About Us</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- ========== EXTERNAL CSS LIBRARIES ========== -->
+    <!-- Local Bootstrap Icons -->
+    <link rel="stylesheet" href="CSS/bootstrap-icons.css">
+    <!-- Bootstrap Icons CDN (fallback) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Main website stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+  
+    <style>
+        /* -------------------- NAVIGATION STYLES -------------------- */
+        .nav-links a.active {
+            color: #3b5b9b;  
+            font-weight: 600;
+        }
+        
+        /* -------------------- TOURNAMENT CARD STYLES -------------------- */
+        /* Date styling for tournament cards - using your CSS blue */
+        .tournament-card .tournament-date {
+            color: #3b5b9b;  
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* -------------------- IMAGE GALLERY STYLES -------------------- */
+        /* Consistent styling for all gallery images */
+        .gallery-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.02);
+        }
+        
+        /* History section image styling */
+        .history-img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        /* -------------------- TESTIMONIAL STYLES -------------------- */
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #1e2b37;
+            background: #f8fafc; 
+            padding: 2rem;
+            border-radius: 20px;
+            border-left: 5px solid #3b5b9b; 
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Author section layout */
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        /* Avatar circle styling */
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b5b9b, #2c4a7a);  
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Rating stars color  */
+        .testimonial-rating {
+            color: #f59e0b;  /* Your yellow/gold - only for stars */
+            margin-top: 0.3rem;
+        }
+ 
+        /* Large number display for statistics - using your CSS blue */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #3b5b9b; 
+            line-height: 1;
+        }
+
+        /* -------------------- TIMELINE CHAIN STYLES -------------------- */
+        /* Main timeline container with dashed line */
+        .timeline-chain {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Vertical dashed line (the "chain") - using your CSS blue */
+        .timeline-chain::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: repeating-linear-gradient(to bottom, #3b5b9b 0px, #3b5b9b 10px, transparent 10px, transparent 20px);  /* Your brand blue */
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        /* Container for all timeline items */
+        .timeline-items {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            z-index: 2;
+        }
+        
+        /* Individual timeline item - base styles */
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            opacity: 0; /* Hidden until scrolled into view */
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        
+        /* Left-aligned items slide in from left */
+        .timeline-item[data-align="left"] {
+            transform: translateX(-30px);
+        }
+        
+        /* Right-aligned items slide in from right */
+        .timeline-item[data-align="right"] {
+            transform: translateX(30px);
+        }
+        
+        /* Visible state for timeline items (applied by JavaScript) */
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        /* Content boxes on timeline */
+        .timeline-content {
+            width: 45%;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eef2f6;
+        }
+        
+        .timeline-content h3 {
+            color: #1e2b37;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: #64748b;
+            margin: 0;
+        }
+        
+        /* Year badge styling  */
+        .timeline-year {
+            background: #3b5b9b;  
+            color: white;
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-size: 1.2rem;
+            display: inline-block;
+            box-shadow: 0 4px 10px rgba(59, 91, 155, 0.3);  /* Blue shadow */
+        }
+        
+        /* Chain link icon circle */
+        .timeline-link {
+            width: 50px;
+            height: 50px;
+            background: #3b5b9b; 
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 0 0 4px white, 0 4px 10px rgba(59, 91, 155, 0.3);  
+            z-index: 3;
+        }
+        
+        /* Left-aligned content layout */
+        .timeline-item[data-align="left"] .timeline-content-box {
+            width: 45%;
+            text-align: right;
+            padding-right: 30px;
+        }
+        
+        /* Right-aligned year layout */
+        .timeline-item[data-align="right"] .timeline-year-box {
+            width: 45%;
+            text-align: right;
+            padding-right: 30px;
+        }
+        
+        /* Right-aligned content layout */
+        .timeline-item[data-align="right"] .timeline-content-box {
+            width: 45%;
+            padding-left: 30px;
+        }
+        
+        /* Left-aligned year layout */
+        .timeline-item[data-align="left"] .timeline-year-box {
+            width: 45%;
+            padding-left: 30px;
+        }
+        
+        /* Responsive timeline for mobile */
+        @media (max-width: 768px) {
+            .timeline-chain::before {
+                left: 20px;
+            }
+            
+            .timeline-item {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                margin-left: 40px;
+                transform: translateX(0) !important;
+            }
+            
+            .timeline-item[data-align="left"] .timeline-content-box,
+            .timeline-item[data-align="right"] .timeline-content-box,
+            .timeline-item[data-align="left"] .timeline-year-box,
+            .timeline-item[data-align="right"] .timeline-year-box {
+                width: 100%;
+                padding: 0;
+                text-align: left;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+        }
+        
+        /* -------------------- FLOATING BUTTONS STYLES -------------------- */
+        /* Container for WhatsApp and Share buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0;                     
+            align-items: center;       
+            z-index: 999;
+        }
+        
+        /* Base styles for floating buttons */
+        .floating-btn {
+            width: 48px;          
+            height: 48px;        
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;    
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* WhatsApp button specific color */
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20b958;
+        }
+        
+        /* Share button specific color - using your CSS blue */
+        .share-btn {
+            background: #3b5b9b;  /* Your brand blue */
+            cursor: pointer;
+            border: none;
+        }
+        
+        .share-btn:hover {
+            background: #2c4a7a;  /* Your blue hover */
+        }
+        
+        /* Wrapper for share button popup positioning */
+        .share-wrapper {
+            position: relative;
+            margin-left: -15px;          
+        }
+        
+        /* Share popup menu */
+        .share-popup {
+            position: absolute;
+            bottom: 58px;                
+            right: 0;                    
+            background: white;
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: none;
+            gap: 12px;
+            white-space: nowrap;
+            z-index: 1000;              
+        }
+        
+        .share-popup a {
+            color: #3b5b9b;  /* Your brand blue */
+            font-size: 1.3rem;     
+            transition: color 0.2s;
+        }
+        
+        .share-popup a:hover {
+            color: #2c4a7a;  /* Your blue hover */
+        }
+        
+        /* Mobile responsive for floating buttons */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            .floating-btn {
+                width: 42px;        
+                height: 42px;      
+                font-size: 1.4rem;  
+            }
+            .share-wrapper {
+                margin-left: -8px;        
+            }
+            .share-popup {
+                bottom: 52px;             
+                padding: 6px 10px;
+                gap: 10px;
+            }
+            .share-popup a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* -------------------- LEGAL LINK STYLES -------------------- */
+        /* Styles for footer legal links - matching your CSS */
+        .legal-link {
+            color: #cbd5e1;  /* Your footer link color */
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .legal-link:hover {
+            color: white;  /* Your footer link hover */
+        }
+    </style>
+</head>
+<body class="page-load">
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo slide-in-left">
+                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            </a>
+            <ul class="nav-links slide-in-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="coaches.html">Coaches</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="aboutUs.html" class="active">About Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" style="min-height: 40vh; padding: 60px 0;">
+        <!-- Chess piece decorations -->
+        <div class="testimonial-chess-piece piece-1">♞</div>
+        <div class="testimonial-chess-piece piece-2">♝</div>
+        <div class="testimonial-chess-piece piece-3">♜</div>
+        <div class="testimonial-chess-piece piece-4">♛</div>  
+        <div class="testimonial-chess-piece piece-5">♚</div> 
+        <div class="testimonial-chess-piece piece-6">♟</div> 
+        
+        <div class="container text-center">
+            <h1 class="fade-in-up" style="font-size: 3rem;">About <span style="color: #3b5b9b;">Us</span></h1>  <!-- Changed to blue -->
+            <p class="fade-in-up" style="color: white; font-size: 1.25rem; max-width: 700px; margin: 0 auto; animation-delay: 0.2s;">
+                Building champions, one move at a time — discover the heart of Francistown's premier chess academy.
+            </p>
+        </div>
+    </section>
+
+    <!-- ========== HISTORY SECTION ========== -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div class="card-grid stagger-children" style="grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                <div>
+                    <h2 style="color: #3b5b9b; margin-bottom: 20px;">Our History</h2>  <!-- Changed to blue -->
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
+                        <strong>Founded in 2016</strong> by a group of passionate chess enthusiasts, the Francistown School of Chess started with just <strong>8 students</strong> meeting in a small community hall. We saw how chess transformed young minds—improving concentration, academic performance, and confidence.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8;">
+                        By 2018, we had outgrown the hall and moved to our first dedicated teaching space. In 2020, we successfully adapted to online classes during the pandemic, reaching students across Botswana. Today, we are proud to be Botswana's leading chess academy, with <strong>over 150 active students</strong>, partnerships with local schools, and a reputation for producing national junior champions. Our journey is proof that big dreams can start small.
+                    </p>
+                </div>
+                <!-- History Image -->
+                <div>
+                    <img src="images/history-classroom.jpg" alt="Early days of Francistown School of Chess" class="history-img" onerror="this.src='https://via.placeholder.com/600x400?text=Early+Days+Photo'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OUR JOURNEY TIMELINE ========== -->
+    <section style="padding: 40px 0; background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="text-center glow" style="margin-bottom: 40px;">Our Journey</h2>
+            <div class="timeline-chain">
+                <div class="timeline-items">
+                    <!-- Item 1 - 2016 -->
+                    <div class="timeline-item" data-align="left">
+                        <div class="timeline-content-box">
+                            <div class="timeline-content">
+                                <h3>Founded</h3>
+                                <p>Started with 8 students in a community hall.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-link">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                        <div class="timeline-year-box">
+                            <span class="timeline-year">2016</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 2 - 2018 -->
+                    <div class="timeline-item" data-align="right">
+                        <div class="timeline-year-box">
+                            <span class="timeline-year">2018</span>
+                        </div>
+                        <div class="timeline-link">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                        <div class="timeline-content-box">
+                            <div class="timeline-content">
+                                <h3>First Home</h3>
+                                <p>Moved to our own dedicated teaching space.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 3 - 2020 -->
+                    <div class="timeline-item" data-align="left">
+                        <div class="timeline-content-box">
+                            <div class="timeline-content">
+                                <h3>Online Classes</h3>
+                                <p>Adapted to virtual learning during the pandemic.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-link">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                        <div class="timeline-year-box">
+                            <span class="timeline-year">2020</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Item 4 - 2023 -->
+                    <div class="timeline-item" data-align="right">
+                        <div class="timeline-year-box">
+                            <span class="timeline-year">2023</span>
+                        </div>
+                        <div class="timeline-link">
+                            <i class="bi bi-link-45deg"></i>
+                        </div>
+                        <div class="timeline-content-box">
+                            <div class="timeline-content">
+                                <h3>150+ Students</h3>
+                                <p>Became Botswana's largest chess academy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== MISSION, VISION & VALUES ========== -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="text-center glow" style="margin-bottom: 50px;">Why We Exist</h2>
+            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <!-- Mission -->
+                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
+                    <i class="bi bi-bullseye" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
+                    <h3 style="margin-bottom: 15px;">Our Mission</h3>
+                    <p style="color: #64748b;">To empower the youth of Francistown and beyond through the game of chess. We provide accessible, high-quality coaching to students of all ages, nurturing not just strong players, but strong individuals.</p>
+                </div>
+                <!-- Vision -->
+                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
+                    <i class="bi bi-eye-fill" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
+                    <h3 style="margin-bottom: 15px;">Our Vision</h3>
+                    <p style="color: #64748b;">To see chess become a cornerstone of youth development across Botswana, creating a generation of critical thinkers and problem-solvers.</p>
+                </div>
+                <!-- Values -->
+                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
+                    <i class="bi bi-heart-fill" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
+                    <h3 style="margin-bottom: 15px;">Our Values</h3>
+                    <p style="color: #64748b;"><strong>Excellence</strong> · <strong>Respect</strong> · <strong>Community</strong> · <strong>Critical Thinking</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TOURNAMENTS SECTION ========== -->
+    <section style="padding: 60px 0; background-color: #f8fafc;">
+        <div class="container">
+            <h2 class="text-center glow" style="margin-bottom: 20px;">Tournaments Held</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
+                We regularly host and participate in tournaments, giving our students valuable competitive experience.
+            </p>
+            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                <!-- Tournament 1 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> March 2024</div>
+                    <h3>Francistown Open</h3>
+                    <p style="color: #64748b;">Over 80 players from across Botswana competed. Our students took top 3 spots in U-12 and U-16 categories.</p>
+                </div>
+                <!-- Tournament 2 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> December 2023</div>
+                    <h3>Junior Championship</h3>
+                    <p style="color: #64748b;">Exclusively for under-18s, with 12 schools participating. Francistown Chess students won 5 medals.</p>
+                </div>
+                <!-- Tournament 3 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> August 2023</div>
+                    <h3>Charity Rapid Cup</h3>
+                    <p style="color: #64748b;">A rapid-format tournament that raised funds for local schools. 60+ players, huge success.</p>
+                </div>
+                <!-- Tournament 4 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> May 2023</div>
+                    <h3>Gaborone Invitational</h3>
+                    <p style="color: #64748b;">Our top players competed against Gaborone's best – a great learning experience.</p>
+                </div>
+                <!-- Tournament 5 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> January 2023</div>
+                    <h3>New Year Blitz</h3>
+                    <p style="color: #64748b;">Fast-paced blitz tournament to kick off the year. 50 players, lots of fun.</p>
+                </div>
+                <!-- Tournament 6 -->
+                <div class="card hover-lift tournament-card">
+                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> October 2022</div>
+                    <h3>Schools Team Championship</h3>
+                    <p style="color: #64748b;">Inter-school competition with 15 teams. Our A-team emerged as champions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PHOTO GALLERY ========== -->
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <h2 class="text-center glow" style="margin-bottom: 20px;">Moments of Glory</h2>
+            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
+                Nothing makes us prouder than seeing our learners on the podium.
+            </p>
+            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
+                <!-- Medal Image 1 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-1.jpg" alt="Gold medal winner" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Gold+Medal+2024'">
+                    <h3>Francistown Open 2024</h3>
+                    <p style="color: #64748b;">Our U-12 team swept the podium</p>
+                </div>
+                <!-- Medal Image 2 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-2.jpg" alt="Champions with trophies" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Junior+Champs+2023'">
+                    <h3>Junior Championship 2023</h3>
+                    <p style="color: #64748b;">Five medalists from our academy</p>
+                </div>
+                <!-- Medal Image 3 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-3.jpg" alt="Smiling medalists" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Charity+Cup+2023'">
+                    <h3>Charity Rapid Cup</h3>
+                    <p style="color: #64748b;">First place in the Open section</p>
+                </div>
+                <!-- Medal Image 4 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-4.jpg" alt="Team photo with medals" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Gaborone+Invitational'">
+                    <h3>Gaborone Invitational</h3>
+                    <p style="color: #64748b;">Runners-up trophy</p>
+                </div>
+                <!-- Medal Image 5 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-5.jpg" alt="Individual medal winner" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=New+Year+Blitz'">
+                    <h3>New Year Blitz</h3>
+                    <p style="color: #64748b;">Champion in U-16 category</p>
+                </div>
+                <!-- Medal Image 6 -->
+                <div class="card hover-lift" style="padding: 1rem;">
+                    <img src="images/medal-6.jpg" alt="Celebration after win" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Schools+Championship'">
+                    <h3>Schools Team Championship</h3>
+                    <p style="color: #64748b;">Winning team trophy</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CALL TO ACTION ========== -->
+    <section style="padding: 60px 0;">
+        <div class="container text-center">
+            <h2 class="fade-in-up">Ready to Begin Your Chess Journey?</h2>
+            <p class="fade-in-up" style="margin-bottom: 2rem; font-size: 1.2rem; animation-delay: 0.2s;">Join Francistown School Of Chess today. First lesson is free!</p>
+            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Enroll Now</a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <!-- About Section -->
+            <div>
+                <h4>Francistown School Of Chess</h4>
+                <p style="color: #cbd5e1;">Building champions since 2013</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
+                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
+                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Coaches</a></p>
+                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
+                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
+                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h4>Contact Us</h4>
+                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
+                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
+            </div>
+            <!-- Legal Links -->
+            <div>
+                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
+                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
+                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
+                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
+            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
+           class="floating-btn whatsapp-btn" 
+           target="_blank" 
+           title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        
+        <!-- Share Button with Popup -->
+        <div class="share-wrapper">
+            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
+                <i class="bi bi-share-fill"></i>
+            </button>
+            <!-- Share Popup Menu -->
+            <div class="share-popup" id="sharePopup">
+                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
+                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // TIMELINE SCROLL ANIMATION
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const items = document.querySelectorAll('.timeline-item');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            items.forEach(item => observer.observe(item));
+        });
+
+        // SHARE FUNCTIONALITY
+
+        function toggleSharePopup() {
+            const popup = document.getElementById('sharePopup');
+            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function shareOn(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${title}&body=${url}`;
+                    break;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            toggleSharePopup();
+        }
+
+        function copyPageLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+                toggleSharePopup();
+            });
+        }
+
+        // CLICK OUTSIDE HANDLER
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('sharePopup');
+            const shareBtn = document.querySelector('.share-btn');
+            
+            if (popup && shareBtn && 
+                popup.style.display === 'flex' &&
+                !popup.contains(e.target) && 
+                !shareBtn.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+
+    
+<!-- ========== SITE LOADER ========== -->
+        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Three bouncing dots -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+                </div>
+                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes bounce {
+                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+                30% { transform: translateY(-12px); opacity: 1; }
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }, 600);
+            });
+        </script>
+
+</body>
+</html>
+

@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francistown School Of Chess - Coaches</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <!-- Main website stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* Base badge for coach certifications */
+        .coach-badge {
+            display: inline-block;
+            background: #f59e0b20;
+            color: #f59e0b;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Head coach special styling */
+        .head-coach {
+            border: 3px solid #f59e0b;
+            position: relative;
+        }
+        
+        .head-coach-badge {
+            background: #f59e0b;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+        }
+        
+        /* Container for WhatsApp and Share buttons */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 0;                     
+            align-items: center;       
+            z-index: 999;
+        }
+        
+        /* Base styles for floating buttons */
+        .floating-btn {
+            width: 48px;          
+            height: 48px;        
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;    
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        /* WhatsApp button specific color */
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #20b958;
+        }
+        
+        /* Share button specific color - using brand blue */
+        .share-btn {
+            background: #3b5b9b;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .share-btn:hover {
+            background: #2c4a7a;
+        }
+        
+        /* Wrapper for share button popup positioning */
+        .share-wrapper {
+            position: relative;
+            margin-left: -15px;          
+        }
+        
+        /* Share popup menu */
+        .share-popup {
+            position: absolute;
+            bottom: 58px;                
+            right: 0;                    
+            background: white;
+            border-radius: 30px;
+            padding: 8px 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            display: none;
+            gap: 12px;
+            white-space: nowrap;
+            z-index: 1000;              
+        }
+        
+        .share-popup a {
+            color: #3b5b9b;
+            font-size: 1.3rem;     
+            transition: color 0.2s;
+        }
+        
+        .share-popup a:hover {
+            color: #f59e0b;
+        }
+        
+        /* Mobile responsive for floating buttons */
+        @media (max-width: 768px) {
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            .floating-btn {
+                width: 42px;        
+                height: 42px;      
+                font-size: 1.4rem;  
+            }
+            .share-wrapper {
+                margin-left: -8px;        
+            }
+            .share-popup {
+                bottom: 52px;             
+                padding: 6px 10px;
+                gap: 10px;
+            }
+            .share-popup a {
+                font-size: 1.2rem;
+            }
+        }
+        
+        /* Styles for footer legal links */
+        .legal-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        
+        .legal-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="page-load">
+    <!-- ========== NAVIGATION ========== -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo slide-in-left">
+                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            </a>
+            <ul class="nav-links slide-in-right">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="programs.html">Programs</a></li>
+                <li><a href="coaches.html" class="active">Coaches</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+            </ul>
+            <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <section>
+        <div class="container">
+            <!-- Page Header -->
+            <h1 class="text-center fade-in-up">Our Coaching Team</h1>
+            <p class="text-center fade-in-up" style="font-size: 1.2rem; color: #475569; max-width: 700px; margin: 0 auto 3rem; animation-delay: 0.2s;">
+                Meet the dedicated coaches shaping the next generation of chess champions in Francistown
+            </p>
+
+            <!-- Coaches Grid -->
+            <div class="card-grid stagger-children">
+                <!-- HEAD COACH - Grivas Molefe -->
+                <div class="card text-center head-coach hover-lift" style="position: relative;">
+                    <div class="head-coach-badge pulse">HEAD COACH</div>
+                    <div style="width: 150px; height: 150px; background: #f59e0b20; border-radius: 50%; margin: 1.5rem auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem; border: 3px solid #f59e0b;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #f59e0b;"></i>
+                    </div>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Thapelo Grivas Molefe</h3>
+                    <p style="color: #f59e0b; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Senior Trainer</p>
+                    <p style="color: #475569; font-weight: 500; margin-bottom: 0.5rem;">Botswana National Team Coach</p>
+                    <span class="coach-badge">15+ years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Francistown's premier chess coach. Has produced 5 national champions. Specializes in strategic planning and tournament preparation.</p>
+                </div>
+
+                <!-- SENIOR COACH - Romeo -->
+                <div class="card text-center hover-lift">
+                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
+                    </div>
+                    <h3>Romeo Oabile</h3>
+                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Intermediate Coach</p>
+                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">10+ years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Specialist in youth development and opening repertoires. Has coached multiple junior national champions.</p>
+
+                            <!-- Social Links -->
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; flex-wrap: wrap;">
+                        
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/26777012390?text=Hello%20Desire%2C%20I'm%20interested%20in%20chess%20lessons" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#25D366'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Chat on WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        
+                        <!-- Facebook -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#1877F2'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#E4405F'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        
+                        <!-- X (Twitter) -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on X">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        
+                        <!-- TikTok -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on TikTok">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                 </div>
+
+                            <!-- Desire Machinya -->
+                <div class="card text-center hover-lift">
+                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
+                    </div>
+                    <h3>Desire Machinya</h3>
+                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Intermediate Coach</p>
+                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">8 years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Tactical specialist. Expert in middlegame combinations and attacking play. Known for interactive teaching style.</p>
+                    
+                    <!-- Social Links -->
+                    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; flex-wrap: wrap;">
+                        
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/26777012390?text=Hello%20Desire%2C%20I'm%20interested%20in%20chess%20lessons" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#25D366'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Chat on WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        
+                        <!-- Facebook -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#1877F2'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        
+                        <!-- Instagram -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#E4405F'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        
+                        <!-- X (Twitter) -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on X">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        
+                        <!-- TikTok -->
+                        <a href="#" 
+                        style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                        target="_blank"
+                        onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                        onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                        title="Follow on TikTok">
+                            <i class="bi bi-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Blondie -->
+                <div class="card text-center hover-lift">
+                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
+                    </div>
+                    <h3>Blondie Mbulayi</h3>
+                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Beginner Coach</p>
+                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">6 years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Endgame specialist. Focuses on positional understanding and converting advantages. Great with teenage improvers.</p>
+
+                                        <!-- Social Links -->
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; flex-wrap: wrap;">
+                            
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/26777012390?text=Hello%20Desire%2C%20I'm%20interested%20in%20chess%20lessons" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#25D366'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Chat on WhatsApp">
+                                <i class="bi bi-whatsapp"></i>
+                            </a>
+                            
+                            <!-- Facebook -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#1877F2'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            
+                            <!-- Instagram -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#E4405F'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            
+                            <!-- X (Twitter) -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on X">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            
+                            <!-- TikTok -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                        </div>
+                </div>
+
+                <!-- Kago Matenge -->
+                <div class="card text-center hover-lift">
+                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
+                    </div>
+                    <h3>Kago Matenge</h3>
+                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Beginner Coach</p>
+                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">5 years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Expert in teaching absolute beginners and children. Patient, encouraging, and makes learning chess fun.</p>
+
+                                        <!-- Social Links -->
+                        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; flex-wrap: wrap;">
+                            
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/26777012390?text=Hello%20Desire%2C%20I'm%20interested%20in%20chess%20lessons" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#25D366'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Chat on WhatsApp">
+                                <i class="bi bi-whatsapp"></i>
+                            </a>
+                            
+                            <!-- Facebook -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#1877F2'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on Facebook">
+                                <i class="bi bi-facebook"></i>
+                            </a>
+                            
+                            <!-- Instagram -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#E4405F'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                            
+                            <!-- X (Twitter) -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on X">
+                                <i class="bi bi-twitter-x"></i>
+                            </a>
+                            
+                            <!-- TikTok -->
+                            <a href="#" 
+                            style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+                            target="_blank"
+                            onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+                            onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+                            title="Follow on TikTok">
+                                <i class="bi bi-tiktok"></i>
+                            </a>
+                        </div>
+                </div>
+
+                <!-- Chawapa Hobona -->
+                <div class="card text-center hover-lift">
+                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
+                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
+                    </div>
+                    <h3>Chawapa Hobona</h3>
+                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Development Coach</p>
+                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">4 years experience</span>
+                    <p style="color: #475569; margin-top: 1rem;">Specializes in school programs and group coaching. Passionate about bringing chess to underserved communities.</p>
+
+                    <!-- Social Links -->
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px; padding-top: 15px; border-top: 1px solid #e2e8f0; flex-wrap: wrap;">
+        
+        <!-- WhatsApp -->
+        <a href="https://wa.me/26777012390?text=Hello%20Desire%2C%20I'm%20interested%20in%20chess%20lessons" 
+           style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+           target="_blank"
+           onmouseover="this.style.color='#25D366'; this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+           title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        
+        <!-- Facebook -->
+        <a href="#" 
+           style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+           target="_blank"
+           onmouseover="this.style.color='#1877F2'; this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+           title="Follow on Facebook">
+            <i class="bi bi-facebook"></i>
+        </a>
+        
+        <!-- Instagram -->
+        <a href="#" 
+           style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+           target="_blank"
+           onmouseover="this.style.color='#E4405F'; this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+           title="Follow on Instagram">
+            <i class="bi bi-instagram"></i>
+        </a>
+        
+        <!-- X (Twitter) -->
+        <a href="#" 
+           style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+           target="_blank"
+           onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+           title="Follow on X">
+            <i class="bi bi-twitter-x"></i>
+        </a>
+        
+        <!-- TikTok -->
+        <a href="#" 
+           style="color: #64748b; font-size: 1.3rem; transition: all 0.2s;" 
+           target="_blank"
+           onmouseover="this.style.color='#000000'; this.style.transform='scale(1.2)'" 
+           onmouseout="this.style.color='#64748b'; this.style.transform='scale(1)'"
+           title="Follow on TikTok">
+            <i class="bi bi-tiktok"></i>
+        </a>
+    </div>
+                </div>
+            </div>
+
+            <!-- Coaches Statistics -->
+            <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 40px; margin-top: 60px; color: white;" class="fade-in-up">
+                <h2 class="text-center" style="color: white; margin-bottom: 2rem;">
+                    <i class="bi bi-bar-chart-fill float" style="margin-right: 10px; color: #f59e0b;"></i> A quantitative look at our coaching staff.
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; text-align: center;" class="stagger-children">
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">7</div>
+                        <div style="color: #cbd5e1;"><i class="bi bi-people-fill"></i> Dedicated Coaches</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">53+</div>
+                        <div style="color: #cbd5e1;"><i class="bi bi-clock-fill"></i> Combined Years Experience</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">12</div>
+                        <div style="color: #cbd5e1;"><i class="bi bi-trophy-fill"></i> National Champions Trained</div>
+                    </div>
+                    <div>
+                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">500+</div>
+                        <div style="color: #cbd5e1;"><i class="bi bi-people-fill"></i> Students Taught</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- All Coaches Credentials -->
+            <div style="background: #f1f5f9; border-radius: 16px; padding: 40px; margin-top: 40px;" class="fade-in-up">
+                <h2 class="text-center" style="margin-bottom: 1rem;">
+                    <i class="bi bi-patch-check-fill float" style="color: #3b5b9b; margin-right: 10px;"></i> All Our Coaches Are
+                </h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;" class="stagger-children">
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Botswana Chess Federation Certified</div>
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Background Checked</div>
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> First Aid Trained</div>
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Child Protection Certified</div>
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Tournament Experience</div>
+                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Continuous Professional Development</div>
+                </div>
+            </div>
+            
+            <!-- Call to action -->
+            <div style="text-align: center; margin-top: 50px;" class="fade-in-up">
+                <h2 style="margin-bottom: 1rem;">
+                    <i class="bi bi-people-fill float" style="color: #3b5b9b; margin-right: 10px;"></i> Learn from Francistown's Best Coaches
+                </h2>
+                <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #475569;">
+                    <i class="bi bi-trophy-fill float" style="color: #f59e0b;"></i> Join the academy that produces champions.
+                </p>
+                <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
+                    <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Enroll Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <!-- About Section -->
+            <div>
+                <h4>Francistown School Of Chess</h4>
+                <p style="color: #cbd5e1;">Building champions since 2013</p>
+            </div>
+            <!-- Quick Links -->
+            <div>
+                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
+                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
+                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Coaches</a></p>
+                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
+                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
+                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+            </div>
+            <!-- Contact Information -->
+            <div>
+                <h4>Contact Us</h4>
+                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
+                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
+                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
+            </div>
+            <!-- Legal Links -->
+            <div>
+                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
+                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
+                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
+                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
+            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
+    <div class="floating-buttons">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
+           class="floating-btn whatsapp-btn" 
+           target="_blank" 
+           title="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+        
+        <!-- Share Button with Popup -->
+        <div class="share-wrapper">
+            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
+                <i class="bi bi-share-fill"></i>
+            </button>
+            <!-- Share Popup Menu -->
+            <div class="share-popup" id="sharePopup">
+                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
+                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
+                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // Toggle share popup visibility
+        function toggleSharePopup() {
+            const popup = document.getElementById('sharePopup');
+            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        // Share on social media platforms
+        function shareOn(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${title}&body=${url}`;
+                    break;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            toggleSharePopup(); // Close popup after sharing
+        }
+
+        // Copy page link to clipboard
+        function copyPageLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link copied to clipboard!');
+                toggleSharePopup(); // Close popup
+            });
+        }
+
+        // EVENT LISTENERS
+       
+        // Close share popup when clicking outside
+        window.addEventListener('click', function(e) {
+            const popup = document.getElementById('sharePopup');
+            const shareBtn = document.querySelector('.share-btn');
+            
+            // Close if click is outside popup AND outside share button
+            if (popup && shareBtn && 
+                popup.style.display === 'flex' &&
+                !popup.contains(e.target) && 
+                !shareBtn.contains(e.target)) {
+                popup.style.display = 'none';
+            }
+        });
+    </script>
+
+    
+<!-- ========== SITE LOADER ========== -->
+        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Three bouncing dots -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+                </div>
+                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes bounce {
+                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+                30% { transform: translateY(-12px); opacity: 1; }
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }, 600);
+            });
+        </script>
+
+</body>
+</html>
