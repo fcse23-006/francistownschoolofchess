@@ -7,254 +7,539 @@
     <link rel="icon" type="image/png" href="logo.png">
     
     <!-- ========== EXTERNAL CSS LIBRARIES ========== -->
-    <!-- Local Bootstrap Icons -->
     <link rel="stylesheet" href="CSS/bootstrap-icons.css">
-    <!-- Bootstrap Icons CDN (fallback) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Main website stylesheet -->
     <link rel="stylesheet" href="CSS/style.css">
-  
+
+    
     <style>
-        /* -------------------- NAVIGATION STYLES -------------------- */
-        .nav-links a.active {
-            color: #3b5b9b;  
+        /* -------------------- CUSTOM ANIMATIONS -------------------- */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(59, 91, 155, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 91, 155, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 91, 155, 0); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: perspective(400px) rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(400px) rotateY(0);
+            }
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+        
+        /* Scroll animations - elements start hidden and animate when visible */
+        .scroll-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scroll-fade-right {
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scroll-fade-left {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scroll-zoom {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .scroll-flip {
+            opacity: 0;
+            transform: perspective(400px) rotateY(10deg);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        /* Visible state for all scroll animations */
+        .scroll-visible {
+            opacity: 1 !important;
+            transform: translateX(0) translateY(0) scale(1) rotateY(0) !important;
+        }
+        
+        /* Delay classes */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+        .delay-400 { transition-delay: 0.4s; }
+        .delay-500 { transition-delay: 0.5s; }
+        .delay-600 { transition-delay: 0.6s; }
+        
+        /* -------------------- ABOUT PAGE SPECIFIC STYLES -------------------- */
+        .section-subtitle {
+            color: #3b5b9b;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
         }
         
-        /* -------------------- TOURNAMENT CARD STYLES -------------------- */
-        /* Date styling for tournament cards - using your CSS blue */
-        .tournament-card .tournament-date {
-            color: #3b5b9b;  
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #f59e0b;
+            transition: width 0.3s ease;
         }
         
-        /* -------------------- IMAGE GALLERY STYLES -------------------- */
-        /* Consistent styling for all gallery images */
-        .gallery-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        .gallery-img:hover {
-            transform: scale(1.02);
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: #0f172a;
+            position: relative;
         }
         
-        /* History section image styling */
-        .history-img {
-            width: 100%;
+        .milestone-card {
+            background: white;
             border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-bottom: 4px solid #3b5b9b;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
-        /* -------------------- TESTIMONIAL STYLES -------------------- */
-        .testimonial-quote {
-            font-size: 1.2rem;
-            font-style: italic;
-            color: #1e2b37;
-            background: #f8fafc; 
-            padding: 2rem;
+        .milestone-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(59, 91, 155, 0.15);
+        }
+        
+        .milestone-year {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3b5b9b;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        
+        .honored-guest-card {
+            background: white;
             border-radius: 20px;
-            border-left: 5px solid #3b5b9b; 
-            margin-bottom: 1.5rem;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+            height: 100%;
         }
         
-        /* Author section layout */
-        .testimonial-author {
+        .honored-guest-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-color: #3b5b9b;
+        }
+        
+        .social-impact-card {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-radius: 30px;
+            padding: 50px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-impact-card::before {
+            content: '♞♛♝♜♟';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            color: rgba(255,255,255,0.03);
+            transform: rotate(15deg);
+            pointer-events: none;
+        }
+        
+        .impact-stat {
+            text-align: center;
+            padding: 25px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .impact-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.12);
+            border-color: #f59e0b;
+        }
+        
+        .impact-stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #f59e0b;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        /* --------------------  STUDENT PROFILES -------------------- */
+        .student-profiles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 1024px) {
+            .student-profiles-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .student-profiles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .student-profile-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #eef2f6;
+            position: relative;
+            height: fit-content;
+        }
+        
+        .student-profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(59, 91, 155, 0.15);
+            border-color: transparent;
+        }
+        
+        /* Profile header with gradient */
+        .profile-header {
+            background: linear-gradient(135deg, #3b5b9b 0%, #2c4a7a 100%);
+            padding: 25px 25px 30px 25px;
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 20px;
         }
         
-        /* Avatar circle styling */
-        .testimonial-avatar {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #3b5b9b, #2c4a7a);  
+        .profile-header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(59,91,155,0.1), transparent);
+        }
+        
+        /* Avatar */
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(5px);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-        
-        /* Rating stars color  */
-        .testimonial-rating {
-            color: #f59e0b;  /* Your yellow/gold - only for stars */
-            margin-top: 0.3rem;
-        }
- 
-        /* Large number display for statistics - using your CSS blue */
-        .stat-number {
             font-size: 3rem;
+            color: white;
+            border: 3px solid rgba(255,255,255,0.5);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .profile-title {
+            flex: 1;
+        }
+        
+        .profile-name {
+            color: white;
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #3b5b9b; 
-            line-height: 1;
-        }
-
-        /* -------------------- TIMELINE CHAIN STYLES -------------------- */
-        /* Main timeline container with dashed line */
-        .timeline-chain {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0 0 5px 0;
+            line-height: 1.2;
         }
         
-        /* Vertical dashed line (the "chain") - using your CSS blue */
-        .timeline-chain::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: repeating-linear-gradient(to bottom, #3b5b9b 0px, #3b5b9b 10px, transparent 10px, transparent 20px);  /* Your brand blue */
-            transform: translateX(-50%);
-            z-index: 1;
-        }
-        
-        /* Container for all timeline items */
-        .timeline-items {
-            position: relative;
+        .profile-badges {
             display: flex;
-            flex-direction: column;
-            gap: 30px;
-            z-index: 2;
+            gap: 10px;
+            flex-wrap: wrap;
         }
         
-        /* Individual timeline item - base styles */
-        .timeline-item {
+        .badge-age {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            backdrop-filter: blur(5px);
+        }
+        
+        .badge-national {
+            background: #f59e0b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(245,158,11,0.3);
+        }
+        
+        .badge-adopted {
+            background: #22c55e;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(34,197,94,0.3);
+        }
+        
+        /* Achievement stats grid */
+        .achievement-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px 20px 15px;
+            background: #f8fafc;
+            border-bottom: 1px solid #eef2f6;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #3b5b9b;
+            line-height: 1.2;
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Achievement highlights */
+        .achievement-highlights {
+            padding: 20px;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #eef2f6;
+            transition: transform 0.2s ease;
+        }
+        
+        .highlight-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .highlight-item:last-child {
+            border-bottom: none;
+        }
+        
+        .highlight-item i {
+            color: #f59e0b;
+            font-size: 1.1rem;
+            width: 24px;
+        }
+        
+        .highlight-item span {
+            color: #334155;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        /* Expandable more achievements */
+        .more-achievements {
+            margin: 0 20px 20px;
+            border: 1px solid #eef2f6;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+        
+        .more-achievements summary {
+            padding: 12px 15px;
+            color: #3b5b9b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            opacity: 0; /* Hidden until scrolled into view */
-            transition: opacity 0.6s ease, transform 0.6s ease;
         }
         
-        /* Left-aligned items slide in from left */
-        .timeline-item[data-align="left"] {
-            transform: translateX(-30px);
+        .more-achievements summary i {
+            transition: transform 0.3s ease;
         }
         
-        /* Right-aligned items slide in from right */
-        .timeline-item[data-align="right"] {
-            transform: translateX(30px);
+        .more-achievements[open] summary i {
+            transform: rotate(180deg);
         }
         
-        /* Visible state for timeline items (applied by JavaScript) */
-        .timeline-item.visible {
-            opacity: 1;
-            transform: translateX(0);
+        .more-list {
+            padding: 0 15px 15px 15px;
         }
         
-        /* Content boxes on timeline */
-        .timeline-content {
-            width: 45%;
+        .more-item {
+            padding: 6px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-bottom: 1px dashed #eef2f6;
+        }
+        
+        .more-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Candidate Master special badge */
+        .cm-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+            box-shadow: 0 4px 10px rgba(245,158,11,0.3);
+        }
+        
+        .cm-badge i {
+            font-size: 0.8rem;
+        }
+        
+        /* Medal colors */
+        .medal-gold {
+            color: #f59e0b;
+            font-weight: 600;
+        }
+        
+        .medal-silver {
+            color: #94a3b8;
+            font-weight: 600;
+        }
+        
+        .medal-bronze {
+            color: #b45309;
+            font-weight: 600;
+        }
+        
+        /* -------------------- MISSION CARDS -------------------- */
+        .mission-card {
+            padding: 45px 35px;
+            text-align: center;
             background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            height: 100%;
             border: 1px solid #eef2f6;
         }
         
-        .timeline-content h3 {
-            color: #1e2b37;
-            margin-bottom: 0.5rem;
+        .mission-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 50px rgba(59, 91, 155, 0.15);
+            border-color: transparent;
         }
         
-        .timeline-content p {
-            color: #64748b;
-            margin: 0;
-        }
-        
-        /* Year badge styling  */
-        .timeline-year {
-            background: #3b5b9b;  
-            color: white;
-            font-weight: 700;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            font-size: 1.2rem;
+        .mission-icon {
+            font-size: 3.5rem;
+            color: #3b5b9b;
+            margin-bottom: 25px;
             display: inline-block;
-            box-shadow: 0 4px 10px rgba(59, 91, 155, 0.3);  /* Blue shadow */
+            transition: all 0.3s ease;
         }
         
-        /* Chain link icon circle */
-        .timeline-link {
-            width: 50px;
-            height: 50px;
-            background: #3b5b9b; 
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            box-shadow: 0 0 0 4px white, 0 4px 10px rgba(59, 91, 155, 0.3);  
-            z-index: 3;
+        .mission-card:hover .mission-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #f59e0b;
         }
         
-        /* Left-aligned content layout */
-        .timeline-item[data-align="left"] .timeline-content-box {
-            width: 45%;
-            text-align: right;
-            padding-right: 30px;
-        }
-        
-        /* Right-aligned year layout */
-        .timeline-item[data-align="right"] .timeline-year-box {
-            width: 45%;
-            text-align: right;
-            padding-right: 30px;
-        }
-        
-        /* Right-aligned content layout */
-        .timeline-item[data-align="right"] .timeline-content-box {
-            width: 45%;
-            padding-left: 30px;
-        }
-        
-        /* Left-aligned year layout */
-        .timeline-item[data-align="left"] .timeline-year-box {
-            width: 45%;
-            padding-left: 30px;
-        }
-        
-        /* Responsive timeline for mobile */
-        @media (max-width: 768px) {
-            .timeline-chain::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                flex-direction: column !important;
-                align-items: flex-start !important;
-                margin-left: 40px;
-                transform: translateX(0) !important;
-            }
-            
-            .timeline-item[data-align="left"] .timeline-content-box,
-            .timeline-item[data-align="right"] .timeline-content-box,
-            .timeline-item[data-align="left"] .timeline-year-box,
-            .timeline-item[data-align="right"] .timeline-year-box {
-                width: 100%;
-                padding: 0;
-                text-align: left;
-            }
-            
-            .timeline-content {
-                width: 100%;
-            }
-        }
-        
-        /* -------------------- FLOATING BUTTONS STYLES -------------------- */
-        /* Container for WhatsApp and Share buttons */
+        /* -------------------- FLOATING BUTTONS -------------------- */
         .floating-buttons {
             position: fixed;
             bottom: 20px;
@@ -265,7 +550,6 @@
             z-index: 999;
         }
         
-        /* Base styles for floating buttons */
         .floating-btn {
             width: 48px;          
             height: 48px;        
@@ -275,106 +559,102 @@
             justify-content: center;
             font-size: 1.5rem;    
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             color: white;
         }
         
         .floating-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
         }
         
-        /* WhatsApp button specific color */
         .whatsapp-btn {
             background: #25D366;
         }
         
-        .whatsapp-btn:hover {
-            background: #20b958;
-        }
-        
-        /* Share button specific color - using your CSS blue */
         .share-btn {
-            background: #3b5b9b;  /* Your brand blue */
+            background: #3b5b9b;
             cursor: pointer;
             border: none;
         }
         
-        .share-btn:hover {
-            background: #2c4a7a;  /* Your blue hover */
-        }
-        
-        /* Wrapper for share button popup positioning */
         .share-wrapper {
             position: relative;
             margin-left: -15px;          
         }
         
-        /* Share popup menu */
         .share-popup {
             position: absolute;
             bottom: 58px;                
             right: 0;                    
             background: white;
             border-radius: 30px;
-            padding: 8px 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            padding: 8px 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             display: none;
-            gap: 12px;
+            gap: 15px;
             white-space: nowrap;
-            z-index: 1000;              
+            z-index: 1000;
+            animation: fadeInUp 0.2s ease;
         }
         
         .share-popup a {
-            color: #3b5b9b;  /* Your brand blue */
+            color: #3b5b9b;
             font-size: 1.3rem;     
-            transition: color 0.2s;
+            transition: all 0.2s ease;
         }
         
         .share-popup a:hover {
-            color: #2c4a7a;  /* Your blue hover */
+            color: #f59e0b;
+            transform: scale(1.2);
         }
         
-        /* Mobile responsive for floating buttons */
-        @media (max-width: 768px) {
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
             }
-            .floating-btn {
-                width: 42px;        
-                height: 42px;      
-                font-size: 1.4rem;  
-            }
-            .share-wrapper {
-                margin-left: -8px;        
-            }
-            .share-popup {
-                bottom: 52px;             
-                padding: 6px 10px;
-                gap: 10px;
-            }
-            .share-popup a {
-                font-size: 1.2rem;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
         /* -------------------- LEGAL LINK STYLES -------------------- */
-        /* Styles for footer legal links - matching your CSS */
         .legal-link {
-            color: #cbd5e1;  /* Your footer link color */
+            color: #cbd5e1;
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s;
         }
         
         .legal-link:hover {
-            color: white;  /* Your footer link hover */
+            color: white;
         }
     </style>
 </head>
 <body class="page-load">
-    <!-- ========== NAVIGATION ========== -->
+    <!-- ========== SITE LOADER ========== -->
+    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+        <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <!-- Three bouncing dots -->
+            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+            </div>
+            <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+        </div>
+    </div>
+
+    <style>
+        @keyframes bounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+            30% { transform: translateY(-12px); opacity: 1; }
+        }
+    </style>
+
+    <!-- NAVIGATION-->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo slide-in-left">
@@ -383,7 +663,7 @@
             <ul class="nav-links slide-in-right">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="programs.html">Programs</a></li>
-                <li><a href="coaches.html">Coaches</a></li>
+                <li><a href="coaches.html">Trainers</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
                 <li><a href="aboutUs.html" class="active">About Us</a></li>
             </ul>
@@ -393,276 +673,711 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero" style="min-height: 40vh; padding: 60px 0;">
-        <!-- Chess piece decorations -->
-        <div class="testimonial-chess-piece piece-1">♞</div>
-        <div class="testimonial-chess-piece piece-2">♝</div>
-        <div class="testimonial-chess-piece piece-3">♜</div>
-        <div class="testimonial-chess-piece piece-4">♛</div>  
-        <div class="testimonial-chess-piece piece-5">♚</div> 
-        <div class="testimonial-chess-piece piece-6">♟</div> 
+    <!-- HERO SECTION  -->
+    <section class="hero" style="padding: 100px 0; position: relative; overflow: hidden;">
+        <div class="testimonial-chess-piece piece-1 animate-float">♞</div>
+        <div class="testimonial-chess-piece piece-2 animate-float" style="animation-delay: 0.5s;">♝</div>
+        <div class="testimonial-chess-piece piece-3" style="animation: slowSpin 20s linear infinite;">♜</div>
         
         <div class="container text-center">
-            <h1 class="fade-in-up" style="font-size: 3rem;">About <span style="color: #3b5b9b;">Us</span></h1>  <!-- Changed to blue -->
-            <p class="fade-in-up" style="color: white; font-size: 1.25rem; max-width: 700px; margin: 0 auto; animation-delay: 0.2s;">
-                Building champions, one move at a time — discover the heart of Francistown's premier chess academy.
+            <h1 class="scroll-fade-up scroll-visible" style="font-size: 4rem; margin-bottom: 20px; text-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+                About <span style="color: #3b5b9b;">Us</span>
+            </h1>
+            <p class="scroll-fade-up scroll-visible" style="color: white; font-size: 1.3rem; max-width: 700px; margin: 0 auto; animation-delay: 0.2s;">
+                Building champions, transforming lives, and growing chess in Botswana since 2013
             </p>
         </div>
     </section>
 
-    <!-- ========== HISTORY SECTION ========== -->
-    <section style="padding: 60px 0;">
+    <!--  WHO WE ARE SECTION-->
+    <section style="padding: 80px 0;">
         <div class="container">
-            <div class="card-grid stagger-children" style="grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
-                <div>
-                    <h2 style="color: #3b5b9b; margin-bottom: 20px;">Our History</h2>  <!-- Changed to blue -->
-                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                        <strong>Founded in 2016</strong> by a group of passionate chess enthusiasts, the Francistown School of Chess started with just <strong>8 students</strong> meeting in a small community hall. We saw how chess transformed young minds—improving concentration, academic performance, and confidence.
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                <div class="scroll-fade-right">
+                    <span class="section-subtitle">WHO WE ARE</span>
+                    <h2 class="section-title">Francistown School of Chess</h2>
+                    <p style="font-size: 1.1rem; color: #334155; margin-bottom: 20px; line-height: 1.8;">
+                        <strong>Francistown School of Chess</strong> is based in Francistown and is a bonafide affiliate member of <strong>Botswana Chess Federation</strong>.
                     </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        By 2018, we had outgrown the hall and moved to our first dedicated teaching space. In 2020, we successfully adapted to online classes during the pandemic, reaching students across Botswana. Today, we are proud to be Botswana's leading chess academy, with <strong>over 150 active students</strong>, partnerships with local schools, and a reputation for producing national junior champions. Our journey is proof that big dreams can start small.
+                    <p style="font-size: 1.1rem; color: #334155; margin-bottom: 20px; line-height: 1.8;">
+                        The aim of the academy is to develop chess at grassroots level, reaching out to the youth, giving them top quality training and exposing them to high profile tournaments.
                     </p>
+                    <p style="font-size: 1.1rem; color: #334155; margin-bottom: 20px; line-height: 1.8;">
+                        To achieve this, the academy organises and runs youth tournaments, workshops for young children as well as the training of chess coaches.
+                    </p>
+                    <div style="background: #f8fafc; border-radius: 20px; padding: 30px; margin-top: 20px; border-left: 6px solid #3b5b9b;">
+                        <p style="font-size: 1.1rem; color: #0f172a; font-weight: 500; margin: 0; font-style: italic;">
+                            <i class="bi bi-quote" style="color: #f59e0b; font-size: 2rem; margin-right: 10px;"></i>
+                            Over the years Francistown School of Chess has grown in leaps and bounds and has become a brand which is reputable both locally and internationally.
+                        </p>
+                    </div>
                 </div>
-                <!-- History Image -->
-                <div>
-                    <img src="images/history-classroom.jpg" alt="Early days of Francistown School of Chess" class="history-img" onerror="this.src='https://via.placeholder.com/600x400?text=Early+Days+Photo'">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== OUR JOURNEY TIMELINE ========== -->
-    <section style="padding: 40px 0; background-color: #f8fafc;">
-        <div class="container">
-            <h2 class="text-center glow" style="margin-bottom: 40px;">Our Journey</h2>
-            <div class="timeline-chain">
-                <div class="timeline-items">
-                    <!-- Item 1 - 2016 -->
-                    <div class="timeline-item" data-align="left">
-                        <div class="timeline-content-box">
-                            <div class="timeline-content">
-                                <h3>Founded</h3>
-                                <p>Started with 8 students in a community hall.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-link">
-                            <i class="bi bi-link-45deg"></i>
-                        </div>
-                        <div class="timeline-year-box">
-                            <span class="timeline-year">2016</span>
-                        </div>
+                <div class="scroll-fade-left" style="display: grid; gap: 25px;">
+                    <div class="milestone-card">
+                        <div class="milestone-year animate-pulse-glow">2018</div>
+                        <h3 style="margin-bottom: 10px;">Hosted International Chess Federation VP</h3>
+                        <p>In March 2018, the Academy hosted <strong>Ms Beatrice Marinelo</strong>, the then International Chess Federation Vice President.</p>
                     </div>
-                    
-                    <!-- Item 2 - 2018 -->
-                    <div class="timeline-item" data-align="right">
-                        <div class="timeline-year-box">
-                            <span class="timeline-year">2018</span>
-                        </div>
-                        <div class="timeline-link">
-                            <i class="bi bi-link-45deg"></i>
-                        </div>
-                        <div class="timeline-content-box">
-                            <div class="timeline-content">
-                                <h3>First Home</h3>
-                                <p>Moved to our own dedicated teaching space.</p>
-                            </div>
-                        </div>
+                    <div class="milestone-card">
+                        <div class="milestone-year">2018</div>
+                        <h3 style="margin-bottom: 10px;">Hosted Queen of Katwe Inspiration</h3>
+                        <p>We hosted <strong>Mr Robert Katende</strong>, whom the movie "Queen of Katwe" is made after.</p>
                     </div>
-                    
-                    <!-- Item 3 - 2020 -->
-                    <div class="timeline-item" data-align="left">
-                        <div class="timeline-content-box">
-                            <div class="timeline-content">
-                                <h3>Online Classes</h3>
-                                <p>Adapted to virtual learning during the pandemic.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-link">
-                            <i class="bi bi-link-45deg"></i>
-                        </div>
-                        <div class="timeline-year-box">
-                            <span class="timeline-year">2020</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Item 4 - 2023 -->
-                    <div class="timeline-item" data-align="right">
-                        <div class="timeline-year-box">
-                            <span class="timeline-year">2023</span>
-                        </div>
-                        <div class="timeline-link">
-                            <i class="bi bi-link-45deg"></i>
-                        </div>
-                        <div class="timeline-content-box">
-                            <div class="timeline-content">
-                                <h3>150+ Students</h3>
-                                <p>Became Botswana's largest chess academy.</p>
-                            </div>
-                        </div>
+                    <div class="milestone-card">
+                        <div class="milestone-year">100+</div>
+                        <h3 style="margin-bottom: 10px;">Active Students</h3>
+                        <p>The academy currently has over 100 students and continues to grow every term.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== MISSION, VISION & VALUES ========== -->
-    <section style="padding: 60px 0;">
+    <!-- ACADEMY GROWTH  -->
+    <section style="padding: 80px 0; background: #f8fafc;">
         <div class="container">
-            <h2 class="text-center glow" style="margin-bottom: 50px;">Why We Exist</h2>
-            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 30px;">
-                <!-- Mission -->
-                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
-                    <i class="bi bi-bullseye" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
-                    <h3 style="margin-bottom: 15px;">Our Mission</h3>
-                    <p style="color: #64748b;">To empower the youth of Francistown and beyond through the game of chess. We provide accessible, high-quality coaching to students of all ages, nurturing not just strong players, but strong individuals.</p>
+            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
+                <span class="section-subtitle">OUR GROWTH</span>
+                <h2 class="section-title">Academy Database</h2>
+            </div>
+            <div style="display: flex; justify-content: center; gap: 50px; flex-wrap: wrap;">
+                <div class="milestone-card scroll-flip delay-200" style="min-width: 250px; text-align: center;">
+                    <div style="font-size: 4.5rem; font-weight: 700; color: #3b5b9b; line-height: 1;">100+</div>
+                    <p style="color: #64748b; font-size: 1.2rem; margin: 10px 0;">Active Students</p>
+                    <i class="bi bi-graph-up-arrow" style="color: #f59e0b; font-size: 2rem; animation: float 2s infinite;"></i>
                 </div>
-                <!-- Vision -->
-                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
-                    <i class="bi bi-eye-fill" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
-                    <h3 style="margin-bottom: 15px;">Our Vision</h3>
+                <div class="milestone-card scroll-flip delay-400" style="min-width: 250px; text-align: center;">
+                    <div style="font-size: 4.5rem; font-weight: 700; color: #3b5b9b; line-height: 1;">2013</div>
+                    <p style="color: #64748b; font-size: 1.2rem; margin: 10px 0;">Year Founded</p>
+                    <i class="bi bi-calendar-heart" style="color: #f59e0b; font-size: 2rem; animation: float 2s infinite 0.5s;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION, VISION & VALUES -->
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
+                <span class="section-subtitle">WHY WE EXIST</span>
+                <h2 class="section-title">Mission, Vision & Values</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+                <div class="mission-card scroll-fade-up delay-100">
+                    <i class="bi bi-bullseye mission-icon"></i>
+                    <h3 style="margin-bottom: 15px; font-size: 1.6rem;">Our Mission</h3>
+                    <p style="color: #64748b;">To empower the youth of Francistown and beyond through the game of chess. We provide accessible, high-quality coaching to students of all ages.</p>
+                </div>
+                <div class="mission-card scroll-fade-up delay-200">
+                    <i class="bi bi-eye-fill mission-icon"></i>
+                    <h3 style="margin-bottom: 15px; font-size: 1.6rem;">Our Vision</h3>
                     <p style="color: #64748b;">To see chess become a cornerstone of youth development across Botswana, creating a generation of critical thinkers and problem-solvers.</p>
                 </div>
-                <!-- Values -->
-                <div class="card hover-lift" style="padding: 40px 30px; text-align: center;">
-                    <i class="bi bi-heart-fill" style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;"></i>  <!-- Changed to blue -->
-                    <h3 style="margin-bottom: 15px;">Our Values</h3>
-                    <p style="color: #64748b;"><strong>Excellence</strong> · <strong>Respect</strong> · <strong>Community</strong> · <strong>Critical Thinking</strong></p>
+                <div class="mission-card scroll-fade-up delay-300">
+                    <i class="bi bi-heart-fill mission-icon"></i>
+                    <h3 style="margin-bottom: 15px; font-size: 1.6rem;">Our Values</h3>
+                    <p style="color: #64748b;"><strong>Excellence</strong> · <strong>Human Capital</strong> · <strong>Community</strong> · <strong>Critical Thinking</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== TOURNAMENTS SECTION ========== -->
-    <section style="padding: 60px 0; background-color: #f8fafc;">
+    <!-- SOCIAL RESPONSIBILITY -->
+    <section style="padding: 80px 0; background: #f8fafc;">
         <div class="container">
-            <h2 class="text-center glow" style="margin-bottom: 20px;">Tournaments Held</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
-                We regularly host and participate in tournaments, giving our students valuable competitive experience.
+            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
+                <span class="section-subtitle">GIVING BACK</span>
+                <h2 class="section-title">Social Responsibility</h2>
+            </div>
+            
+            <div class="social-impact-card scroll-zoom" style="margin-bottom: 50px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                    <div class="impact-stat scroll-fade-up delay-100">
+                        <i class="bi bi-heart-fill" style="color: #f59e0b; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                        <div class="impact-stat-number">5+</div>
+                        <p style="font-size: 1.1rem;">Adopted Children</p>
+                    </div>
+                    <div class="impact-stat scroll-fade-up delay-200">
+                        <i class="bi bi-gift-fill" style="color: #f59e0b; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                        <div class="impact-stat-number">60</div>
+                        <p style="font-size: 1.1rem;">Chess Sets Donated</p>
+                    </div>
+                    <div class="impact-stat scroll-fade-up delay-300">
+                        <i class="bi bi-building" style="color: #f59e0b; font-size: 2.5rem; margin-bottom: 15px;"></i>
+                        <div class="impact-stat-number">4+</div>
+                        <p style="font-size: 1.1rem;">Community Partners</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p style="font-size: 1.2rem; color: #334155; margin-bottom: 40px; text-align: center; max-width: 800px; margin: 0 auto 40px;" class="scroll-fade-up">
+                The Academy prides itself with the adoption of underprivileged children from our community.
             </p>
-            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
-                <!-- Tournament 1 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> March 2024</div>
-                    <h3>Francistown Open</h3>
-                    <p style="color: #64748b;">Over 80 players from across Botswana competed. Our students took top 3 spots in U-12 and U-16 categories.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div class="honored-guest-card scroll-fade-right delay-100">
+                    <i class="bi bi-building" style="color: #3b5b9b; font-size: 2rem;"></i>
+                    <h3 style="margin: 15px 0;">Primary Schools Donation</h3>
+                    <p>The academy donated <strong>60 chess sets</strong> to Primary Schools in the North East.</p>
                 </div>
-                <!-- Tournament 2 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> December 2023</div>
-                    <h3>Junior Championship</h3>
-                    <p style="color: #64748b;">Exclusively for under-18s, with 12 schools participating. Francistown Chess students won 5 medals.</p>
+                <div class="honored-guest-card scroll-fade-up delay-200">
+                    <i class="bi bi-ear-deaf" style="color: #3b5b9b; font-size: 2rem;"></i>
+                    <h3 style="margin: 15px 0;">Centre for the Deaf</h3>
+                    <p>Chess sets were donated to the Francistown Centre for the Deaf.</p>
                 </div>
-                <!-- Tournament 3 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> August 2023</div>
-                    <h3>Charity Rapid Cup</h3>
-                    <p style="color: #64748b;">A rapid-format tournament that raised funds for local schools. 60+ players, huge success.</p>
-                </div>
-                <!-- Tournament 4 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> May 2023</div>
-                    <h3>Gaborone Invitational</h3>
-                    <p style="color: #64748b;">Our top players competed against Gaborone's best – a great learning experience.</p>
-                </div>
-                <!-- Tournament 5 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> January 2023</div>
-                    <h3>New Year Blitz</h3>
-                    <p style="color: #64748b;">Fast-paced blitz tournament to kick off the year. 50 players, lots of fun.</p>
-                </div>
-                <!-- Tournament 6 -->
-                <div class="card hover-lift tournament-card">
-                    <div class="tournament-date"><i class="bi bi-calendar-event"></i> October 2022</div>
-                    <h3>Schools Team Championship</h3>
-                    <p style="color: #64748b;">Inter-school competition with 15 teams. Our A-team emerged as champions.</p>
+                <div class="honored-guest-card scroll-fade-left delay-300">
+                    <i class="bi bi-house-heart" style="color: #3b5b9b; font-size: 2rem;"></i>
+                    <h3 style="margin: 15px 0;">SOS Village</h3>
+                    <p>Chess sets were donated to Francistown SOS Village.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== PHOTO GALLERY ========== -->
-    <section style="padding: 60px 0;">
+    <!-- ADOPTED KIDS SECTION -->
+    <section style="padding: 80px 0;">
         <div class="container">
-            <h2 class="text-center glow" style="margin-bottom: 20px;">Moments of Glory</h2>
-            <p class="text-center" style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
-                Nothing makes us prouder than seeing our learners on the podium.
-            </p>
-            <div class="card-grid stagger-children" style="grid-template-columns: repeat(3, 1fr); gap: 25px;">
-                <!-- Medal Image 1 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-1.jpg" alt="Gold medal winner" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Gold+Medal+2024'">
-                    <h3>Francistown Open 2024</h3>
-                    <p style="color: #64748b;">Our U-12 team swept the podium</p>
+            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
+                <span class="section-subtitle">OUR HEART</span>
+                <h2 class="section-title">Adopted Kids & Their Achievements</h2>
+                <p style="color: #64748b; max-width: 700px; margin: 20px auto 0;">Talented young minds we've had the privilege to support and nurture</p>
+            </div>
+            
+            <div class="student-profiles-grid">
+                <!-- Romeo Oabile -->
+                <div class="student-profile-card scroll-fade-up delay-100">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Romeo Oabile</h3>
+                            <div class="profile-badges">
+                                <span class="badge-adopted">Adopted Scholar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">#1</div><div class="stat-label">U11</div></div>
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">National</div></div>
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Intl</div></div>
+                        <div class="stat-item"><div class="stat-value">Champ</div><div class="stat-label">U13</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">1st Place</span> - Debswana national team selection U11 boys</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-bronze">Bronze</span> - 2018 primary individual national finals</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2018 Botswana International Youth U11</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 3 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Debswana Youth Under 13</div>
+                            <div class="more-item">• 2019 National Youth Team for Africa Youth Chess</div>
+                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
+                        </div>
+                    </details>
                 </div>
-                <!-- Medal Image 2 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-2.jpg" alt="Champions with trophies" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Junior+Champs+2023'">
-                    <h3>Junior Championship 2023</h3>
-                    <p style="color: #64748b;">Five medalists from our academy</p>
+
+                <!-- Desire Machinya -->
+                <div class="student-profile-card scroll-fade-up delay-200">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Desire Machinya</h3>
+                            <div class="profile-badges">
+                                <span class="badge-adopted">Adopted Scholar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Junior</div></div>
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U17</div></div>
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Senior</div></div>
+                        <div class="stat-item"><div class="stat-value">5x</div><div class="stat-label">National</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2018 junior individual national champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Debswana Under 17</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>Represented Botswana U17 Africa Schools</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 4 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-silver">Silver</span> - 2019 Senior Individual</div>
+                            <div class="more-item">• 2020 World Cadets Finals, Africa representative</div>
+                            <div class="more-item">• 5 times national team callup</div>
+                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
+                        </div>
+                    </details>
                 </div>
-                <!-- Medal Image 3 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-3.jpg" alt="Smiling medalists" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Charity+Cup+2023'">
-                    <h3>Charity Rapid Cup</h3>
-                    <p style="color: #64748b;">First place in the Open section</p>
+
+                <!-- Oageng Chalashika -->
+                <div class="student-profile-card scroll-fade-up delay-300">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Oageng Chalashika</h3>
+                            <div class="profile-badges">
+                                <span class="badge-adopted">Adopted Scholar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U15</div></div>
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Zone</div></div>
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Easter</div></div>
+                        <div class="stat-item"><div class="stat-value">'23</div><div class="stat-label">Club</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Botswana International Youth U15</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Zone 4.5 U16 Teams</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 First Capital Bank Easter U16</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 1 more achievement <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• 2023 Member of Ghetto Chess Maniacs</div>
+                        </div>
+                    </details>
                 </div>
-                <!-- Medal Image 4 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-4.jpg" alt="Team photo with medals" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Gaborone+Invitational'">
-                    <h3>Gaborone Invitational</h3>
-                    <p style="color: #64748b;">Runners-up trophy</p>
+
+                <!-- Setlalekgosi JSS -->
+                <div class="student-profile-card scroll-fade-up delay-400">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Setlalekgosi JSS</h3>
+                            <div class="profile-badges">
+                                <span class="badge-adopted">Adopted Scholar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">'17</div></div>
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">'18</div></div>
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">'19</div></div>
+                        <div class="stat-item"><div class="stat-value">Team</div><div class="stat-label">Champ</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2017 junior boys team national champions</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2018 junior boys team national champions</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2019 Junior Schools Teams</span></div>
+                    </div>
                 </div>
-                <!-- Medal Image 5 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-5.jpg" alt="Individual medal winner" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=New+Year+Blitz'">
-                    <h3>New Year Blitz</h3>
-                    <p style="color: #64748b;">Champion in U-16 category</p>
-                </div>
-                <!-- Medal Image 6 -->
-                <div class="card hover-lift" style="padding: 1rem;">
-                    <img src="images/medal-6.jpg" alt="Celebration after win" class="gallery-img" onerror="this.src='https://via.placeholder.com/400x250?text=Schools+Championship'">
-                    <h3>Schools Team Championship</h3>
-                    <p style="color: #64748b;">Winning team trophy</p>
+
+                <!-- Atang Masaka -->
+                <div class="student-profile-card scroll-fade-up delay-500">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Atang Masaka</h3>
+                            <div class="profile-badges">
+                                <span class="badge-adopted">Adopted Scholar</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U14</div></div>
+                        <div class="stat-item"><div class="stat-value">Nat</div><div class="stat-label">Team</div></div>
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">U14</div></div>
+                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">School</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Debswana Youth under 14</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>2018 National youth team member</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2019 Debswana Under 14</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 1 more achievement <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Junior Schools Individual</div>
+                        </div>
+                    </details>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CALL TO ACTION ========== -->
-    <section style="padding: 60px 0;">
+    <!-- ACADEMY STUDENT ACHIEVEMENTS-->
+    <section style="padding: 80px 0; background: #f8fafc;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
+                <span class="section-subtitle">OUR CHAMPIONS</span>
+                <h2 class="section-title">Student Achievements</h2>
+                <p style="color: #64748b; max-width: 700px; margin: 20px auto 0;">Remarkable accomplishments by our talented students</p>
+            </div>
+            
+            <div class="student-profiles-grid">
+                <!-- Gofamodimo Tahla -->
+                <div class="student-profile-card scroll-fade-up">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Gofamodimo Tahla</h3>
+                            <div class="profile-badges"><span class="badge-age">20 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U14</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">ZIM</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">U16</div><div class="stat-label">Girls</div></div>
+                        <div class="stat-item"><div class="stat-value">FTO</div><div class="stat-label">Open</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>National Debswana under 14 champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-geo-alt-fill"></i><span>Plumtree (Zimbabwe) Secondary girls champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-award-fill"></i><span>Francistown Open U16 girls champion</span></div>
+                    </div>
+                </div>
+
+                <!-- Botlhe Lekang -->
+                <div class="student-profile-card scroll-fade-up delay-50">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Botlhe Lekang</h3>
+                            <div class="profile-badges"><span class="badge-age">19 years</span><span class="badge-national">National</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">4x</div><div class="stat-label">National</div></div>
+                        <div class="stat-item"><div class="stat-value">4th</div><div class="stat-label">Africa</div></div>
+                        <div class="stat-item"><div class="stat-value">SWZ</div><div class="stat-label">Open</div></div>
+                        <div class="stat-item"><div class="stat-value">'17</div><div class="stat-label">Junior</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2017 Junior Individual National Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-geo-alt-fill"></i><span>4th Africa Youth Chess (RSA)</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>4th Africa Schools (ZAMBIA)</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 5 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• 2018 Debswana Under 15 National Champion</div>
+                            <div class="more-item">• Represented Botswana U15 Africa Schools</div>
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Swaziland Open</div>
+                            <div class="more-item">• 4x national team call up</div>
+                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Keabetswe Makwaeba -->
+                <div class="student-profile-card scroll-fade-up delay-100">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Keabetswe Makwaeba</h3>
+                            <div class="profile-badges"><span class="badge-age">19 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">'17</div><div class="stat-label">U16</div></div>
+                        <div class="stat-item"><div class="stat-value">'19</div><div class="stat-label">Zone</div></div>
+                        <div class="stat-item"><div class="stat-value">'21</div><div class="stat-label">Showdown</div></div>
+                        <div class="stat-item"><div class="stat-value">'22</div><div class="stat-label">League</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2017 Francistown Open U16 champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2019 Zone 4.5 U16 Teams Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2021 First Capital Bank Showdown champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2022 Chess League Pos 6/17</span></div>
+                    </div>
+                </div>
+
+                <!-- Musa Munyere -->
+                <div class="student-profile-card scroll-fade-up delay-150">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Musa Munyere</h3>
+                            <div class="profile-badges"><span class="badge-age">16 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">National</div></div>
+                        <div class="stat-item"><div class="stat-value">U12</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">U14</div></div>
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">Africa</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>Francistown Primary Schools Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>Bronze 2017 National Primary finals</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>U12 Champion Botash Open</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 5 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-bronze">Bronze</span> - 2019 Debswana U14</div>
+                            <div class="more-item">• <span class="medal-bronze">Bronze</span> - 2019 Africa Youth</div>
+                            <div class="more-item">• 2021 Africa Youth (GHANA)</div>
+                            <div class="more-item">• 2022 Africa Youth (GHANA)</div>
+                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- CM Tshepo Monare -->
+                <div class="student-profile-card scroll-fade-up delay-200">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #2c3e50, #1a2634);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">CM Tshepo Monare</h3>
+                            <div class="profile-badges"><span class="badge-age">22 years</span><span class="cm-badge"><i class="bi bi-award-fill"></i> Candidate Master</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Africa</div></div>
+                        <div class="stat-item"><div class="stat-value">CM</div><div class="stat-label">Title</div></div>
+                        <div class="stat-item"><div class="stat-value">'19</div><div class="stat-label">U18</div></div>
+                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Botswana</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - Africa Schools U16 (Zambia)</span></div>
+                        <div class="highlight-item"><i class="bi bi-award-fill"></i><span><span class="medal-gold">FIDE Title</span> - Candidate Master</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Debswana U18</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 4 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• 2019 National youth team member</div>
+                            <div class="more-item">• <span class="medal-silver">Silver</span> - 2021 Botswana Open</div>
+                            <div class="more-item">• 2022 CUCSA representing Botswana</div>
+                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- CM Thabo Elias -->
+                <div class="student-profile-card scroll-fade-up delay-250">
+                    <div class="profile-header" style="background: linear-gradient(135deg, #2c3e50, #1a2634);">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">CM Thabo Elias</h3>
+                            <div class="profile-badges"><span class="badge-age">23 years</span><span class="cm-badge"><i class="bi bi-award-fill"></i> Candidate Master</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">Africa</div></div>
+                        <div class="stat-item"><div class="stat-value">CM</div><div class="stat-label">Title</div></div>
+                        <div class="stat-item"><div class="stat-value">'18</div><div class="stat-label">U18</div></div>
+                        <div class="stat-item"><div class="stat-value">Elite</div><div class="stat-label">Player</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-bronze">Bronze</span> - Africa Schools U18 (Zambia)</span></div>
+                        <div class="highlight-item"><i class="bi bi-award-fill"></i><span><span class="medal-gold">FIDE Title</span> - Candidate Master</span></div>
+                    </div>
+                </div>
+
+                <!-- Ndachipiwa Kgomotso -->
+                <div class="student-profile-card scroll-fade-up delay-300">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Ndachipiwa Kgomotso</h3>
+                            <div class="profile-badges"><span class="badge-national">International</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Nam</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">World</div><div class="stat-label">Amateur</div></div>
+                        <div class="stat-item"><div class="stat-value">'18</div><div class="stat-label">Olympiad</div></div>
+                        <div class="stat-item"><div class="stat-value">ITA</div><div class="stat-label">World</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Namibia Open Ladies champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-geo-alt-fill"></i><span>World Amateur championships (Italy)</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>2018 Olympiad Team, Batumi, Georgia</span></div>
+                    </div>
+                </div>
+
+                <!-- Peo Phole -->
+                <div class="student-profile-card scroll-fade-up delay-350">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Peo Phole</h3>
+                            <div class="profile-badges"><span class="badge-age">14 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U14</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">U11</div><div class="stat-label">Bronze</div></div>
+                        <div class="stat-item"><div class="stat-value">U13</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">SWZ</div><div class="stat-label">Champ</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Re Ba Bona Ha U14 Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Debswana U11 Bronze</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>Kingdom of Eswatini Open Position 4</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 4 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-bronze">Bronze</span> - 2019 Debswana Youth</div>
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Botash U13</div>
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Swaziland Open Ladies</div>
+                            <div class="more-item">• <span class="medal-bronze">Bronze</span> - 2022 BOTASH Ladies</div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Laura Molosiwa -->
+                <div class="student-profile-card scroll-fade-up delay-400">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Laura Molosiwa</h3>
+                            <div class="profile-badges"><span class="badge-age">12 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U11</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">U12</div><div class="stat-label">Silver</div></div>
+                        <div class="stat-item"><div class="stat-value">Nat</div><div class="stat-label">Silver</div></div>
+                        <div class="stat-item"><div class="stat-value">U11</div><div class="stat-label">Champ</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Re Ba Bona Ha U11 Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 U12 Francistown International Open</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2018 Debswana U11</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Botash U11</span></div>
+                    </div>
+                </div>
+
+                <!-- Orifile Moatshe -->
+                <div class="student-profile-card scroll-fade-up delay-450">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Orifile Moatshe</h3>
+                            <div class="profile-badges"><span class="badge-national">Prodigy</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U7</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">U8</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">U8</div><div class="stat-label">Silver</div></div>
+                        <div class="stat-item"><div class="stat-value">TUR</div><div class="stat-label">World</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Re Ba Bona Ha U8 Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span>2018 Debswana U7 Champion</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>Represented Botswana U7 Africa Schools</span></div>
+                    </div>
+                    <details class="more-achievements">
+                        <summary>View 4 more achievements <i class="bi bi-chevron-down"></i></summary>
+                        <div class="more-list">
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2018 Botswana Intl U7</div>
+                            <div class="more-item">• 2019 World School in Turkey</div>
+                            <div class="more-item">• <span class="medal-silver">Silver</span> - 2019 Debswana U8</div>
+                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Botash U9</div>
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Sthemiso Ramakele -->
+                <div class="student-profile-card scroll-fade-up delay-500">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Sthemiso Ramakele</h3>
+                            <div class="profile-badges"><span class="badge-age">18 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">Eswatini</div></div>
+                        <div class="stat-item"><div class="stat-value">2018</div><div class="stat-label">Intl</div></div>
+                        <div class="stat-item"><div class="stat-value">SWZ</div><div class="stat-label">Open</div></div>
+                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">Medal</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-bronze">Bronze</span> - 2018 Kingdom of Eswatini Open</span></div>
+                    </div>
+                </div>
+
+                <!-- Phoebe Benjamin -->
+                <div class="student-profile-card scroll-fade-up delay-550">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Phoebe Benjamin</h3>
+                            <div class="profile-badges"><span class="badge-national">National</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U8</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">'19</div><div class="stat-label">National</div></div>
+                        <div class="stat-item"><div class="stat-value">BOT</div><div class="stat-label">Team</div></div>
+                        <div class="stat-item"><div class="stat-value">U8</div><div class="stat-label">Elite</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Debswana U8</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>2019 National Youth Team Member U8</span></div>
+                    </div>
+                </div>
+
+                <!-- Method George -->
+                <div class="student-profile-card scroll-fade-up delay-600">
+                    <div class="profile-header">
+                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
+                        <div class="profile-title">
+                            <h3 class="profile-name">Method George</h3>
+                            <div class="profile-badges"><span class="badge-age">19 years</span></div>
+                        </div>
+                    </div>
+                    <div class="achievement-stats">
+                        <div class="stat-item"><div class="stat-value">U16</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">'19</div><div class="stat-label">National</div></div>
+                        <div class="stat-item"><div class="stat-value">Zone</div><div class="stat-label">Champ</div></div>
+                        <div class="stat-item"><div class="stat-value">BOT</div><div class="stat-label">Team</div></div>
+                    </div>
+                    <div class="achievement-highlights">
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Debswana U16</span></div>
+                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>2019 National Youth Team Member U16</span></div>
+                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Zone 4.5 U16 Teams</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION -->
+    <section style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
+        <div class="testimonial-chess-piece piece-1 animate-float" style="color: rgba(255,255,255,0.05); font-size: 8rem;">♞</div>
+        <div class="testimonial-chess-piece piece-2" style="color: rgba(255,255,255,0.05); font-size: 8rem; animation: slowSpin 20s linear infinite;">♜</div>
+        
         <div class="container text-center">
-            <h2 class="fade-in-up">Ready to Begin Your Chess Journey?</h2>
-            <p class="fade-in-up" style="margin-bottom: 2rem; font-size: 1.2rem; animation-delay: 0.2s;">Join Francistown School Of Chess today. First lesson is free!</p>
-            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Enroll Now</a>
+            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;" class="scroll-fade-up">Join Our Growing Family of Champions</h2>
+            <p style="color: #cbd5e1; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;" class="scroll-fade-up delay-100">
+                Be part of Botswana's most successful chess academy. Whether you're a beginner or aspiring master, we have a place for you.
+            </p>
+            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.2rem; padding: 15px 40px;" class="scroll-zoom delay-200">
+                <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Start Your Journey Today
+            </a>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <!-- About Section -->
             <div>
                 <h4>Francistown School Of Chess</h4>
                 <p style="color: #cbd5e1;">Building champions since 2013</p>
+                <p style="color: #cbd5e1; margin-top: 10px;">Botswana Chess Federation Affiliate</p>
             </div>
-            <!-- Quick Links -->
             <div>
                 <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
                 <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Coaches</a></p>
+                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
                 <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
                 <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
                 <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
             </div>
-            <!-- Contact Information -->
             <div>
                 <h4>Contact Us</h4>
                 <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
                 <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
+                <p><i class="bi bi-geo-alt-fill"></i> Francistown, Botswana</p> 
             </div>
-            <!-- Legal Links -->
             <div>
                 <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
                 <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
@@ -670,28 +1385,23 @@
                 <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
             </div>
         </div>
-        <!-- Copyright -->
         <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+            <p style="color: #94a3b8;">&copy; 2013-2026 Francistown School Of Chess. All rights reserved. Affiliate Member of Botswana Chess Federation.</p>
         </div>
     </footer>
 
-    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
+    <!-- FLOATING BUTTONS-->
     <div class="floating-buttons">
-        <!-- WhatsApp Button -->
         <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
            class="floating-btn whatsapp-btn" 
            target="_blank" 
            title="Chat on WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
-        <!-- Share Button with Popup -->
         <div class="share-wrapper">
             <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
                 <i class="bi bi-share-fill"></i>
             </button>
-            <!-- Share Popup Menu -->
             <div class="share-popup" id="sharePopup">
                 <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
                 <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
@@ -702,30 +1412,31 @@
         </div>
     </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
+ 
+    
+    <!-- JAVASCRIPT -->
     <script>
-        // TIMELINE SCROLL ANIMATION
+      
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const items = document.querySelectorAll('.timeline-item');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-
-            items.forEach(item => observer.observe(item));
+        // Hide loader
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.getElementById('loader');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }
+            }, 600);
         });
 
-        // SHARE FUNCTIONALITY
-
+        // Share functionality
         function toggleSharePopup() {
             const popup = document.getElementById('sharePopup');
-            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+            if (popup) {
+                popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
+            }
         }
 
         function shareOn(platform) {
@@ -761,7 +1472,7 @@
             });
         }
 
-        // CLICK OUTSIDE HANDLER
+        // Close popup when clicking outside
         window.addEventListener('click', function(e) {
             const popup = document.getElementById('sharePopup');
             const shareBtn = document.querySelector('.share-btn');
@@ -773,41 +1484,30 @@
                 popup.style.display = 'none';
             }
         });
-    </script>
 
-    
-<!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
-        </div>
-
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
-
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
+        // Intersection Observer for Scroll Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all elements with scroll animation classes
+            const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-fade-right, .scroll-fade-left, .scroll-zoom, .scroll-flip');
+            
+            // Create intersection observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // Add scroll-visible class when element enters viewport
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scroll-visible');
+                        
+                    }
+                });
+            }, {
+                threshold: 0.1, // Trigger when 10% of element is visible
+                rootMargin: '0px 0px -50px 0px' // Slight offset for better timing
             });
-        </script>
+
+            // Observe each animated element
+            animatedElements.forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
-
