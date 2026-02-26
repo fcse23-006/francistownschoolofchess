@@ -632,15 +632,21 @@
             color: white;
         }
 
-        /* ===== MOBILE FOR WHO WE ARE SECTION ===== */
+        /* ===== MOBILE FIXES ===== */
         @media screen and (max-width: 768px) {
-            /* Force the 2-column layout to stack on mobile */
+            /*  WHO WE ARE section */
             section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
                 grid-template-columns: 1fr !important;
                 gap: 30px !important;
             }
             
-            /* Adjust milestone cards for mobile */
+            /*  MISSION, VISION & VALUES section */
+            section > .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /*  milestone cards */
             .milestone-card {
                 padding: 20px !important;
             }
@@ -652,6 +658,15 @@
             .milestone-card h3 {
                 font-size: 1.2rem !important;
             }
+            
+            /*  mission cards */
+            .mission-card {
+                padding: 30px 20px !important;
+            }
+            
+            .mission-card h3 {
+                font-size: 1.4rem !important;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -661,6 +676,38 @@
             
             .milestone-card {
                 padding: 15px !important;
+            }
+            
+            .mission-card {
+                padding: 25px 15px !important;
+            }
+            
+            .mission-icon {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        /*  LOADER  */
+        #loader {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        #loader > div {
+            margin: 0 auto !important;
+            max-width: 90% !important;
+            padding: 25px 30px !important;
+        }
+
+        @media screen and (max-width: 480px) {
+            #loader > div {
+                padding: 20px 25px !important;
+            }
+            
+            #loader p {
+                font-size: 0.8rem !important;
             }
         }
     </style>
