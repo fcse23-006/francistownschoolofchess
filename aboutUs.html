@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -634,15 +632,21 @@
             color: white;
         }
 
-        /* ===== MOBILE FIX FOR WHO WE ARE SECTION ===== */
+        /* ===== MOBILE FIXES ===== */
         @media screen and (max-width: 768px) {
-            /* Force the 2-column layout to stack on mobile */
+            /* WHO WE ARE section */
             section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
                 grid-template-columns: 1fr !important;
                 gap: 30px !important;
             }
             
-            /* Adjust milestone cards for mobile */
+            /* MISSION, VISION & VALUES section */
+            section > .container > div[style*="grid-template-columns: repeat(3, 1fr)"] {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
+            }
+            
+            /* Adjust milestone cards */
             .milestone-card {
                 padding: 20px !important;
             }
@@ -654,6 +658,15 @@
             .milestone-card h3 {
                 font-size: 1.2rem !important;
             }
+            
+            /* Adjust mission cards */
+            .mission-card {
+                padding: 30px 20px !important;
+            }
+            
+            .mission-card h3 {
+                font-size: 1.4rem !important;
+            }
         }
 
         @media screen and (max-width: 480px) {
@@ -663,6 +676,38 @@
             
             .milestone-card {
                 padding: 15px !important;
+            }
+            
+            .mission-card {
+                padding: 25px 15px !important;
+            }
+            
+            .mission-icon {
+                font-size: 2.5rem !important;
+            }
+        }
+
+        /* ===== LOADER ===== */
+        #loader {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            text-align: center !important;
+        }
+
+        #loader > div {
+            margin: 0 auto !important;
+            max-width: 90% !important;
+            padding: 25px 30px !important;
+        }
+
+        @media screen and (max-width: 480px) {
+            #loader > div {
+                padding: 20px 25px !important;
+            }
+            
+            #loader p {
+                font-size: 0.8rem !important;
             }
         }
     </style>
@@ -868,167 +913,6 @@
         </div>
     </section>
 
-    <!-- ADOPTED KIDS SECTION -->
-    <section style="padding: 80px 0;">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 50px;" class="scroll-fade-up">
-                <span class="section-subtitle">OUR HEART</span>
-                <h2 class="section-title">Adopted Kids & Their Achievements</h2>
-                <p style="color: #64748b; max-width: 700px; margin: 20px auto 0;">Talented young minds we've had the privilege to support and nurture</p>
-            </div>
-            
-            <div class="student-profiles-grid">
-                <!-- Romeo Oabile -->
-                <div class="student-profile-card scroll-fade-up delay-100">
-                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
-                        <div class="profile-title">
-                            <h3 class="profile-name">Romeo Oabile</h3>
-                            <div class="profile-badges">
-                                <span class="badge-adopted">Adopted Scholar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-stats">
-                        <div class="stat-item"><div class="stat-value">#1</div><div class="stat-label">U11</div></div>
-                        <div class="stat-item"><div class="stat-value">Bronze</div><div class="stat-label">National</div></div>
-                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Intl</div></div>
-                        <div class="stat-item"><div class="stat-value">Champ</div><div class="stat-label">U13</div></div>
-                    </div>
-                    <div class="achievement-highlights">
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">1st Place</span> - Debswana national team selection U11 boys</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-bronze">Bronze</span> - 2018 primary individual national finals</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2018 Botswana International Youth U11</span></div>
-                    </div>
-                    <details class="more-achievements">
-                        <summary>View 3 more achievements <i class="bi bi-chevron-down"></i></summary>
-                        <div class="more-list">
-                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Debswana Youth Under 13</div>
-                            <div class="more-item">• 2019 National Youth Team for Africa Youth Chess</div>
-                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- Desire Machinya -->
-                <div class="student-profile-card scroll-fade-up delay-200">
-                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
-                        <div class="profile-title">
-                            <h3 class="profile-name">Desire Machinya</h3>
-                            <div class="profile-badges">
-                                <span class="badge-adopted">Adopted Scholar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-stats">
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Junior</div></div>
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U17</div></div>
-                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">Senior</div></div>
-                        <div class="stat-item"><div class="stat-value">5x</div><div class="stat-label">National</div></div>
-                    </div>
-                    <div class="achievement-highlights">
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2018 junior individual national champion</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Debswana Under 17</span></div>
-                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>Represented Botswana U17 Africa Schools</span></div>
-                    </div>
-                    <details class="more-achievements">
-                        <summary>View 4 more achievements <i class="bi bi-chevron-down"></i></summary>
-                        <div class="more-list">
-                            <div class="more-item">• <span class="medal-silver">Silver</span> - 2019 Senior Individual</div>
-                            <div class="more-item">• 2020 World Cadets Finals, Africa representative</div>
-                            <div class="more-item">• 5 times national team callup</div>
-                            <div class="more-item">• 2022 Chess League Pos 6/17</div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- Oageng Chalashika -->
-                <div class="student-profile-card scroll-fade-up delay-300">
-                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
-                        <div class="profile-title">
-                            <h3 class="profile-name">Oageng Chalashika</h3>
-                            <div class="profile-badges">
-                                <span class="badge-adopted">Adopted Scholar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-stats">
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U15</div></div>
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Zone</div></div>
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">Easter</div></div>
-                        <div class="stat-item"><div class="stat-value">'23</div><div class="stat-label">Club</div></div>
-                    </div>
-                    <div class="achievement-highlights">
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Botswana International Youth U15</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 Zone 4.5 U16 Teams</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2019 First Capital Bank Easter U16</span></div>
-                    </div>
-                    <details class="more-achievements">
-                        <summary>View 1 more achievement <i class="bi bi-chevron-down"></i></summary>
-                        <div class="more-list">
-                            <div class="more-item">• 2023 Member of Ghetto Chess Maniacs</div>
-                        </div>
-                    </details>
-                </div>
-
-                <!-- Setlalekgosi JSS -->
-                <div class="student-profile-card scroll-fade-up delay-400">
-                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
-                        <div class="profile-title">
-                            <h3 class="profile-name">Setlalekgosi JSS</h3>
-                            <div class="profile-badges">
-                                <span class="badge-adopted">Adopted Scholar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-stats">
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">'17</div></div>
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">'18</div></div>
-                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">'19</div></div>
-                        <div class="stat-item"><div class="stat-value">Team</div><div class="stat-label">Champ</div></div>
-                    </div>
-                    <div class="achievement-highlights">
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2017 junior boys team national champions</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Gold</span> - 2018 junior boys team national champions</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2019 Junior Schools Teams</span></div>
-                    </div>
-                </div>
-
-                <!-- Atang Masaka -->
-                <div class="student-profile-card scroll-fade-up delay-500">
-                    <div class="profile-header" style="background: linear-gradient(135deg, #22c55e, #16a34a);">
-                        <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
-                        <div class="profile-title">
-                            <h3 class="profile-name">Atang Masaka</h3>
-                            <div class="profile-badges">
-                                <span class="badge-adopted">Adopted Scholar</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="achievement-stats">
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">U14</div></div>
-                        <div class="stat-item"><div class="stat-value">Nat</div><div class="stat-label">Team</div></div>
-                        <div class="stat-item"><div class="stat-value">Silver</div><div class="stat-label">U14</div></div>
-                        <div class="stat-item"><div class="stat-value">Gold</div><div class="stat-label">School</div></div>
-                    </div>
-                    <div class="achievement-highlights">
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-gold">Champion</span> - 2018 Debswana Youth under 14</span></div>
-                        <div class="highlight-item"><i class="bi bi-flag-fill"></i><span>2018 National youth team member</span></div>
-                        <div class="highlight-item"><i class="bi bi-trophy-fill"></i><span><span class="medal-silver">Silver</span> - 2019 Debswana Under 14</span></div>
-                    </div>
-                    <details class="more-achievements">
-                        <summary>View 1 more achievement <i class="bi bi-chevron-down"></i></summary>
-                        <div class="more-list">
-                            <div class="more-item">• <span class="medal-gold">Champion</span> - 2019 Junior Schools Individual</div>
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ACADEMY STUDENT ACHIEVEMENTS-->
     <section style="padding: 80px 0; background: #f8fafc;">
@@ -1374,21 +1258,22 @@
         </div>
     </section>
 
-    <!-- CALL TO ACTION -->
-    <section style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
-        <div class="testimonial-chess-piece piece-1 animate-float" style="color: rgba(255,255,255,0.05); font-size: 8rem;">♞</div>
-        <div class="testimonial-chess-piece piece-2" style="color: rgba(255,255,255,0.05); font-size: 8rem; animation: slowSpin 20s linear infinite;">♜</div>
-        
-        <div class="container text-center">
-            <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;" class="scroll-fade-up">Join Our Growing Family of Champions</h2>
-            <p style="color: #cbd5e1; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;" class="scroll-fade-up delay-100">
-                Be part of Botswana's most successful chess academy. Whether you're a beginner or aspiring master, we have a place for you.
-            </p>
-            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.2rem; padding: 15px 40px;" class="scroll-zoom delay-200">
-                <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Start Your Journey Today
-            </a>
-        </div>
-    </section>
+<!-- CALL TO ACTION -->
+<section style="padding: 80px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden;">
+    <div class="testimonial-chess-piece piece-1 animate-float" style="color: rgba(255,255,255,0.05); font-size: 8rem;">♞</div>
+    <div class="testimonial-chess-piece piece-2" style="color: rgba(255,255,255,0.05); font-size: 8rem; animation: slowSpin 20s linear infinite;">♜</div>
+    
+    <div class="container text-center">
+        <h2 style="color: white; font-size: 2.5rem; margin-bottom: 20px;" class="scroll-fade-up">Join Our Growing Family of Champions</h2>
+        <p style="color: #cbd5e1; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;" class="scroll-fade-up delay-100">
+            Be part of Botswana's most successful chess academy. Whether you're a beginner or aspiring master, we have a place for you.
+        </p>
+        <!-- FIXED: Combined both classes into one class attribute -->
+        <a href="contact.html" class="btn btn-primary pulse scroll-zoom delay-200" style="font-size: 1.2rem; padding: 15px 40px;">
+            <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Start Your Journey Today
+        </a>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer>
