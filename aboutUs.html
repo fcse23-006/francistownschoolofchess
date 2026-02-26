@@ -631,6 +631,38 @@
         .legal-link:hover {
             color: white;
         }
+
+        /* ===== MOBILE FOR WHO WE ARE SECTION ===== */
+        @media screen and (max-width: 768px) {
+            /* Force the 2-column layout to stack on mobile */
+            section > .container > div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+                gap: 30px !important;
+            }
+            
+            /* Adjust milestone cards for mobile */
+            .milestone-card {
+                padding: 20px !important;
+            }
+            
+            .milestone-year {
+                font-size: 2rem !important;
+            }
+            
+            .milestone-card h3 {
+                font-size: 1.2rem !important;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .section-title {
+                font-size: 1.8rem !important;
+            }
+            
+            .milestone-card {
+                padding: 15px !important;
+            }
+        }
     </style>
 </head>
 <body class="page-load">
