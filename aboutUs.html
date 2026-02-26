@@ -686,53 +686,9 @@
                 font-size: 2.5rem !important;
             }
         }
-
-        /* ===== LOADER ===== */
-        #loader {
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
-        }
-
-        #loader > div {
-            margin: 0 auto !important;
-            max-width: 90% !important;
-            padding: 25px 30px !important;
-        }
-
-        @media screen and (max-width: 480px) {
-            #loader > div {
-                padding: 20px 25px !important;
-            }
-            
-            #loader p {
-                font-size: 0.8rem !important;
-            }
-        }
     </style>
 </head>
 <body class="page-load">
-    <!-- ========== SITE LOADER ========== -->
-    <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-        <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <!-- Three bouncing dots -->
-            <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-            </div>
-            <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-        </div>
-    </div>
-
-    <style>
-        @keyframes bounce {
-            0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-            30% { transform: translateY(-12px); opacity: 1; }
-        }
-    </style>
-
     <!-- NAVIGATION-->
     <nav>
         <div class="nav-container">
@@ -763,7 +719,7 @@
                 About <span style="color: #3b5b9b;">Us</span>
             </h1>
             <p class="scroll-fade-up scroll-visible" style="color: white; font-size: 1.3rem; max-width: 700px; margin: 0 auto; animation-delay: 0.2s;">
-                Building champions, transforming lives, and growing chess in Botswana since 2013
+                Building champions, transforming lives, and growing chess in Botswana since 2018
             </p>
         </div>
     </section>
@@ -826,7 +782,7 @@
                     <i class="bi bi-graph-up-arrow" style="color: #f59e0b; font-size: 2rem; animation: float 2s infinite;"></i>
                 </div>
                 <div class="milestone-card scroll-flip delay-400" style="min-width: 250px; text-align: center;">
-                    <div style="font-size: 4.5rem; font-weight: 700; color: #3b5b9b; line-height: 1;">2013</div>
+                    <div style="font-size: 4.5rem; font-weight: 700; color: #3b5b9b; line-height: 1;">2018</div>
                     <p style="color: #64748b; font-size: 1.2rem; margin: 10px 0;">Year Founded</p>
                     <i class="bi bi-calendar-heart" style="color: #f59e0b; font-size: 2rem; animation: float 2s infinite 0.5s;"></i>
                 </div>
@@ -845,7 +801,7 @@
                 <div class="mission-card scroll-fade-up delay-100">
                     <i class="bi bi-bullseye mission-icon"></i>
                     <h3 style="margin-bottom: 15px; font-size: 1.6rem;">Our Mission</h3>
-                    <p style="color: #64748b;">To empower the youth of Francistown and beyond through the game of chess. We provide accessible, high-quality coaching to students of all ages.</p>
+                    <p style="color: #64748b;">To empower the youth through the game of chess. We provide accessible, high-quality coaching to students of all ages.</p>
                 </div>
                 <div class="mission-card scroll-fade-up delay-200">
                     <i class="bi bi-eye-fill mission-icon"></i>
@@ -878,12 +834,12 @@
                     </div>
                     <div class="impact-stat scroll-fade-up delay-200">
                         <i class="bi bi-gift-fill" style="color: #f59e0b; font-size: 2.5rem; margin-bottom: 15px;"></i>
-                        <div class="impact-stat-number">60</div>
+                        <div class="impact-stat-number">60+</div>
                         <p style="font-size: 1.1rem;">Chess Sets Donated</p>
                     </div>
                     <div class="impact-stat scroll-fade-up delay-300">
                         <i class="bi bi-building" style="color: #f59e0b; font-size: 2.5rem; margin-bottom: 15px;"></i>
-                        <div class="impact-stat-number">4+</div>
+                        <div class="impact-stat-number">15+</div>
                         <p style="font-size: 1.1rem;">Community Partners</p>
                     </div>
                 </div>
@@ -896,8 +852,8 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
                 <div class="honored-guest-card scroll-fade-right delay-100">
                     <i class="bi bi-building" style="color: #3b5b9b; font-size: 2rem;"></i>
-                    <h3 style="margin: 15px 0;">Primary Schools Donation</h3>
-                    <p>The academy donated <strong>60 chess sets</strong> to Primary Schools in the North East.</p>
+                    <h3 style="margin: 15px 0;">Chess Equipment Donation</h3>
+                    <p>The academy donated <strong>60+ chess sets</strong> to Schools in North East.</p>
                 </div>
                 <div class="honored-guest-card scroll-fade-up delay-200">
                     <i class="bi bi-ear-deaf" style="color: #3b5b9b; font-size: 2rem;"></i>
@@ -1192,12 +1148,12 @@
                     </details>
                 </div>
 
-                <!-- Sthemiso Ramakele -->
+                <!-- Sthembiso Ramakele -->
                 <div class="student-profile-card scroll-fade-up delay-500">
                     <div class="profile-header">
                         <div class="profile-avatar"><i class="bi bi-person-fill"></i></div>
                         <div class="profile-title">
-                            <h3 class="profile-name">Sthemiso Ramakele</h3>
+                            <h3 class="profile-name">Sthembiso Ramakele</h3>
                             <div class="profile-badges"><span class="badge-age">18 years</span></div>
                         </div>
                     </div>
@@ -1268,7 +1224,6 @@
         <p style="color: #cbd5e1; font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px;" class="scroll-fade-up delay-100">
             Be part of Botswana's most successful chess academy. Whether you're a beginner or aspiring master, we have a place for you.
         </p>
-        <!-- FIXED: Combined both classes into one class attribute -->
         <a href="contact.html" class="btn btn-primary pulse scroll-zoom delay-200" style="font-size: 1.2rem; padding: 15px 40px;">
             <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Start Your Journey Today
         </a>
@@ -1331,25 +1286,8 @@
         </div>
     </div>
 
- 
-    
     <!-- JAVASCRIPT -->
     <script>
-      
-
-        // Hide loader
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const loader = document.getElementById('loader');
-                if (loader) {
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }
-            }, 600);
-        });
-
         // Share functionality
         function toggleSharePopup() {
             const popup = document.getElementById('sharePopup');
@@ -1405,28 +1343,61 @@
         });
 
         // Intersection Observer for Scroll Animations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Select all elements with scroll animation classes
-            const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-fade-right, .scroll-fade-left, .scroll-zoom, .scroll-flip');
-            
-            // Create intersection observer
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    // Add scroll-visible class when element enters viewport
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('scroll-visible');
-                        
-                    }
-                });
-            }, {
-                threshold: 0.1, // Trigger when 10% of element is visible
-                rootMargin: '0px 0px -50px 0px' // Slight offset for better timing
-            });
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const animatedElements = document.querySelectorAll('.scroll-fade-up, .scroll-fade-right, .scroll-fade-left, .scroll-zoom, .scroll-flip');
+                
+                if (animatedElements.length > 0) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                entry.target.classList.add('scroll-visible');
+                            }
+                        });
+                    }, {
+                        threshold: 0.1,
+                        rootMargin: '0px 0px -50px 0px'
+                    });
 
-            // Observe each animated element
-            animatedElements.forEach(el => observer.observe(el));
+                    animatedElements.forEach(el => observer.observe(el));
+                }
+            }, 100);
         });
     </script>
 
+    
+<!-- ========== SITE LOADER ========== -->
+        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
+            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <!-- Three bouncing dots -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
+                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
+                </div>
+                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes bounce {
+                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+                30% { transform: translateY(-12px); opacity: 1; }
+            }
+        </style>
+
+        <script>
+            window.addEventListener('load', function() {
+                setTimeout(function() {
+                    const loader = document.getElementById('loader');
+                    loader.style.opacity = '0';
+                    setTimeout(function() {
+                        loader.style.display = 'none';
+                    }, 400);
+                }, 600);
+            });
+        </script>
+
 </body>
 </html>
+
