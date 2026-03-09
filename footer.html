@@ -1,0 +1,167 @@
+<!-- ========== SHARED FOOTER COMPONENT ========== -->
+
+<style>
+    footer {
+        background: #0f172a;
+        color: #e2e8f0;
+        padding: 60px 0 0;
+        margin-top: auto;
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem 40px;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    footer h4 {
+        color: white;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid #3b5b9b;
+        display: inline-block;
+    }
+
+    footer p {
+        color: #94a3b8;
+        font-size: 0.875rem;
+        line-height: 1.7;
+        margin-bottom: 0.5rem;
+    }
+
+    footer a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 0.875rem;
+        transition: color 0.2s;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    footer a:hover { color: #93b4ff; }
+
+    .footer-brand p {
+        font-size: 0.9rem;
+        line-height: 1.8;
+        max-width: 260px;
+    }
+
+    .footer-brand .brand-tagline {
+        color: #f59e0b;
+        font-weight: 600;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-bottom {
+        border-top: 1px solid #1e293b;
+        padding: 1.25rem 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .footer-bottom p {
+        color: #475569;
+        font-size: 0.8rem;
+        margin: 0;
+    }
+
+    .footer-bottom-links {
+        display: flex;
+        gap: 1.25rem;
+    }
+
+    .footer-bottom-links a {
+        color: #475569;
+        font-size: 0.8rem;
+        transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover { color: #93b4ff; }
+
+    /* ---- Responsive ---- */
+    @media (max-width: 900px) {
+        .footer-content {
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .footer-brand {
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .footer-content {
+            grid-template-columns: 1fr;
+        }
+        .footer-brand { grid-column: auto; }
+        .footer-bottom {
+            flex-direction: column;
+            text-align: center;
+        }
+        .footer-bottom-links {
+            justify-content: center;
+        }
+    }
+</style>
+
+<footer>
+    <div class="footer-content">
+        <!-- Brand -->
+        <div class="footer-brand">
+            <h4>Francistown School Of Chess</h4>
+            <p class="brand-tagline">Building champions since 2018</p>
+            <p>FIDE-certified coaching for all ages and skill levels. From beginners to competitive players — we develop minds through the game of chess.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+            <h4>Quick Links</h4>
+            <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
+            <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
+            <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
+            <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p>
+            <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+            <h4>Contact</h4>
+            <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p>
+            <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
+            <p><i class="bi bi-geo-alt-fill"></i> Francistown, Botswana</p>
+        </div>
+
+        <!-- Legal -->
+        <div>
+            <h4>Legal</h4>
+            <p><a href="privacy-policy.html"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
+            <p><a href="terms-of-service.html"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
+            <p><a href="cookie-policy.html"><i class="bi bi-cookie"></i> Cookie Policy</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+        <div class="footer-bottom-links">
+            <a href="privacy-policy.html">Privacy</a>
+            <a href="terms-of-service.html">Terms</a>
+            <a href="cookie-policy.html">Cookies</a>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,89 @@
+<!-- ========== SHARED NAVBAR COMPONENT ========== -->
+
+<!-- Navbar styles -->
+<link rel="stylesheet" href="CSS/navbar.css">
+
+<!-- ===== NAVBAR ===== -->
+<nav id="mainNav">
+    <div class="nav-container">
+        <a href="index.html" class="logo-bubble" title="Francistown School Of Chess">
+            <img src="logo.png" alt="FSC Logo">
+        </a>
+        <div class="logo-spacer"></div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="coaches.html">Trainers</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+        </ul>
+
+        <a href="contact.html" class="nav-cta" id="desktopCta">
+            <i class="bi bi-envelope-fill"></i> Contact Us
+        </a>
+
+        <button class="hamburger" id="hamburger" aria-label="Open navigation" aria-expanded="false" aria-controls="navDrawer">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</nav>
+
+<div id="drawerOverlay"></div>
+
+<div id="navDrawer" role="dialog" aria-label="Navigation menu" aria-modal="true">
+    <ul class="nav-drawer-links" id="drawerLinks">
+        <li><a href="index.html"><i class="bi bi-house-fill"></i> Home</a></li>
+        <li><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></li>
+        <li><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></li>
+        <li><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></li>
+        <li><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></li>
+    </ul>
+    <hr class="drawer-divider">
+    <a href="contact.html" class="nav-cta">
+        <i class="bi bi-envelope-fill"></i> Contact Us
+    </a>
+</div>
+
+<script>
+(function () {
+    /* Active link */
+    const page = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('#navLinks a, #drawerLinks a').forEach(a => {
+        if (a.getAttribute('href') === page) a.classList.add('active');
+    });
+
+    /* Scroll shadow */
+    window.addEventListener('scroll', () => {
+        document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    /* Drawer */
+    const hamburger = document.getElementById('hamburger');
+    const drawer    = document.getElementById('navDrawer');
+    const overlay   = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+        drawer.classList.add('open');
+        overlay.style.display = 'block';
+        hamburger.classList.add('open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+        drawer.classList.remove('open');
+        overlay.style.display = 'none';
+        hamburger.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () =>
+        drawer.classList.contains('open') ? closeDrawer() : openDrawer()
+    );
+    overlay.addEventListener('click', closeDrawer);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) closeDrawer(); });
+})();
+</script>

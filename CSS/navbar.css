@@ -1,0 +1,249 @@
+/* ========== NAVBAR STYLES ==========
+   Shared across all pages via navbar.html component.
+   ===================================== */
+
+/* -------------------- NAVBAR BASE -------------------- */
+#mainNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9000;
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    transition: box-shadow 0.3s ease;
+    overflow: visible;
+}
+
+#mainNav.scrolled {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+/* -------------------- LOGO BUBBLE -------------------- */
+.logo-bubble {
+    position: absolute;
+    top: 10px;
+    left: 1.5rem;
+    background: white;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(59, 91, 155, 0.3);
+    z-index: 9100;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-bubble:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 28px rgba(17, 124, 58, 0.55);
+}
+
+.logo-bubble img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.logo-spacer {
+    width: 100px;
+    flex-shrink: 0;
+}
+
+/* -------------------- DESKTOP NAV LINKS -------------------- */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-links li a {
+    color: #334155;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.45rem 0.85rem;
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+    white-space: nowrap;
+}
+
+.nav-links li a:hover {
+    color: #3b5b9b;
+    background: rgba(59, 91, 155, 0.08);
+}
+
+.nav-links li a.active {
+    color: #3b5b9b;
+    background: rgba(59, 91, 155, 0.1);
+    font-weight: 600;
+}
+
+/* -------------------- CTA BUTTON -------------------- */
+.nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #3b5b9b;
+    color: white !important;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.45rem 1.1rem;
+    border-radius: 7px;
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.nav-cta:hover {
+    background: #2c4a7a;
+    transform: translateY(-1px);
+}
+
+/* -------------------- HAMBURGER -------------------- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 9200;
+    margin-left: auto;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #334155;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* -------------------- DRAWER OVERLAY -------------------- */
+#drawerOverlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 9050;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+}
+
+/* -------------------- MOBILE DRAWER -------------------- */
+#navDrawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(300px, 85vw);
+    height: 100vh;
+    height: 100dvh;
+    background: #0f172a;
+    z-index: 9100;
+    display: flex;
+    flex-direction: column;
+    padding: 88px 1.5rem 2rem;
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                visibility 0.35s;
+}
+
+#navDrawer.open {
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.nav-drawer-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.nav-drawer-links li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.nav-drawer-links li a:hover {
+    color: white;
+    background: rgba(59, 91, 155, 0.25);
+    border-left-color: #3b5b9b;
+    padding-left: 1.25rem;
+}
+
+.nav-drawer-links li a.active {
+    color: #93b4ff;
+    background: rgba(59, 91, 155, 0.2);
+    border-left-color: #93b4ff;
+}
+
+#navDrawer .nav-cta {
+    margin-top: 1.5rem;
+    justify-content: center;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+.drawer-divider {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin: 1rem 0;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+@media (max-width: 900px) {
+    .nav-links  { display: none; }
+    #desktopCta { display: none; }
+    .hamburger  { display: flex; }
+}
+
+@media (max-width: 480px) {
+    .logo-bubble     { width: 68px; height: 68px; top: -14px; }
+    .logo-bubble img { width: 54px; height: 54px; }
+    .logo-spacer     { width: 84px; }
+}
