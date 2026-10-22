@@ -3,516 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francistown School Of Chess - Programs</title>
+    <title>Programs & Curriculum - Francistown School of Chess</title>
+    <meta name="description" content="Explore chess programs at Francistown School of Chess: Pawn Pals beginner classes, Competitive Squad, Master Class, and adult training.">
     <link rel="icon" type="image/png" href="logo.png">
-  
-    <!-- Main website stylesheet -->
-    <link rel="stylesheet" href="CSS/style.css">
-    <!-- Bootstrap Icons CDN -->
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="CSS/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-        /* -------------------- URGENCY TIMER STYLES -------------------- */
-        .limited-spots-banner {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            color: white;
-            box-shadow: 0 10px 25px rgba(220,38,38,0.3);
-            animation: pulse 2s infinite;
-        }
-        
-        .spots-countdown {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .spots-number {
-            background: white;
-            color: #dc2626;
-            font-size: 1.8rem;
-            font-weight: 700;
-            padding: 5px 20px;
-            border-radius: 50px;
-            display: inline-block;
-        }
-        
-        /* -------------------- TRUST BADGES STYLES -------------------- */
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            margin: 50px 0 30px;
-            flex-wrap: wrap;
-        }
-        
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: white;
-            padding: 15px 25px;
-            border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
-        }
-        
-        .trust-badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        
-        .trust-badge i {
-            font-size: 2rem;
-            color: #3b5b9b;
-        }
-        
-        .trust-badge-text {
-            font-weight: 600;
-            color: #0f172a;
-        }
-        
-        .trust-badge-sub {
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-        
-        /* -------------------- FLOATING BUTTONS STYLES -------------------- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 0;                     
-            align-items: center;       
-            z-index: 999;
-        }
-        
-        .floating-btn {
-            width: 48px;          
-            height: 48px;        
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;    
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #20b958;
-        }
-        
-        .share-btn {
-            background: #3b5b9b;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .share-btn:hover {
-            background: #2c4a7a;
-        }
-        
-        .share-wrapper {
-            position: relative;
-            margin-left: -15px;          
-        }
-        
-        .share-popup {
-            position: absolute;
-            bottom: 58px;                
-            right: 0;                    
-            background: white;
-            border-radius: 30px;
-            padding: 8px 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            display: none;
-            gap: 12px;
-            white-space: nowrap;
-            z-index: 1000;              
-        }
-        
-        .share-popup a {
-            color: #3b5b9b;
-            font-size: 1.3rem;     
-            transition: color 0.2s;
-        }
-        
-        .share-popup a:hover {
-            color: #f59e0b;
-        }
-        
-        /* -------------------- RESPONSIVE STYLES -------------------- */
-        @media (max-width: 768px) {
-            .limited-spots-banner {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-            
-            .trust-badges {
-                gap: 20px;
-            }
-            
-            .trust-badge {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            .floating-btn {
-                width: 42px;        
-                height: 42px;      
-                font-size: 1.4rem;  
-            }
-            .share-wrapper {
-                margin-left: -8px;        
-            }
-            .share-popup {
-                bottom: 52px;             
-                padding: 6px 10px;
-                gap: 10px;
-            }
-            .share-popup a {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* -------------------- LEGAL LINK STYLES -------------------- */
-        .legal-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .legal-link:hover {
-            color: white;
-        }
-    </style>
+
+    <!-- Untitled UI Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="page-load">
-    <!-- ========== NAVIGATION ========== -->
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo slide-in-left">
-                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Francistown School of Chess Crest" class="nav-logo-img">
+                <span class="nav-brand-title">Francistown School of Chess</span>
             </a>
-            <ul class="nav-links slide-in-right">
+
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="programs.html" class="active">Programs</a></li>
                 <li><a href="coaches.html">Trainers</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
-            </a>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-calendar2-check"></i> Enroll Now
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- ========== MAIN PROGRAMS SECTION ========== -->
-    <section style="padding-top: 40px;">
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="programs.html" class="active">Programs</a>
+            <a href="coaches.html">Trainers</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-block">
+            <i class="bi bi-calendar2-check"></i> Enroll Today
+        </a>
+    </div>
+
+    <!-- ==================== HEADER SECTION ==================== -->
+    <section class="section-sm section-bg">
+        <div class="container text-center">
+            <h1 style="margin-top: 0; margin-bottom: 16px;">Chess Programs for Every Ambition</h1>
+            <p style="font-size: 1.15rem; max-width: 680px; margin: 0 auto;">
+                Whether taking your first pawn steps or preparing for national FIDE-rated tournaments, our structured modules ensure steady cognitive and competitive growth.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== PROGRAMS CARDS ==================== -->
+    <section class="section">
         <div class="container">
-            <!-- URGENCY TIMER - LIMITED SPOTS -->
-            <div class="limited-spots-banner fade-in-up">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <div style="font-size: 2.5rem;">
-                        <i class="bi bi-exclamation-triangle-fill"></i>
+            <div class="grid-3">
+                <!-- Program 1: Pawn Pals -->
+                <div class="pricing-card hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-gray">Beginner Tier</span>
+                        <h3 style="margin-top: 12px;">Pawn Pals</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">Ages 4-9 · Zero prior experience required</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">BWP</span>
+                            <span class="price-amount">300</span>
+                            <span class="price-period">/ month</span>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="color: white; margin-bottom: 5px; font-size: 1.3rem;">
-                            <i class="bi bi-exclamation-triangle-fill"></i> LIMITED SPOTS AVAILABLE
-                        </h3>
-                        <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 1.1rem;">
-                            Enroll now before they're gone!
-                        </p>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Board geography & piece movements</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Basic checkmate patterns & pins</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Touch-move & tournament courtesy</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Small group format (max 1:4 ratio)</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Weekly fun mini-tournaments</span>
+                        </div>
                     </div>
+                    <a href="contact.html?program=pawn-pals" class="btn btn-secondary btn-block">Enroll in Pawn Pals</a>
                 </div>
-                <div style="background: rgba(255,255,255,0.2); padding: 10px 25px; border-radius: 50px;">
-                    <span style="font-weight: 600; font-size: 1.1rem;">
-                        <i class="bi bi-lightning-charge-fill"></i> ACT NOW
-                    </span>
+
+                <!-- Program 2: Competitive Squad -->
+                <div class="pricing-card featured hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-primary">Intermediate · Most Popular</span>
+                        <h3 style="margin-top: 12px;">Competitive Squad</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">Ages 8-14 · Familiar with basic rules</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">BWP</span>
+                            <span class="price-amount">300</span>
+                            <span class="price-period">/ month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Classical opening repertoire foundations</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Tactical motifs: forks, skewers, deflections</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Fundamental rook and king endgames</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Digital clock management and notation</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Preparation for national junior events</span>
+                        </div>
+                    </div>
+                    <a href="contact.html?program=competitive-squad" class="btn btn-primary btn-block">Enroll in Squad</a>
+                </div>
+
+                <!-- Program 3: Master Class -->
+                <div class="pricing-card hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-warning">Advanced Tier</span>
+                        <h3 style="margin-top: 12px;">Master Class</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">Ages 12+ · Active rated competitors</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">BWP</span>
+                            <span class="price-amount">350</span>
+                            <span class="price-period">/ month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Deep positional evaluation & pawn structures</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Grandmaster game study and prophylactic play</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Theoretical endgame calculation</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>FIDE rating tracking and opening prep</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Mentored by Botswana National Team coaches</span>
+                        </div>
+                    </div>
+                    <a href="contact.html?program=master-class" class="btn btn-secondary btn-block">Enroll in Master Class</a>
+                </div>
+
+                <!-- Program 4: Adult Improvers -->
+                <div class="pricing-card hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-gray">Adult Program</span>
+                        <h3 style="margin-top: 12px;">Adult Improvers</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">Age 18+ · Beginners through intermediate</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">BWP</span>
+                            <span class="price-amount">350</span>
+                            <span class="price-period">/ month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Evening studio & online weekend slots</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Strategic planning and blunder reduction</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Online platform game reviews (Lichess/Chess.com)</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Club rapid and blitz tournament nights</span>
+                        </div>
+                    </div>
+                    <a href="contact.html?program=adult-improvers" class="btn btn-secondary btn-block">Join Adult Improvers</a>
+                </div>
+
+                <!-- Program 5: Private 1-on-1 -->
+                <div class="pricing-card hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-primary">Private Coaching</span>
+                        <h3 style="margin-top: 12px;">Private 1-on-1</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">All ages · Tailored to individual goals</p>
+                        <div class="pricing-price">
+                            <span class="price-currency">BWP</span>
+                            <span class="price-amount">450</span>
+                            <span class="price-period">/ month</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Direct personal instruction with Senior Coaches</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Customized opening book tailored to your style</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>In-depth tournament game diagnostics</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Flexible scheduling (studio or Zoom)</span>
+                        </div>
+                    </div>
+                    <a href="contact.html?program=private-coaching" class="btn btn-secondary btn-block">Request Private Session</a>
+                </div>
+
+                <!-- Program 6: School Outreach -->
+                <div class="pricing-card hover-lift">
+                    <div class="pricing-header">
+                        <span class="badge badge-gray">Institutional</span>
+                        <h3 style="margin-top: 12px;">School Outreach</h3>
+                        <p style="color: var(--gray-600); font-size: 0.9375rem;">Primary & secondary schools in North Botswana</p>
+                        <div class="pricing-price">
+                            <span class="price-currency" style="font-size: 1.5rem; font-weight: 700; color: var(--gray-900);">Custom</span>
+                            <span class="price-period">/ school term</span>
+                        </div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>On-site school chess club management</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Curriculum materials and chess equipment</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Inter-school Francistown league organizing</span>
+                        </div>
+                        <div class="pricing-feature-item">
+                            <i class="bi bi-check2"></i>
+                            <span>Teacher training workshops</span>
+                        </div>
+                    </div>
+                    <a href="contact.html?program=school-outreach" class="btn btn-secondary btn-block">Inquire for Schools</a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Page Header -->
-            <div style="display: flex; flex-direction: column; align-items: center;">
-                <h1 class="fade-in-up" style="font-size: 2.5rem; margin-bottom: 0.5rem;">Programs Offered</h1>
-                <p class="fade-in-up" style="font-size: 1.2rem; color: #475569; margin-bottom: 3rem; animation-delay: 0.2s; max-width: 600px;">
-                    Find the perfect class for your skill level
-                </p>
+    <!-- ==================== CURRICULUM COMPARISON TABLE ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Compare Program Features</h2>
+                <p>A transparent overview of what is included in each instructional tier.</p>
             </div>
-            
-            <!-- Programs Grid -->
-            <div class="card-grid stagger-children">
-                <!-- Pawn Pals - Beginner -->
-                <div class="card hover-lift">
-                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">BEGINNER</span>
-                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Pawn Pals</h3>
-                    <p style="color: #475569;">Ages 4-9 · No experience needed</p>
-                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
-                    <ul style="list-style: none; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Piece movement & basic rules</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Checkmate patterns</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Simple tactics</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> 1:4 coach ratio</li>
-                    </ul>
-                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
-                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
-                </div>
 
-                <!-- Competitive Squad - Intermediate -->
-                <div class="card hover-lift">
-                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">INTERMEDIATE</span>
-                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Competitive Squad</h3>
-                    <p style="color: #475569;">Ages 8-14 · Knows basic rules</p>
-                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
-                    <ul style="list-style: none; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening principles</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Tactical motifs</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Endgame fundamentals</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Tournament preparation</li>
-                    </ul>
-                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
-                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
-                </div>
-
-                <!-- Advanced -->
-                <div class="card hover-lift">
-                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">ADVANCED</span>
-                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Advanced</h3>
-                    <p style="color: #475569;">Ages 18+ · Casual or competitive</p>
-                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
-                    <ul style="list-style: none; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Strategic planning</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Positional play</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening repertoires</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Weekly game analysis</li>
-                    </ul>
-                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 300/ month</p>
-                    <a href="contact.html" class="btn btn-primary pulse" style="width: 100%; text-align: center;">Enroll Now</a>
-                </div>
-
-                <!-- Private Coaching -->
-                <div class="card hover-lift">
-                    <span style="background: #3b5b9b20; color: #3b5b9b; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.875rem; font-weight: 600;">1-ON-1</span>
-                    <h3 style="margin-top: 1rem; font-size: 1.5rem;">Private Coaching</h3>
-                    <p style="color: #475569;">All ages · Personalized curriculum</p>
-                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
-                    <ul style="list-style: none; margin-bottom: 1.5rem;">
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Customized lesson plan</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Game analysis</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Opening preparation</li>
-                        <li style="margin-bottom: 0.5rem;"><i class="bi bi-check-circle-fill" style="color: #3b5b9b; margin-right: 8px;"></i> Flexible scheduling</li>
-                    </ul>
-                    <p style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1.5rem;">from BWP 200/hour</p>
-                    <a href="contact.html" class="btn btn-outline hover-lift" style="width: 100%; text-align: center;">Contact for Availability</a>
-                </div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Pawn Pals</th>
+                            <th>Competitive Squad</th>
+                            <th>Master Class</th>
+                            <th>Private 1-on-1</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Recommended Ages</strong></td>
+                            <td>4 - 9 Years</td>
+                            <td>8 - 14 Years</td>
+                            <td>12+ to Adults</td>
+                            <td>All Ages</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Sessions per Week</strong></td>
+                            <td>1 - 2 Sessions</td>
+                            <td>2 Sessions</td>
+                            <td>2 - 3 Sessions</td>
+                            <td>Customizable</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Class Ratio</strong></td>
+                            <td>1:4 Coach to Student</td>
+                            <td>1:6 Coach to Student</td>
+                            <td>1:6 Coach to Student</td>
+                            <td>1:1 Dedicated</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tournament Prep</strong></td>
+                            <td>Introductory</td>
+                            <td>Standard</td>
+                            <td>Advanced National</td>
+                            <td>Targeted Event Prep</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Game Notation Review</strong></td>
+                            <td>Basics</td>
+                            <td>Weekly Review</td>
+                            <td>Comprehensive Engine Analysis</td>
+                            <td>Custom Repertoire</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tournament Access</strong></td>
+                            <td>Club Mini-Events</td>
+                            <td>Full In-House & Regional</td>
+                            <td>National Championship Prep</td>
+                            <td>Complete Support</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monthly Tuition</strong></td>
+                            <td><strong>BWP 300</strong></td>
+                            <td><strong>BWP 300</strong></td>
+                            <td><strong>BWP 350</strong></td>
+                            <td><strong>BWP 450</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            
-            <!-- TRUST BADGES -->
-            <div class="trust-badges fade-in-up">
-                <div class="trust-badge hover-lift">
-                    <i class="bi bi-patch-check-fill"></i>
-                    <div>
-                        <div class="trust-badge-text">FIDE Certified Trainers</div>
+        </div>
+    </section>
+
+    <!-- ==================== FAQ SECTION ==================== -->
+    <section class="section">
+        <div class="container container-narrow">
+            <div class="section-header">
+                <h2>Common Questions About Programs</h2>
+                <p>Everything you need to know about enrollment, equipment, and starting out.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <button class="faq-question">
+                        <span>Does my child need to own chess equipment prior to joining?</span>
+                        <div class="faq-icon"><i class="bi bi-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        No equipment is required to begin. Our Francistown studio provides tournament-standard Staunton chess pieces, boards, digital clocks, and instructional workbooks during every session. For home practice, our trainers can recommend reputable sets and free training resources.
                     </div>
                 </div>
-                <div class="trust-badge hover-lift">
-                    <i class="bi bi-trophy-fill"></i>
-                    <div>
-                        <div class="trust-badge-text">Botswana Chess Fed.</div>
-                        <div class="trust-badge-sub">Official Partner</div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do we determine which class level is right?</span>
+                        <div class="faq-icon"><i class="bi bi-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        We conduct a 20-minute friendly diagnostic assessment with our Senior Coaches before enrollment. We look at basic movement knowledge, tactical awareness, and concentration to place the student in the group where they will flourish best.
                     </div>
                 </div>
-                <div class="trust-badge hover-lift">
-                    <i class="bi bi-award-fill"></i>
-                    <div>
-                        <div class="trust-badge-text">10+ Years</div>
-                        <div class="trust-badge-sub">Excellence in Teaching</div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Are online classes as effective as in-person studio sessions?</span>
+                        <div class="faq-icon"><i class="bi bi-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        Yes. Our live online sessions use interactive digital demo boards, annotated screen-sharing, and structured puzzles. Students solve challenges in real-time with direct voice feedback from the instructor.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can an adult with zero chess background join?</span>
+                        <div class="faq-icon"><i class="bi bi-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-answer">
+                        Absolutely. Our Adult Improver and Private 1-on-1 programs are designed specifically for mature learners. We focus on practical decision-making, pattern recognition, and building confidence in an encouraging setting.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-content">
-            <!-- About Section -->
-            <div>
-                <h4>Francistown School Of Chess</h4>
-                <p style="color: #cbd5e1;">Building champions since 2018</p>
-            </div>
-            <!-- Quick Links -->
-            <div>
-                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
-                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
-                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
-                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
-                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
-            </div>
-            <!-- Contact Information -->
-            <div>
-                <h4>Contact Us</h4>
-                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
-                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
-            </div>
-            <!-- Legal Links -->
-            <div>
-                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
-                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
-                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
-                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Take the First Step Today</h2>
+                <p>Book a diagnostic session or consult with our coaching team in Francistown to find the ideal program.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-calendar2-check"></i> Book an Assessment
+                    </a>
+                    <a href="coaches.html" class="btn btn-secondary btn-lg" style="color: var(--gray-900); background: #FFFFFF;">
+                        <i class="bi bi-person-badge"></i> Learn About Trainers
+                    </a>
+                </div>
             </div>
         </div>
-        <!-- Copyright -->
-        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-title">
+                        <img src="logo.png" alt="Francistown School of Chess Logo" style="height: 38px; width: auto;">
+                        <span>Francistown School of Chess</span>
+                    </div>
+                    <p>
+                        Botswana's premier chess institution dedicated to fostering cognitive growth, sportsmanship, and national championship excellence since 2018.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/26777012390" class="footer-social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" class="footer-social-btn" title="Facebook" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="mailto:info@francistownschoolofchess.com" class="footer-social-btn" title="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="programs.html">Programs</a>
+                        <a href="coaches.html">Trainers</a>
+                        <a href="schedule.html">Timetable</a>
+                        <a href="achievements.html">Achievements</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Academy Studio</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Francistown, Botswana</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+267 77 012 390</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@francistownschoolofchess.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Mon-Fri: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Francistown School of Chess. All rights reserved.</div>
+                <div style="color: var(--gray-500);">FIDE-Accredited Curriculum · Francistown, Botswana</div>
+            </div>
         </div>
     </footer>
 
-    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
-    <div class="floating-buttons">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
-           class="floating-btn whatsapp-btn" 
+    <!-- ==================== FLOATING ACTIONS ==================== -->
+    <div class="floating-actions">
+        <div class="share-popover" id="sharePopover">
+            <button onclick="shareOnPlatform('facebook')" title="Share on Facebook"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnPlatform('twitter')" title="Share on X"><i class="bi bi-twitter-x"></i></button>
+            <button onclick="shareOnPlatform('linkedin')" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></button>
+            <button onclick="shareOnPlatform('email')" title="Share via Email"><i class="bi bi-envelope"></i></button>
+            <button onclick="copyPageUrl()" title="Copy link to clipboard"><i class="bi bi-link-45deg"></i></button>
+        </div>
+
+        <button class="floating-action-btn btn-share" id="shareBtn" title="Share this page" aria-label="Share">
+            <i class="bi bi-share"></i>
+        </button>
+
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess%2C%20I%20am%20interested%20in%20the%20programs"
+           class="floating-action-btn btn-whatsapp" 
            target="_blank" 
-           title="Chat on WhatsApp">
+           rel="noopener"
+           title="Chat on WhatsApp" 
+           aria-label="Chat on WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
-        <!-- Share Button with Popup -->
-        <div class="share-wrapper">
-            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
-                <i class="bi bi-share-fill"></i>
-            </button>
-            <!-- Share Popup Menu -->
-            <div class="share-popup" id="sharePopup">
-                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
-                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
-            </div>
-        </div>
     </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-       
-        // Toggle share popup visibility
-        function toggleSharePopup() {
-            const popup = document.getElementById('sharePopup');
-            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // Share on social media platforms
-        function shareOn(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${title}&body=${url}`;
-                    break;
-            }
-
-            if (shareUrl) {
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            }
-            toggleSharePopup(); // Close popup after sharing
-        }
-
-        // Copy page link to clipboard
-        function copyPageLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-                toggleSharePopup(); // Close popup
-            });
-        }
-
-        // Close share popup when clicking outside
-        window.addEventListener('click', function(e) {
-            const popup = document.getElementById('sharePopup');
-            const shareBtn = document.querySelector('.share-btn');
-            
-            // Close if click is outside popup AND outside share button
-            if (popup && shareBtn && 
-                popup.style.display === 'flex' &&
-                !popup.contains(e.target) && 
-                !shareBtn.contains(e.target)) {
-                popup.style.display = 'none';
-            }
-        });
-    </script>
-
-    
-<!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
-        </div>
-
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
-
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
-            });
-        </script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

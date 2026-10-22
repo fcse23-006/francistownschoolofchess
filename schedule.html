@@ -3,454 +3,362 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francistown School Of Chess - Schedule & Pricing</title>
+    <title>Class Schedule & Timetables - Francistown School of Chess</title>
+    <meta name="description" content="View the in-person, online, and tournament schedule at Francistown School of Chess in Botswana.">
     <link rel="icon" type="image/png" href="logo.png">
-    
-    <!-- Main website stylesheet -->
-    <link rel="stylesheet" href="CSS/style.css">
-    <!-- Bootstrap Icons CDN -->
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="CSS/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-        /* -------------------- FLOATING BUTTONS STYLES -------------------- */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 0;                     
-            align-items: center;       
-            z-index: 999;
-        }
-        
-        .floating-btn {
-            width: 48px;          
-            height: 48px;        
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;    
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        .whatsapp-btn {
-            background: #25D366;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #20b958;
-        }
-        
-        .share-btn {
-            background: #3b5b9b;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .share-btn:hover {
-            background: #2c4a7a;
-        }
-        
-        .share-wrapper {
-            position: relative;
-            margin-left: -15px;          
-        }
-        
-        .share-popup {
-            position: absolute;
-            bottom: 58px;                
-            right: 0;                    
-            background: white;
-            border-radius: 30px;
-            padding: 8px 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            display: none;
-            gap: 12px;
-            white-space: nowrap;
-            z-index: 1000;              
-        }
-        
-        .share-popup a {
-            color: #3b5b9b;
-            font-size: 1.3rem;     
-            transition: color 0.2s;
-        }
-        
-        .share-popup a:hover {
-            color: #f59e0b;
-        }
-        
-        /* -------------------- RESPONSIVE STYLES -------------------- */
-        @media (max-width: 768px) {
-            /* Make 3-column grid stack on mobile */
-            [style*="grid-template-columns: repeat(3, 1fr)"] {
-                grid-template-columns: 1fr !important;
-            }
-            
-            /* Adjust contact bar for mobile */
-            [style*="display: flex; justify-content: center; gap: 40px;"] {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 20px !important;
-                border-radius: 30px !important;
-                padding: 20px !important;
-            }
-            
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            .floating-btn {
-                width: 42px;        
-                height: 42px;      
-                font-size: 1.4rem;  
-            }
-            .share-wrapper {
-                margin-left: -8px;        
-            }
-            .share-popup {
-                bottom: 52px;             
-                padding: 6px 10px;
-                gap: 10px;
-            }
-            .share-popup a {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* -------------------- LEGAL LINK STYLES -------------------- */
-        .legal-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .legal-link:hover {
-            color: white;
-        }
-    </style>
+
+    <!-- Untitled UI Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="page-load">
-    <!-- ========== NAVIGATION ========== -->
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo slide-in-left">
-                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Francistown School of Chess Crest" class="nav-logo-img">
+                <span class="nav-brand-title">Francistown School of Chess</span>
             </a>
-            <ul class="nav-links slide-in-right">
+
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="coaches.html">Trainers</a></li>
                 <li><a href="schedule.html" class="active">Schedule</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
-            </a>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-calendar2-check"></i> Enroll Now
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- ========== MAIN SCHEDULE SECTION ========== -->
-    <section style="padding: 60px 0; background: white;">
-        <div class="container">
-            <!-- Page Header -->
-            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px;">
-                <h1 style="font-size: 2.5rem; margin-bottom: 20px;">
-                    Learning That Fits Your Life
-                </h1>
-                <p style="font-size: 1.2rem; color: #475569;">Choose how, when, and where you want to learn chess...</p>
-                <div style="background: #f59e0b10; padding: 8px 20px; border-radius: 30px; display: inline-block; margin-top: 15px;">
-                    <span style="color: #f59e0b; font-weight: 600;">
-                        <i class="bi bi-geo-alt-fill"></i> Francistown
-                    </span>
-                </div>
-            </div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="programs.html">Programs</a>
+            <a href="coaches.html">Trainers</a>
+            <a href="schedule.html" class="active">Schedule</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-block">
+            <i class="bi bi-calendar2-check"></i> Enroll Today
+        </a>
+    </div>
 
-            <!-- 3 CARD OPTIONS - IN-PERSON, ONLINE, PRIVATE -->
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px;">
-                <!-- IN-PERSON CARD -->
-                <div class="card text-center hover-lift" style="padding: 40px 30px; border-radius: 24px;">
-                    <div style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;">
+    <!-- ==================== HEADER ==================== -->
+    <section class="section-sm section-bg">
+        <div class="container text-center">
+            <h1 style="margin-top: 0; margin-bottom: 16px;">Flexible Chess Training Schedules</h1>
+            <p style="font-size: 1.15rem; max-width: 680px; margin: 0 auto;">
+                Choose between physical studio training in Francistown, live online Zoom sessions, or tailored 1-on-1 private instruction.
+            </p>
+        </div>
+    </section>
+
+    <!-- ==================== 3 LEARNING FORMAT CARDS ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3">
+                <!-- Format 1 -->
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
                         <i class="bi bi-building"></i>
                     </div>
-                    <h3 style="margin-bottom: 15px; font-size: 1.8rem;">In-Person Classes</h3>
-                    <p style="color: #64748b; margin-bottom: 25px; font-size: 1.1rem;">Learn at our Francistown School Of Chess with professional equipment and personal guidance from certified coaches.</p>
-                    <div style="background: #f1f5f9; padding: 20px; border-radius: 16px; margin-bottom: 25px;">
-                        <p style="margin: 0 0 8px 0; font-weight: 600;"><i class="bi bi-clock-fill" style="color: #3b5b9b;"></i> Class Hours:</p>
-                        <p style="margin: 5px 0;"><strong>Monday - Friday</strong> 9:00 AM - 8:00 PM</p>
-                        <p style="margin: 5px 0;"><strong>Saturday</strong> 9:00 AM - 4:00 PM</p>
-                        <p style="margin: 5px 0 0 0; color: #3b5b9b;"><i class="bi bi-geo-alt-fill"></i> Francistown</p>
+                    <h3>In-Person Academy Studio</h3>
+                    <p style="margin-bottom: 24px;">Train at our dedicated Francistown facility with tournament equipment, wooden boards, and direct peer interaction.</p>
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
+                        <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 8px;">Studio Hours:</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Monday - Friday:</strong> 9:00 AM - 8:00 PM</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Saturday:</strong> 9:00 AM - 4:00 PM</div>
+                        <div style="font-size: 0.8125rem; color: var(--primary-700); margin-top: 8px;"><i class="bi bi-geo-alt"></i> Francistown Academy Studio</div>
                     </div>
-                    <div style="display: flex; justify-content: center; gap: 5px; margin-bottom: 25px;">
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">BEGINNER</span>
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">INTERMEDIATE</span>
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">ADVANCED</span>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Enroll In-Person</a>
-                </div>
-               
-                <!-- ONLINE CARD - HIGHLIGHTED AS MOST FLEXIBLE -->
-                <div class="card text-center hover-lift" style="padding: 40px 30px; border-radius: 24px; border: 3px solid #f59e0b; position: relative; background: white;">
-                    <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: #f59e0b; color: white; padding: 8px 25px; border-radius: 30px; font-size: 0.9rem; font-weight: 600; white-space: nowrap;">
-                        <i class="bi bi-star-fill"></i> MOST FLEXIBLE
-                    </div>
-                    <div style="font-size: 3rem; color: #f59e0b; margin-bottom: 20px; margin-top: 10px;">
-                        <i class="bi bi-camera-video"></i>
-                    </div>
-                    <h3 style="margin-bottom: 15px; font-size: 1.8rem;">Live Online</h3>
-                    <p style="color: #64748b; margin-bottom: 25px; font-size: 1.1rem;">Join from anywhere via Zoom. Interactive lessons, recorded sessions, and real-time feedback from coaches.</p>
-                    <div style="background: #f59e0b10; padding: 20px; border-radius: 16px; margin-bottom: 25px;">
-                        <p style="margin: 0 0 8px 0; font-weight: 600; color: #f59e0b;"><i class="bi bi-camera-video"></i> Live Online Schedule:</p>
-                        <p style="margin: 5px 0;"><strong>Monday - Friday</strong> 4:00 PM - 7:30 PM</p>
-                        <p style="margin: 5px 0 0 0;"><strong>Sunday</strong> 9:00 AM - 11:00 AM</p>
-                    </div>
-                    <div style="display: flex; justify-content: center; gap: 5px; margin-bottom: 25px; flex-wrap: wrap;">
-                        <span style="background: #f59e0b20; color: #f59e0b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">BEGINNER</span>
-                        <span style="background: #f59e0b20; color: #f59e0b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">INTERMEDIATE</span>
-                        <span style="background: #f59e0b20; color: #f59e0b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">ADVANCED</span>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary" style="background: #f59e0b; border: none; width: 100%;">Join Online</a>
+                    <a href="contact.html?format=in-person" class="btn btn-secondary btn-block">Enroll In-Person</a>
                 </div>
 
-                <!-- PRIVATE COACHING CARD -->
-                <div class="card text-center hover-lift" style="padding: 40px 30px; border-radius: 24px;">
-                    <div style="font-size: 3rem; color: #3b5b9b; margin-bottom: 20px;">
+                <!-- Format 2 -->
+                <div class="card card-highlighted hover-lift">
+                    <div class="card-header-badge">
+                        <div class="featured-icon featured-icon-warning" style="margin-bottom: 0;">
+                            <i class="bi bi-camera-video"></i>
+                        </div>
+                        <span class="badge badge-warning">Most Flexible</span>
+                    </div>
+                    <h3 style="margin-top: 16px;">Live Interactive Online</h3>
+                    <p style="margin-bottom: 24px;">Join structured video coaching from anywhere across Botswana. Interactive puzzles, digital demo boards, and game reviews.</p>
+                    <div style="background: var(--warning-25); border: 1px solid var(--warning-100); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
+                        <div style="font-weight: 600; color: var(--warning-700); margin-bottom: 8px;">Online Class Slots:</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Monday - Friday:</strong> 4:00 PM - 7:30 PM</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Sunday:</strong> 9:00 AM - 11:00 AM</div>
+                        <div style="font-size: 0.8125rem; color: var(--warning-700); margin-top: 8px;"><i class="bi bi-globe"></i> Zoom + Lichess Classroom</div>
+                    </div>
+                    <a href="contact.html?format=online" class="btn btn-primary btn-block">Join Online Classes</a>
+                </div>
+
+                <!-- Format 3 -->
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
                         <i class="bi bi-person-workspace"></i>
                     </div>
-                    <h3 style="margin-bottom: 15px; font-size: 1.8rem;">Private 1-on-1</h3>
-                    <p style="color: #64748b; margin-bottom: 25px; font-size: 1.1rem;">Customized coaching tailored to your goals. Choose your coach, choose your pace, choose your format.</p>
-                    <div style="background: #f1f5f9; padding: 20px; border-radius: 16px; margin-bottom: 25px;">
-                        <p style="margin: 0 0 8px 0; font-weight: 600;"><i class="bi bi-calendar-check" style="color: #3b5b9b;"></i> Your Schedule:</p>
-                        <p style="margin: 5px 0;"><strong>Any day, any time</strong></p>
-                        <p style="margin: 5px 0; color: #3b5b9b; font-weight: 600;"><i class="bi bi-clock"></i> Book 24 hours in advance</p>
-                        <p style="margin: 10px 0 0 0; font-size: 0.9rem;">In-person or online - you choose!</p>
+                    <h3>Private 1-on-1 Sessions</h3>
+                    <p style="margin-bottom: 24px;">Individualized deep dive tailored to your current rating and tactical weaknesses. Studio or remote format of your choice.</p>
+                    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 18px; margin-bottom: 24px;">
+                        <div style="font-weight: 600; color: var(--gray-900); margin-bottom: 8px;">Flexible Timetable:</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Available:</strong> Monday through Sunday</div>
+                        <div style="font-size: 0.9375rem; color: var(--gray-700); margin-bottom: 4px;"><strong>Booking:</strong> Reserve 24 hours in advance</div>
+                        <div style="font-size: 0.8125rem; color: var(--primary-700); margin-top: 8px;"><i class="bi bi-clock"></i> 60 or 90 minute sessions</div>
                     </div>
-                    <div style="display: flex; justify-content: center; gap: 5px; margin-bottom: 25px;">
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">BEGINNER</span>
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">INTERMEDIATE</span>
-                        <span style="background: #3b5b9b20; color: #3b5b9b; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">ADVANCED</span>
-                    </div>
-                    <a href="contact.html" class="btn btn-outline" style="width: 100%;">Request Private Session</a>
+                    <a href="contact.html?format=private" class="btn btn-secondary btn-block">Request Private Lesson</a>
                 </div>
             </div>
-            
-            <div style="border-bottom: 1px solid #e2e8f0; margin: 40px 0;"></div>
+        </div>
+    </section>
 
-            <!-- AVAILABILITY CALENDAR CTA -->
-            <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 24px; padding: 50px; text-align: center; margin-top: 30px; margin-bottom: 40px;" class="hover-lift">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 40px; flex-wrap: wrap;">
-                    <div style="font-size: 4rem; color: #f59e0b;">
-                        <i class="bi bi-calendar-check-fill"></i>
-                    </div>
-                    <div style="text-align: left;">
-                        <h3 style="color: white; font-size: 1.8rem; margin-bottom: 10px;">See Real-Time Availability</h3>
-                        <p style="color: #cbd5e1; font-size: 1.1rem; margin: 0;">Our coaches update availability daily. Check current open spots now.</p>
-                    </div>
-                    <a href="contact.html" class="btn btn-primary" style="background: #f59e0b; color: white; border: none; padding: 15px 35px; font-size: 1.1rem;">
-                        <i class="bi bi-clock-fill"></i> Check Availability
-                    </a>
-                </div>
+    <!-- ==================== MASTER WEEKLY TIMETABLE ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Weekly Academy Timetable</h2>
+                <p>Find the class schedule best suited to your schedule and skill tier.</p>
             </div>
 
-            <div style="border-bottom: 1px solid #e2e8f0; margin: 40px 0;"></div>
+            <div class="table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time Slot</th>
+                            <th>Program</th>
+                            <th>Target Group</th>
+                            <th>Location / Format</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Monday & Wednesday</strong></td>
+                            <td>4:00 PM - 5:30 PM</td>
+                            <td>Pawn Pals</td>
+                            <td>Beginners (Ages 4-9)</td>
+                            <td>Francistown Studio</td>
+                            <td><span class="badge badge-success">Open</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tuesday & Thursday</strong></td>
+                            <td>4:30 PM - 6:00 PM</td>
+                            <td>Competitive Squad</td>
+                            <td>Intermediate (Ages 8-14)</td>
+                            <td>Francistown Studio</td>
+                            <td><span class="badge badge-success">Open</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Monday to Friday</strong></td>
+                            <td>5:30 PM - 7:00 PM</td>
+                            <td>Live Online Cohort</td>
+                            <td>All Junior Levels</td>
+                            <td>Zoom Classroom</td>
+                            <td><span class="badge badge-success">Open</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Friday Evening</strong></td>
+                            <td>6:00 PM - 8:00 PM</td>
+                            <td>Adult Improver Club</td>
+                            <td>Adults & Improvers</td>
+                            <td>Francistown Studio</td>
+                            <td><span class="badge badge-success">Open</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday Morning</strong></td>
+                            <td>9:00 AM - 11:30 AM</td>
+                            <td>Master Class Academy</td>
+                            <td>Advanced Juniors</td>
+                            <td>Francistown Studio</td>
+                            <td><span class="badge badge-warning">Limited Spots</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Saturday Afternoon</strong></td>
+                            <td>1:00 PM - 4:00 PM</td>
+                            <td>Weekly Club Tournament</td>
+                            <td>Open to All Students</td>
+                            <td>Tournament Hall</td>
+                            <td><span class="badge badge-primary">Weekly Event</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
-            <!-- QUICK CONTACT FOR SCHEDULING -->
-            <div style="display: flex; justify-content: center; gap: 40px; margin-top: 50px; margin-bottom: 30px; flex-wrap: wrap; padding: 30px; background: white; border-radius: 50px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: #25D36610; padding: 10px; border-radius: 50%;">
-                        <i class="bi bi-whatsapp" style="color: #25D366; font-size: 1.8rem;"></i>
-                    </div>
-                    <div>
-                        <p style="margin: 0; font-size: 0.8rem; color: #64748b;">WhatsApp</p>
-                        <p style="margin: 0; font-weight: 600;">+267 77 012 390</p>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: #3b5b9b10; padding: 10px; border-radius: 50%;">
-                        <i class="bi bi-envelope-fill" style="color: #3b5b9b; font-size: 1.8rem;"></i>
-                    </div>
-                    <div>
-                        <p style="margin: 0; font-size: 0.8rem; color: #64748b;">Email</p>
-                        <p style="margin: 0; font-weight: 600;">info@francistownschoolofchess.com</p>
+    <!-- ==================== TOURNAMENT SCHEDULE ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tournament Calendar</h2>
+                <p>Regular competitive opportunities to earn medals, ratings, and real board experience.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card hover-lift">
+                    <div class="badge badge-primary" style="margin-bottom: 12px; align-self: flex-start;">Every Saturday</div>
+                    <h3>Weekly Club Swiss</h3>
+                    <p style="margin-bottom: 18px;">5 rounds of rapid chess (15 min + 10 sec increment) with official ratings and tournament notation.</p>
+                    <div style="font-size: 0.875rem; color: var(--gray-500); border-top: 1px solid var(--gray-200); padding-top: 14px; margin-top: auto;">
+                        <i class="bi bi-clock"></i> Saturdays 1:00 PM · Free for enrolled students
                     </div>
                 </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="background: #3b5b9b10; padding: 10px; border-radius: 50%;">
-                        <i class="bi bi-telephone-fill" style="color: #3b5b9b; font-size: 1.8rem;"></i>
+
+                <div class="card hover-lift">
+                    <div class="badge badge-warning" style="margin-bottom: 12px; align-self: flex-start;">Monthly Event</div>
+                    <h3>Francistown Grand Prix</h3>
+                    <p style="margin-bottom: 18px;">Inter-club monthly championship open to schools across the Northern district of Botswana with trophies and medals.</p>
+                    <div style="font-size: 0.875rem; color: var(--gray-500); border-top: 1px solid var(--gray-200); padding-top: 14px; margin-top: auto;">
+                        <i class="bi bi-trophy"></i> Last Saturday of each month
                     </div>
-                    <div>
-                        <p style="margin: 0; font-size: 0.8rem; color: #64748b;">Call Us</p>
-                        <p style="margin: 0; font-weight: 600;">+267 77 012 390</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="badge badge-gray" style="margin-bottom: 12px; align-self: flex-start;">Quarterly Event</div>
+                    <h3>Botswana Nationals Prep Camp</h3>
+                    <p style="margin-bottom: 18px;">Intensive 3-day boot camp with Coach Molefe reviewing opening repertoires, endgame technique, and clock composure.</p>
+                    <div style="font-size: 0.875rem; color: var(--gray-500); border-top: 1px solid var(--gray-200); padding-top: 14px; margin-top: auto;">
+                        <i class="bi bi-calendar-event"></i> School holiday sessions
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-content">
-            <!-- About Section -->
-            <div>
-                <h4>Francistown School Of Chess</h4>
-                <p style="color: #cbd5e1;">Building champions since 2018</p>
-            </div>
-            <!-- Quick Links -->
-            <div>
-                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
-                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
-                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
-                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
-                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
-            </div>
-            <!-- Contact Information -->
-            <div>
-                <h4>Contact Us</h4>
-                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
-                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
-            </div>
-            <!-- Legal Links -->
-            <div>
-                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
-                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
-                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
-                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Have Questions About Which Slot Fits Your Routine?</h2>
+                <p>Reach out to our academy coordinator. We accommodate school sports, study hours, and sibling schedules.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-envelope"></i> Contact Academy Office
+                    </a>
+                    <a href="https://wa.me/26777012390" class="btn btn-secondary btn-lg" style="color: var(--gray-900); background: #FFFFFF;" target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                </div>
             </div>
         </div>
-        <!-- Copyright -->
-        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-title">
+                        <img src="logo.png" alt="Francistown School of Chess Logo" style="height: 38px; width: auto;">
+                        <span>Francistown School of Chess</span>
+                    </div>
+                    <p>
+                        Botswana's premier chess institution dedicated to fostering cognitive growth, sportsmanship, and national championship excellence since 2018.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/26777012390" class="footer-social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" class="footer-social-btn" title="Facebook" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="mailto:info@francistownschoolofchess.com" class="footer-social-btn" title="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="programs.html">Programs</a>
+                        <a href="coaches.html">Trainers</a>
+                        <a href="schedule.html">Timetable</a>
+                        <a href="achievements.html">Achievements</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Academy Studio</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Francistown, Botswana</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+267 77 012 390</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@francistownschoolofchess.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Mon-Fri: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Francistown School of Chess. All rights reserved.</div>
+                <div style="color: var(--gray-500);">FIDE-Accredited Curriculum · Francistown, Botswana</div>
+            </div>
         </div>
     </footer>
 
-    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
-    <div class="floating-buttons">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
-           class="floating-btn whatsapp-btn" 
+    <!-- ==================== FLOATING ACTIONS ==================== -->
+    <div class="floating-actions">
+        <div class="share-popover" id="sharePopover">
+            <button onclick="shareOnPlatform('facebook')" title="Share on Facebook"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnPlatform('twitter')" title="Share on X"><i class="bi bi-twitter-x"></i></button>
+            <button onclick="shareOnPlatform('linkedin')" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></button>
+            <button onclick="shareOnPlatform('email')" title="Share via Email"><i class="bi bi-envelope"></i></button>
+            <button onclick="copyPageUrl()" title="Copy link to clipboard"><i class="bi bi-link-45deg"></i></button>
+        </div>
+
+        <button class="floating-action-btn btn-share" id="shareBtn" title="Share this page" aria-label="Share">
+            <i class="bi bi-share"></i>
+        </button>
+
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess%2C%20I%20have%20a%20question%20about%20the%20schedule"
+           class="floating-action-btn btn-whatsapp" 
            target="_blank" 
-           title="Chat on WhatsApp">
+           rel="noopener"
+           title="Chat on WhatsApp" 
+           aria-label="Chat on WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
-        <!-- Share Button with Popup -->
-        <div class="share-wrapper">
-            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
-                <i class="bi bi-share-fill"></i>
-            </button>
-            <!-- Share Popup Menu -->
-            <div class="share-popup" id="sharePopup">
-                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
-                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
-            </div>
-        </div>
     </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        
-        // Toggle share popup visibility
-        function toggleSharePopup() {
-            const popup = document.getElementById('sharePopup');
-            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // Share on social media platforms
-        function shareOn(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${title}&body=${url}`;
-                    break;
-            }
-
-            if (shareUrl) {
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            }
-            toggleSharePopup(); // Close popup after sharing
-        }
-
-        // Copy page link to clipboard
-        function copyPageLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-                toggleSharePopup(); // Close popup
-            });
-        }
-
-        // Close share popup when clicking outside
-        window.addEventListener('click', function(e) {
-            const popup = document.getElementById('sharePopup');
-            const shareBtn = document.querySelector('.share-btn');
-            
-            // Close if click is outside popup AND outside share button
-            if (popup && shareBtn && 
-                popup.style.display === 'flex' &&
-                !popup.contains(e.target) && 
-                !shareBtn.contains(e.target)) {
-                popup.style.display = 'none';
-            }
-        });
-    </script>
-
-    
-    <!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
-        </div>
-
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
-
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
-            });
-        </script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

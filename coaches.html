@@ -3,480 +3,401 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francistown School Of Chess - Coaches</title>
+    <title>Trainers & Coaching Staff - Francistown School of Chess</title>
+    <meta name="description" content="Meet the FIDE-certified coaches and Botswana National Team trainers guiding students at Francistown School of Chess.">
     <link rel="icon" type="image/png" href="logo.png">
-    
-    <!-- Main website stylesheet -->
-    <link rel="stylesheet" href="CSS/style.css">
-    <!-- Bootstrap Icons CDN -->
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="CSS/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
-    <style>
-        /* Base badge for coach certifications */
-        .coach-badge {
-            display: inline-block;
-            background: #f59e0b20;
-            color: #f59e0b;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Head coach special styling */
-        .head-coach {
-            border: 3px solid #f59e0b;
-            position: relative;
-        }
-        
-        .head-coach-badge {
-            background: #f59e0b;
-            color: white;
-            padding: 0.25rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
-        }
-        
-        /* Container for WhatsApp and Share buttons */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 0;                     
-            align-items: center;       
-            z-index: 999;
-        }
-        
-        /* Base styles for floating buttons */
-        .floating-btn {
-            width: 48px;          
-            height: 48px;        
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;    
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        /* WhatsApp button specific color */
-        .whatsapp-btn {
-            background: #25D366;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #20b958;
-        }
-        
-        /* Share button specific color - using brand blue */
-        .share-btn {
-            background: #3b5b9b;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .share-btn:hover {
-            background: #2c4a7a;
-        }
-        
-        /* Wrapper for share button popup positioning */
-        .share-wrapper {
-            position: relative;
-            margin-left: -15px;          
-        }
-        
-        /* Share popup menu */
-        .share-popup {
-            position: absolute;
-            bottom: 58px;                
-            right: 0;                    
-            background: white;
-            border-radius: 30px;
-            padding: 8px 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            display: none;
-            gap: 12px;
-            white-space: nowrap;
-            z-index: 1000;              
-        }
-        
-        .share-popup a {
-            color: #3b5b9b;
-            font-size: 1.3rem;     
-            transition: color 0.2s;
-        }
-        
-        .share-popup a:hover {
-            color: #f59e0b;
-        }
-        
-        /* Mobile responsive for floating buttons */
-        @media (max-width: 768px) {
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            .floating-btn {
-                width: 42px;        
-                height: 42px;      
-                font-size: 1.4rem;  
-            }
-            .share-wrapper {
-                margin-left: -8px;        
-            }
-            .share-popup {
-                bottom: 52px;             
-                padding: 6px 10px;
-                gap: 10px;
-            }
-            .share-popup a {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* Styles for footer legal links */
-        .legal-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .legal-link:hover {
-            color: white;
-        }
-    </style>
+
+    <!-- Untitled UI Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="page-load">
-    <!-- ========== NAVIGATION ========== -->
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo slide-in-left">
-                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Francistown School of Chess Crest" class="nav-logo-img">
+                <span class="nav-brand-title">Francistown School of Chess</span>
             </a>
-            <ul class="nav-links slide-in-right">
+
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="coaches.html" class="active">Trainers</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
-            </a>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-calendar2-check"></i> Enroll Now
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- ========== MAIN CONTENT ========== -->
-    <section>
-        <div class="container">
-            <!-- Page Header -->
-            <h1 class="text-center fade-in-up">Our Coaching Team</h1>
-            <p class="text-center fade-in-up" style="font-size: 1.2rem; color: #475569; max-width: 700px; margin: 0 auto 3rem; animation-delay: 0.2s;">
-                Meet the dedicated coaches shaping the next generation of chess champions in Francistown
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="programs.html">Programs</a>
+            <a href="coaches.html" class="active">Trainers</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-block">
+            <i class="bi bi-calendar2-check"></i> Enroll Today
+        </a>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <section class="section-sm section-bg">
+        <div class="container text-center">
+            <h1 style="margin-top: 0; margin-bottom: 16px;">Our Certified Coaching Team</h1>
+            <p style="font-size: 1.15rem; max-width: 680px; margin: 0 auto;">
+                Meet the passionate masters and experienced educators dedicated to nurturing the next generation of thinkers, competitors, and champions in Botswana.
             </p>
+        </div>
+    </section>
 
-            <!-- Coaches Grid -->
-            <div class="card-grid stagger-children">
-                <!-- HEAD COACH - Grivas Molefe -->
-                <div class="card text-center head-coach hover-lift" style="position: relative;">
-                    <div class="head-coach-badge pulse">HEAD COACH</div>
-                    <div style="width: 150px; height: 150px; background: #f59e0b20; border-radius: 50%; margin: 1.5rem auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem; border: 3px solid #f59e0b;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #f59e0b;"></i>
+    <!-- ==================== COACHES GRID ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="grid-3">
+                <!-- Coach 1: Molefe -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_molefe.jpg" alt="Coach Thapelo Grivas Molefe">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-primary">Head Coach</span>
+                        </div>
                     </div>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 0.25rem;">Thapelo Grivas Molefe</h3>
-                    <p style="color: #f59e0b; font-weight: 700; margin-bottom: 0.5rem; font-size: 1.1rem;">Senior Trainer</p>
-                    <p style="color: #475569; font-weight: 500; margin-bottom: 0.5rem;">Botswana National Team Coach</p>
-                    <span class="coach-badge">14 years experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Francistown's premier chess coach. Has produced 5 national champions. Specializes in strategic planning and tournament preparation.</p>
-                </div>
-
-                <!-- SENIOR COACH - Romeo -->
-                <div class="card text-center hover-lift">
-                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
-                    </div>
-                    <h3>Romeo Oabile</h3>
-                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Intermediate Coach</p>
-                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">5 years experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Specialist in youth development and opening repertoires. Has coached multiple junior national champions.</p>
-
-                </div>
-
-                <!-- Desire Machinya -->
-                <div class="card text-center hover-lift">
-                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
-                    </div>
-                    <h3>Desire Machinya</h3>
-                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Intermediate Coach</p>
-                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">5 years experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Tactical specialist. Expert in middlegame combinations and attacking play. Known for interactive teaching style.</p>
-                    
-                </div>
-
-                <!-- Blondie -->
-                <div class="card text-center hover-lift">
-                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
-                    </div>
-                    <h3>Blondie Mbulayi</h3>
-                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Beginner Coach</p>
-                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">2 years experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Endgame specialist. Focuses on positional understanding and converting advantages. Great with teenage improvers.</p>
-
-                </div>
-
-                <!-- Kago Matenge -->
-                <div class="card text-center hover-lift">
-                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
-                    </div>
-                    <h3>Kago Matenge</h3>
-                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Beginner Coach</p>
-                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">2 years experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Expert in teaching absolute beginners and children. Patient, encouraging, and makes learning chess fun.</p>
-
-                </div>
-
-                <!-- Chawapa Hobona -->
-                <div class="card text-center hover-lift">
-                    <div style="width: 150px; height: 150px; background: #e2e8f0; border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 4rem;" class="rotate-in">
-                        <i class="bi bi-person-fill float" style="color: #3b5b9b;"></i>
-                    </div>
-                    <h3>Chawapa Hobona</h3>
-                    <p style="color: #3b5b9b; font-weight: 700; margin-bottom: 0.5rem;">Development Coach</p>
-                    <span class="coach-badge" style="background: #3b5b9b20; color: #3b5b9b;">1 year experience</span>
-                    <p style="color: #475569; margin-top: 1rem;">Specializes in school programs and group coaching. Passionate about bringing chess to underserved communities.</p>
-                </div>
-            </div>
-
-            <!-- Coaches Statistics -->
-            <div style="background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-radius: 16px; padding: 40px; margin-top: 60px; color: white;" class="fade-in-up">
-                <h2 class="text-center" style="color: white; margin-bottom: 2rem;">
-                    <i class="bi bi-bar-chart-fill float" style="margin-right: 10px; color: #f59e0b;"></i> A quantitative look at our coaching staff.
-                </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 30px; text-align: center;" class="stagger-children">
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">7</div>
-                        <div style="color: #cbd5e1;"><i class="bi bi-people-fill"></i> Dedicated Coaches</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">8</div>
-                        <div style="color: #cbd5e1;"><i class="bi bi-clock-fill"></i> Combined Years Experience</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">10+</div>
-                        <div style="color: #cbd5e1;"><i class="bi bi-trophy-fill"></i> National Champions Trained</div>
-                    </div>
-                    <div>
-                        <div style="font-size: 2.5rem; font-weight: 700; color: #f59e0b;" class="glow">100+</div>
-                        <div style="color: #cbd5e1;"><i class="bi bi-people-fill"></i> Students Taught</div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Thapelo Grivas Molefe</h3>
+                        <div class="coach-title">Senior Trainer · Botswana National Team Coach</div>
+                        <p class="coach-bio">
+                            Francistown's premier chess coach with more than 14 years of elite competitive and instructional experience. Has trained 5 Botswana junior national champions and specializes in grandmaster strategy, prophylactic thinking, and tournament psychology.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Strategic Planning</span>
+                            <span class="badge badge-gray">National Squads</span>
+                            <span class="badge badge-gray">Tournament Prep</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-award"></i> 14+ Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- All Coaches Credentials -->
-            <div style="background: #f1f5f9; border-radius: 16px; padding: 40px; margin-top: 40px;" class="fade-in-up">
-                <h2 class="text-center" style="margin-bottom: 1rem;">
-                    <i class="bi bi-patch-check-fill float" style="color: #3b5b9b; margin-right: 10px;"></i> All Our Coaches Are
-                </h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: center;" class="stagger-children">
-                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Botswana Chess Federation Certified</div>
-                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> First Aid Trained</div>
-                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Child Protection Experience</div>
-                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Tournament Experience</div>
-                    <div class="hover-lift"><i class="bi bi-check-circle-fill" style="color: #22c55e; margin-right: 5px;"></i> Continuous Professional Development</div>
+                <!-- Coach 2: Romeo Oabile -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_romeo.jpg" alt="Coach Romeo Oabile">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Senior Trainer</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Romeo Oabile</h3>
+                        <div class="coach-title">Intermediate Coach · Youth Development</div>
+                        <p class="coach-bio">
+                            Specialist in building robust opening repertoires and intermediate tactical mastery. Romeo has guided junior competitors from local school tournaments through to regional Botswana national qualifiers with patient, methodical mentorship.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Opening Repertoires</span>
+                            <span class="badge badge-gray">Youth Development</span>
+                            <span class="badge badge-gray">Calculation</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 5 Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown & Online</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Call to action -->
-            <div style="text-align: center; margin-top: 50px;" class="fade-in-up">
-                <h2 style="margin-bottom: 1rem;">
-                    <i class="bi bi-people-fill float" style="color: #3b5b9b; margin-right: 10px;"></i> Learn from Francistown's Best Coaches
-                </h2>
-                <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #475569;">
-                    <i class="bi bi-trophy-fill float" style="color: #f59e0b;"></i> Join the academy that produces champions.
-                </p>
-                <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
-                    <i class="bi bi-pencil-fill" style="margin-right: 8px;"></i> Enroll Now
-                </a>
+
+                <!-- Coach 3: Desire Machinya -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_desire.jpg" alt="Coach Desire Machinya">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Trainer</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Desire Machinya</h3>
+                        <div class="coach-title">Tactical Specialist · Club Instructor</div>
+                        <p class="coach-bio">
+                            An aggressive, dynamic chess instructor with a deep focus on middlegame combinational motifs, king hunts, and initiative play. Known across Francistown for high-energy, interactive analysis sessions that ignite students' passion.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Middlegame Tactics</span>
+                            <span class="badge badge-gray">Attacking Play</span>
+                            <span class="badge badge-gray">Puzzle Mastery</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 5 Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coach 4: Blondie Mbulayi -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_blondie.jpg" alt="Coach Blondie Mbulayi">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Trainer</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Blondie Mbulayi</h3>
+                        <div class="coach-title">Endgame Specialist · Junior Lead</div>
+                        <p class="coach-bio">
+                            Focuses on structural understanding, king-and-pawn conversions, and positional patience. Blondie excels at mentoring teenage students and female junior competitors, fostering confidence and competitive poise.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Endgame Technique</span>
+                            <span class="badge badge-gray">Girls in Chess</span>
+                            <span class="badge badge-gray">Positional Play</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 2+ Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown & Online</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coach 5: Kago Matenge -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper" style="display: flex; align-items: center; justify-content: center; background: var(--primary-50);">
+                        <div class="featured-icon featured-icon-primary" style="width: 80px; height: 80px; font-size: 2.5rem; margin-bottom: 0;">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Beginner Lead</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Kago Matenge</h3>
+                        <div class="coach-title">Pawn Pals Lead · Early Childhood Specialist</div>
+                        <p class="coach-bio">
+                            Expert at introducing young children aged 4-8 to chess through storytelling, engaging mini-games, and positive reinforcement. Patient and methodical, ensuring every beginner develops a lifelong appreciation for the game.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Early Childhood</span>
+                            <span class="badge badge-gray">Pawn Pals</span>
+                            <span class="badge badge-gray">Fundamentals</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 2 Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coach 6: Chawapa Hobona -->
+                <div class="coach-card hover-lift">
+                    <div class="coach-image-wrapper" style="display: flex; align-items: center; justify-content: center; background: var(--gray-100);">
+                        <div class="featured-icon featured-icon-gray" style="width: 80px; height: 80px; font-size: 2.5rem; margin-bottom: 0;">
+                            <i class="bi bi-person-fill"></i>
+                        </div>
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Tournament Director</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Chawapa Hobona</h3>
+                        <div class="coach-title">Tournament Director & Arbiter</div>
+                        <p class="coach-bio">
+                            Oversees weekly academy tournament pairings, Swiss-system schedules, and FIDE fair-play protocol. Prepares competitive squad members for the realities of tournament clocks, scoresheets, and arbiter interactions.
+                        </p>
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span class="badge badge-gray">Tournament Director</span>
+                            <span class="badge badge-gray">FIDE Rules</span>
+                            <span class="badge badge-gray">Event Arbiter</span>
+                        </div>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 3 Years Experience</span>
+                            <span><i class="bi bi-geo-alt"></i> Francistown</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
-    <footer>
-        <div class="footer-content">
-            <!-- About Section -->
-            <div>
-                <h4>Francistown School Of Chess</h4>
-                <p style="color: #cbd5e1;">Building champions since 2018</p>
+    <!-- ==================== COACHING PHILOSOPHY ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>How We Teach Chess</h2>
+                <p>Modern chess pedagogy balances creative exploration with rigorous tactical discipline.</p>
             </div>
-            <!-- Quick Links -->
-            <div>
-                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
-                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
-                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
-                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
-                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
-            </div>
-            <!-- Contact Information -->
-            <div>
-                <h4>Contact Us</h4>
-                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
-                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
-            </div>
-            <!-- Legal Links -->
-            <div>
-                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
-                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
-                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
-                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
+
+            <div class="grid-4">
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
+                        <i class="bi bi-mortarboard"></i>
+                    </div>
+                    <h4>Structured Syllabus</h4>
+                    <p class="text-sm">Carefully sequenced lesson plans from piece movement to nuanced rook and pawn endings.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-warning">
+                        <i class="bi bi-bullseye"></i>
+                    </div>
+                    <h4>Game Diagnostics</h4>
+                    <p class="text-sm">Every student tournament game is recorded in algebraic notation and reviewed with coaches.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
+                        <i class="bi bi-hourglass-split"></i>
+                    </div>
+                    <h4>Clock & Time Management</h4>
+                    <p class="text-sm">Practical practice with classical, rapid, and blitz time controls to build mental composure.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-gray">
+                        <i class="bi bi-heart"></i>
+                    </div>
+                    <h4>Supportive Environment</h4>
+                    <p class="text-sm">Building emotional resilience, graceful sportsmanship, and respect for every opponent.</p>
+                </div>
             </div>
         </div>
-        <!-- Copyright -->
-        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
+    </section>
+
+    <!-- ==================== CTA BANNER ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Schedule a Consultation With Head Coach Molefe</h2>
+                <p>Discuss your child's chess aspirations, review current rating milestones, and find the right mentorship group.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-calendar2-check"></i> Book Consultation
+                    </a>
+                    <a href="programs.html" class="btn btn-secondary btn-lg" style="color: var(--gray-900); background: #FFFFFF;">
+                        <i class="bi bi-grid-3x3-gap"></i> View Program Options
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-title">
+                        <img src="logo.png" alt="Francistown School of Chess Logo" style="height: 38px; width: auto;">
+                        <span>Francistown School of Chess</span>
+                    </div>
+                    <p>
+                        Botswana's premier chess institution dedicated to fostering cognitive growth, sportsmanship, and national championship excellence since 2018.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/26777012390" class="footer-social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" class="footer-social-btn" title="Facebook" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="mailto:info@francistownschoolofchess.com" class="footer-social-btn" title="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="programs.html">Programs</a>
+                        <a href="coaches.html">Trainers</a>
+                        <a href="schedule.html">Timetable</a>
+                        <a href="achievements.html">Achievements</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Academy Studio</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Francistown, Botswana</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+267 77 012 390</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@francistownschoolofchess.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Mon-Fri: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Francistown School of Chess. All rights reserved.</div>
+                <div style="color: var(--gray-500);">FIDE-Accredited Curriculum · Francistown, Botswana</div>
+            </div>
         </div>
     </footer>
 
-    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
-    <div class="floating-buttons">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
-           class="floating-btn whatsapp-btn" 
+    <!-- ==================== FLOATING ACTIONS ==================== -->
+    <div class="floating-actions">
+        <div class="share-popover" id="sharePopover">
+            <button onclick="shareOnPlatform('facebook')" title="Share on Facebook"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnPlatform('twitter')" title="Share on X"><i class="bi bi-twitter-x"></i></button>
+            <button onclick="shareOnPlatform('linkedin')" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></button>
+            <button onclick="shareOnPlatform('email')" title="Share via Email"><i class="bi bi-envelope"></i></button>
+            <button onclick="copyPageUrl()" title="Copy link to clipboard"><i class="bi bi-link-45deg"></i></button>
+        </div>
+
+        <button class="floating-action-btn btn-share" id="shareBtn" title="Share this page" aria-label="Share">
+            <i class="bi bi-share"></i>
+        </button>
+
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess%2C%20I%20would%20like%20to%20learn%20more%20about%20the%20coaches"
+           class="floating-action-btn btn-whatsapp" 
            target="_blank" 
-           title="Chat on WhatsApp">
+           rel="noopener"
+           title="Chat on WhatsApp" 
+           aria-label="Chat on WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
-        <!-- Share Button with Popup -->
-        <div class="share-wrapper">
-            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
-                <i class="bi bi-share-fill"></i>
-            </button>
-            <!-- Share Popup Menu -->
-            <div class="share-popup" id="sharePopup">
-                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
-                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
-            </div>
-        </div>
     </div>
 
-    <!-- ========== JAVASCRIPT ========== -->
-    <script>
-        // Toggle share popup visibility
-        function toggleSharePopup() {
-            const popup = document.getElementById('sharePopup');
-            popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-        }
-
-        // Share on social media platforms
-        function shareOn(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${title}&body=${url}`;
-                    break;
-            }
-
-            if (shareUrl) {
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            }
-            toggleSharePopup(); // Close popup after sharing
-        }
-
-        // Copy page link to clipboard
-        function copyPageLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-                toggleSharePopup(); // Close popup
-            });
-        }
-
-        // EVENT LISTENERS
-       
-        // Close share popup when clicking outside
-        window.addEventListener('click', function(e) {
-            const popup = document.getElementById('sharePopup');
-            const shareBtn = document.querySelector('.share-btn');
-            
-            // Close if click is outside popup AND outside share button
-            if (popup && shareBtn && 
-                popup.style.display === 'flex' &&
-                !popup.contains(e.target) && 
-                !shareBtn.contains(e.target)) {
-                popup.style.display = 'none';
-            }
-        });
-    </script>
-
-    
-<!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
-        </div>
-
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
-
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
-            });
-        </script>
-
+    <script src="js/main.js"></script>
 </body>
 </html>

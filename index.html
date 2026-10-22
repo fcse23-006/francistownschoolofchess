@@ -3,739 +3,558 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francistown School Of Chess - Home</title>
+    <title>Francistown School of Chess - Premier Chess Academy in Botswana</title>
+    <meta name="description" content="Francistown School of Chess is Botswana's premier chess institution offering FIDE-certified instruction, youth development, competitive squad training, and private lessons.">
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!-- ========== EXTERNAL CSS LIBRARIES ========== -->
-    <!-- Local Bootstrap Icons -->
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="CSS/bootstrap-icons.css">
-    <!-- Bootstrap Icons CDN (fallback) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Main website stylesheet -->
-    <link rel="stylesheet" href="CSS/style.css">
-    
-    <!-- Osano Cookie Consent CSS (3rd party) -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    
-    <style>
-        /* -------------------- COOKIE POPUP STYLES -------------------- */
-        /* Makes Osano cookie popup */
-        .cc-window {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-            position: fixed !important;
-            bottom: 80px !important;
-            left: 20px !important;
-            right: auto !important;
-            background: white !important;
-            padding: 20px !important;
-            border-radius: 12px !important;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
-            z-index: 10000 !important;
-            max-width: 350px !important;
-            border: 2px solid #3b5b9b !important;
-            animation: slideInUp 0.5s ease !important;
-        }
-        
-        /* Cookie message text styling */
-        .cc-message {
-            color: #1e293b !important;
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 15px !important;
-            display: block !important;
-        }
-        
-        /* Adds Bootstrap info icon before message */
-        .cc-message::before {
-            content: '\F430'; /* Unicode for bi-info-circle-fill */
-            font-family: 'bootstrap-icons' !important;
-            color: #3b5b9b;
-            margin-right: 8px;
-            font-size: 1rem;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        
-        /* Button container - flex layout */
-        .cc-compliance {
-            display: flex !important;
-            gap: 10px !important;
-        }
-        
-        /* Base button styles for both Accept and Learn More */
-        .cc-btn {
-            flex: 1 !important;
-            padding: 0.5rem 1rem !important;
-            font-size: 0.9rem !important;
-            border-radius: 6px !important;
-            font-weight: 500 !important;
-            border: none !important;
-            transition: all 0.2s !important;
-            text-align: center !important;
-            cursor: pointer !important;
-            height: auto !important;
-            line-height: normal !important;
-        }
-        
-        /* Accept button - solid blue */
-        .cc-dismiss {
-            background: #3b5b9b !important;
-            color: white !important;
-            border: none !important;
-        }
-        
-        .cc-dismiss:hover {
-            background: #2c4a7a !important;
-            transform: translateY(-2px) !important;
-        }
-        
-        /* Learn More button - outlined */
-        .cc-link {
-            background: transparent !important;
-            border: 2px solid #3b5b9b !important;
-            color: #3b5b9b !important;
-            text-decoration: none !important;
-            padding: 0.5rem 1rem !important;
-            margin: 0 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-        }
-        
-        .cc-link:hover {
-            background: #3b5b9b !important;
-            color: white !important;
-            transform: translateY(-2px) !important;
-        }
-        
-        /* -------------------- MOBILE RESPONSIVE STYLES -------------------- */
-        @media (max-width: 768px) {
-            .cc-window {
-                bottom: 70px !important;
-                left: 15px !important;
-                right: 15px !important;
-                max-width: none !important;
-            }
-            
-            .cc-compliance {
-                flex-direction: row !important;
-            }
-        }
-        
-        /* -------------------- ANIMATIONS -------------------- */
-        /* Slide up animation for cookie popup */
-        @keyframes slideInUp {
-            from {
-                transform: translateY(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
 
-        /* Container for WhatsApp and Share buttons */
-        .floating-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            gap: 0;                     
-            align-items: center;       
-            z-index: 999;
-        }
-        
-        /* Base styles for floating buttons */
-        .floating-btn {
-            width: 48px;          
-            height: 48px;        
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;    
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: white;
-        }
-        
-        .floating-btn:hover {
-            transform: scale(1.1);
-        }
-        
-        /* WhatsApp button specific color */
-        .whatsapp-btn {
-            background: #25D366;
-        }
-        
-        .whatsapp-btn:hover {
-            background: #20b958;
-        }
-        
-        /* Share button specific color */
-        .share-btn {
-            background: #3b5b9b;
-            cursor: pointer;
-            border: none;
-        }
-        
-        .share-btn:hover {
-            background: #2c4a7a;
-        }
-        
-        /* Wrapper for share button popup positioning */
-        .share-wrapper {
-            position: relative;
-            margin-left: -15px;          
-        }
-        
-        /* Share popup menu */
-        .share-popup {
-            position: absolute;
-            bottom: 58px;                
-            right: 0;                    
-            background: white;
-            border-radius: 30px;
-            padding: 8px 12px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-            display: none;
-            gap: 12px;
-            white-space: nowrap;
-            z-index: 1000;              
-        }
-        
-        .share-popup a {
-            color: #3b5b9b;
-            font-size: 1.3rem;     
-            transition: color 0.2s;
-        }
-        
-        .share-popup a:hover {
-            color: #f59e0b;
-        }
-        
-        /* Mobile responsive for floating buttons */
-        @media (max-width: 768px) {
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            .floating-btn {
-                width: 42px;        
-                height: 42px;      
-                font-size: 1.4rem;  
-            }
-            .share-wrapper {
-                margin-left: -8px;        
-            }
-            .share-popup {
-                bottom: 52px;             
-                padding: 6px 10px;
-                gap: 10px;
-            }
-            .share-popup a {
-                font-size: 1.2rem;
-            }
-        }
-        
-        /* Styles for footer legal links */
-        .legal-link {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.2s;
-        }
-        
-        .legal-link:hover {
-            color: white;
-        }
-    </style>
+    <!-- Untitled UI Design System Stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
-<body class="page-load">
-    <!-- ========== NAVIGATION ========== -->
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo slide-in-left">
-                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Francistown School of Chess Crest" class="nav-logo-img">
+                <span class="nav-brand-title">Francistown School of Chess</span>
             </a>
-            <ul class="nav-links slide-in-right">
-                <li><a href="index.html"class="active">Home</a></li>
+
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="coaches.html">Trainers</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
-            </a>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-calendar2-check"></i> Enroll Now
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION ========== -->
-    <section class="hero">
-        <!-- Chess piece decorations -->
-        <div class="testimonial-chess-piece piece-1">♞</div>
-        <div class="testimonial-chess-piece piece-2">♝</div>
-        <div class="testimonial-chess-piece piece-3">♜</div>
-        <div class="testimonial-chess-piece piece-4">♛</div>  
-        <div class="testimonial-chess-piece piece-5">♚</div> 
-        <div class="testimonial-chess-piece piece-6">♟</div> 
-        
-        <div class="container text-center">
-            <h1 class="fade-in-up">Where Grandmasters Are Made</h1>
-            <p class="fade-in-up" style="color: white; font-size: 1.25rem; max-width: 700px; margin: 0 auto 2rem; animation-delay: 0.2s;">
-                FIDE-certified coaches · Small groups · Weekly tournaments
-            </p>
-            <div class="fade-in-up" style="animation-delay: 0.4s;">
-                <a href="contact.html" class="btn btn-primary pulse" style="margin-right: 1rem;">Enroll Now</a>
-                <a href="programs.html" class="btn btn-outline" style="background: white; color: #0f172a;">View Programs</a>
-            </div>
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="programs.html">Programs</a>
+            <a href="coaches.html">Trainers</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
         </div>
-    </section>
+        <a href="contact.html" class="btn btn-primary btn-block">
+            <i class="bi bi-calendar2-check"></i> Enroll Today
+        </a>
+    </div>
 
-    <!-- ========== WHY CHOOSE US SECTION ========== -->
-    <section>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section">
         <div class="container">
-            <h2 class="text-center glow">Why Choose Us?</h2>
-            <div class="card-grid stagger-children">
-                <!-- Elite Coaches Card -->
-                <div class="card text-center hover-lift">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
-                        <i class="bi bi-people-fill float"></i>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <h1>Where Grandmasters and Strategic Minds Are Made</h1>
+                    <p class="hero-description">
+                        Structured FIDE-certified training, small group mentorship, and weekly tournament practice designed to build critical thinking, focus, and national champions.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="programs.html" class="btn btn-primary btn-lg">
+                            <i class="bi bi-grid-3x3-gap"></i> Explore Programs
+                        </a>
+                        <a href="coaches.html" class="btn btn-secondary btn-lg">
+                            <i class="bi bi-person-badge"></i> Meet Our Coaches
+                        </a>
                     </div>
-                    <h3>Elite Coaches</h3>
-                    <p>Learn from FIDE-certified instructors with 10+ years of teaching experience.</p>
-                </div>
-                <!-- Tournament Ready Card -->
-                <div class="card text-center hover-lift">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
-                        <i class="bi bi-trophy-fill float"></i>
-                    </div>
-                    <h3>Tournament Ready</h3>
-                    <p>Monthly in-house tournaments and external competition preparation.</p>
-                </div>
-                <!-- Progress Tracking Card -->
-                <div class="card text-center hover-lift">
-                    <div style="font-size: 3rem; margin-bottom: 1rem; color: #3b5b9b;">
-                        <i class="bi bi-bar-chart-fill float"></i>
-                    </div>
-                    <h3>Progress Tracking</h3>
-                    <p>Regular assessments, rating tracking, and personalized feedback.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== TESTIMONIAL SLIDER SECTION ========== -->
-    <section class="testimonial-section" style="padding: 80px 0;">
-        <div class="testimonial-chess-piece piece-1">♞</div>
-        <div class="testimonial-chess-piece piece-2">♝</div>
-        <div class="testimonial-chess-piece piece-3">♜</div>
-        
-        <div class="container">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px; position: relative; z-index: 2;">
-                <i class="bi bi-chat-square-quote-fill" style="margin-right: 10px; color: #f59e0b;"></i> 
-                What Parents Say
-            </h2>
-            <p style="color: #cbd5e1; text-align: center; margin-bottom: 50px; font-size: 1.2rem;">
-                Join hundreds of happy parents and students
-            </p>
-            
-            <div class="testimonial-container">
-                <!-- Testimonial Card (populated by JavaScript) -->
-                <div class="testimonial-card fade-in-up" id="testimonialCard">
-                    <div class="testimonial-quote" id="testimonialText">
-                        "My son went from knowing how pieces move to winning his first tournament in 6 months. The coaches are phenomenal."
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="testimonial-avatar">
-                            <i class="bi bi-person-fill"></i>
+                    <div class="hero-trust-row">
+                        <div class="hero-trust-item">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span>FIDE Certified Curriculum</span>
                         </div>
-                        <div class="testimonial-info">
-                            <h4 id="testimonialName">Priya M.</h4>
-                            <p>
-                                <i class="bi bi-geo-alt-fill" style="color: #3b5b9b;"></i> 
-                                <span id="testimonialDetail">parent of Arjun (age 9)</span>
-                            </p>
-                            <div class="testimonial-rating" id="testimonialRating">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                            </div>
+                        <div class="hero-trust-item">
+                            <i class="bi bi-trophy-fill"></i>
+                            <span>5 National Champions</span>
+                        </div>
+                        <div class="hero-trust-item">
+                            <i class="bi bi-people-fill"></i>
+                            <span>Ages 4 to Adult</span>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Slider Controls -->
-                <div class="slider-controls">
-                    <button class="slider-btn" onclick="prevTestimonial()" aria-label="Previous testimonial">
-                        <i class="bi bi-chevron-left"></i>
-                    </button>
-                    
-                    <div class="slider-dots" id="sliderDots">
-                        <button class="dot active" onclick="goToTestimonial(0)"></button>
-                        <button class="dot" onclick="goToTestimonial(1)"></button>
-                        <button class="dot" onclick="goToTestimonial(2)"></button>
-                        <button class="dot" onclick="goToTestimonial(3)"></button>
-                        <button class="dot" onclick="goToTestimonial(4)"></button>
+
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="images/hero_chess.jpg" alt="Francistown School of Chess students training attentively at chessboards">
                     </div>
-                    
-                    <button class="slider-btn" onclick="nextTestimonial()" aria-label="Next testimonial">
-                        <i class="bi bi-chevron-right"></i>
-                    </button>
+                    <div class="hero-floating-stat">
+                        <div class="featured-icon featured-icon-primary" style="margin-bottom: 0;">
+                            <i class="bi bi-award-fill"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700; color: var(--gray-900); font-size: 1.05rem;">National Excellence</div>
+                            <div style="font-size: 0.8125rem; color: var(--gray-500);">Over 14 years shaping Botswana talent</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ========== CALL TO ACTION SECTION ========== -->
-    <section>
-        <div class="container text-center">
-            <h2 class="fade-in-up">Ready to Begin?</h2>
-            <p class="fade-in-up" style="margin-bottom: 2rem; font-size: 1.2rem; animation-delay: 0.2s;">Join Francistown School Of Chess today.</p>
-            <a href="contact.html" class="btn btn-primary pulse" style="font-size: 1.1rem; padding: 1rem 2.5rem;">Enroll Now</a>
+    <!-- ==================== METRICS / STATS SECTION ==================== -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Active Students</div>
+                    <div class="stat-desc">Trained in Francistown and online</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">14+</div>
+                    <div class="stat-label">Years of Instruction</div>
+                    <div class="stat-desc">Proven training methodologies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Certified Trainers</div>
+                    <div class="stat-desc">Accredited chess coaches</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">National Champions</div>
+                    <div class="stat-desc">Botswana junior tournament winners</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Standard in Chess Education</h2>
+                <p>We blend analytical discipline, competitive tournament preparation, and engaging pedagogy to unlock every student's cognitive potential.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h3>Elite FIDE Coaching</h3>
+                    <p>Learn directly from Botswana National Team coaches and certified masters with deep pedagogical experience in youth development.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-warning">
+                        <i class="bi bi-trophy"></i>
+                    </div>
+                    <h3>Tournament Readiness</h3>
+                    <p>Weekly clock training, Swiss-system club tourneys, and comprehensive preparation for national and regional championships.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+                    <h3>Systematic Progression</h3>
+                    <p>Regular tactical evaluations, game notation reviews, personalized opening repertoires, and individual rating goal tracking.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-gray">
+                        <i class="bi bi-laptop"></i>
+                    </div>
+                    <h3>Hybrid Learning</h3>
+                    <p>Choose between our vibrant Francistown physical academy, live interactive Zoom classrooms, or flexible private sessions.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-primary">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+                    <h3>Small Coach-to-Student Ratio</h3>
+                    <p>Classes capped at a strict 1:4 or 1:6 ratio to ensure individualized feedback, personalized problem solving, and attention.</p>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="featured-icon featured-icon-warning">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <h3>Life Skills & Focus</h3>
+                    <p>Chess sharpens patience, risk assessment, spatial awareness, and resilience—transferable qualities in academics and life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURED PROGRAMS PREVIEW ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="section-header">
+                <h2>Structured Training for Every Level</h2>
+                <p>From absolute beginners taking their first steps to advanced players refining candidate master repertoires.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Program 1 -->
+                <div class="card hover-lift">
+                    <div class="card-header-badge">
+                        <span class="badge badge-gray">Beginner</span>
+                        <span style="font-weight: 700; color: var(--gray-900);">Ages 4-9</span>
+                    </div>
+                    <h3>Pawn Pals</h3>
+                    <p style="margin-bottom: 20px;">Foundational chess fundamentals, piece coordination, checkmating patterns, and good sportsmanship.</p>
+                    <div style="border-top: 1px solid var(--gray-200); padding-top: 18px; margin-top: auto;">
+                        <div style="font-size: 1.35rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px;">
+                            BWP 300 <span style="font-size: 0.875rem; color: var(--gray-500); font-weight: 400;">/ month</span>
+                        </div>
+                        <a href="programs.html" class="btn btn-secondary btn-block">Program Details</a>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="card card-highlighted hover-lift">
+                    <div class="card-header-badge">
+                        <span class="badge badge-primary">Intermediate</span>
+                        <span style="font-weight: 700; color: var(--primary-700);">Most Popular</span>
+                    </div>
+                    <h3>Competitive Squad</h3>
+                    <p style="margin-bottom: 20px;">Tactical calculation, opening principles, endgame fundamentals, clock management, and tournament readiness.</p>
+                    <div style="border-top: 1px solid var(--gray-200); padding-top: 18px; margin-top: auto;">
+                        <div style="font-size: 1.35rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px;">
+                            BWP 300 <span style="font-size: 0.875rem; color: var(--gray-500); font-weight: 400;">/ month</span>
+                        </div>
+                        <a href="programs.html" class="btn btn-primary btn-block">Program Details</a>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="card hover-lift">
+                    <div class="card-header-badge">
+                        <span class="badge badge-warning">Advanced</span>
+                        <span style="font-weight: 700; color: var(--gray-900);">Teens & Adults</span>
+                    </div>
+                    <h3>Master Class & Adults</h3>
+                    <p style="margin-bottom: 20px;">Deep strategic planning, complex pawn structures, master game analysis, and competitive rating elevation.</p>
+                    <div style="border-top: 1px solid var(--gray-200); padding-top: 18px; margin-top: auto;">
+                        <div style="font-size: 1.35rem; font-weight: 700; color: var(--gray-900); margin-bottom: 14px;">
+                            BWP 300 <span style="font-size: 0.875rem; color: var(--gray-500); font-weight: 400;">/ month</span>
+                        </div>
+                        <a href="programs.html" class="btn btn-secondary btn-block">Program Details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="programs.html" class="btn btn-secondary btn-lg">
+                    <i class="bi bi-arrow-right"></i> View Full Curriculum & Pricing
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COACHES SPOTLIGHT ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Meet Our Certified Coaching Staff</h2>
+                <p>Guided by proven masters passionate about mentoring young minds and developing competitive excellence.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- Coach 1 -->
+                <div class="coach-card">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_molefe.jpg" alt="Coach Thapelo Grivas Molefe">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-primary">Head Coach</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Thapelo Grivas Molefe</h3>
+                        <div class="coach-title">Senior Trainer · National Team Coach</div>
+                        <p class="coach-bio">
+                            Francistown's premier chess coach with over 14 years of experience. Has produced 5 national champions and specializes in strategic planning and tournament preparation.
+                        </p>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 14+ Years Exp</span>
+                            <span><i class="bi bi-award"></i> 5 Champions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coach 2 -->
+                <div class="coach-card">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_romeo.jpg" alt="Coach Romeo Oabile">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Trainer</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Romeo Oabile</h3>
+                        <div class="coach-title">Intermediate Coach · Youth Specialist</div>
+                        <p class="coach-bio">
+                            Specialist in youth development and opening repertoires. Has successfully mentored multiple junior national competitors through structured tactical study.
+                        </p>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 5 Years Exp</span>
+                            <span><i class="bi bi-check-circle"></i> Opening Theory</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coach 3 -->
+                <div class="coach-card">
+                    <div class="coach-image-wrapper">
+                        <img src="images/coach_desire.jpg" alt="Coach Desire Machinya">
+                        <div class="coach-badge-tag">
+                            <span class="badge badge-gray">Trainer</span>
+                        </div>
+                    </div>
+                    <div class="coach-content">
+                        <h3 class="coach-name">Desire Machinya</h3>
+                        <div class="coach-title">Tactical Specialist · Club Instructor</div>
+                        <p class="coach-bio">
+                            Expert in middlegame combinations, attacking patterns, and practical game analysis. Renowned for dynamic, highly interactive classroom coaching.
+                        </p>
+                        <div class="coach-meta-row">
+                            <span><i class="bi bi-briefcase"></i> 5 Years Exp</span>
+                            <span><i class="bi bi-lightning-charge"></i> Tactics Specialist</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="coaches.html" class="btn btn-secondary">
+                    View Complete Coaching Team <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ACADEMY ATMOSPHERE / DOCUMENTARY ==================== -->
+    <section class="section section-bg">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper" style="box-shadow: var(--shadow-lg);">
+                        <img src="images/academy_activity.jpg" alt="Young chess players shaking hands respectfully over a chessboard in Francistown">
+                    </div>
+                </div>
+                <div>
+                    <h2 style="margin: 0 0 18px 0; font-size: 2.25rem;">Building Character Beyond the Board</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                        At Francistown School of Chess, intellectual rigour walks hand in hand with sportsmanship. We foster an encouraging environment where students learn how to win with grace and analyze defeats with curiosity.
+                    </p>
+                    <ul style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;">
+                        <li style="display: flex; gap: 12px; align-items: flex-start; color: var(--gray-700); font-weight: 500;">
+                            <i class="bi bi-check2-circle" style="color: var(--primary-600); font-size: 1.25rem; margin-top: 2px;"></i>
+                            <span>Respect, mutual handshake culture, and classical tournament etiquette.</span>
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: flex-start; color: var(--gray-700); font-weight: 500;">
+                            <i class="bi bi-check2-circle" style="color: var(--primary-600); font-size: 1.25rem; margin-top: 2px;"></i>
+                            <span>Constructive post-game analysis without fear of making mistakes.</span>
+                        </li>
+                        <li style="display: flex; gap: 12px; align-items: flex-start; color: var(--gray-700); font-weight: 500;">
+                            <i class="bi bi-check2-circle" style="color: var(--primary-600); font-size: 1.25rem; margin-top: 2px;"></i>
+                            <span>Lifelong friendships within Botswana's vibrant chess community.</span>
+                        </li>
+                    </ul>
+                    <a href="aboutUs.html" class="btn btn-secondary">
+                        <i class="bi bi-info-circle"></i> Learn Our Story
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS SLIDER ==================== -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trusted by Parents and Students</h2>
+                <p>Read experiences from families and adult improvers enrolled in our academy programs.</p>
+            </div>
+
+            <div class="testimonial-card-main">
+                <div class="testimonial-stars">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                </div>
+
+                <div class="testimonial-quote" id="testimonialQuote">
+                    "My son went from knowing how pieces move to winning his first junior tournament in Francistown in 6 months. Coach Molefe and the team are exceptional instructors who build real character and discipline."
+                </div>
+
+                <div class="testimonial-author-row">
+                    <div class="testimonial-profile">
+                        <div class="testimonial-avatar" id="testimonialAvatar">PM</div>
+                        <div>
+                            <div class="testimonial-name" id="testimonialName">Priya M.</div>
+                            <div class="testimonial-role" id="testimonialRole">Parent of Arjun (Age 9)</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <button class="slider-btn" id="prevTestimonial" aria-label="Previous testimonial">
+                            <i class="bi bi-arrow-left"></i>
+                        </button>
+                        <div class="slider-dots" id="sliderDots">
+                            <!-- Populated dynamically by js/main.js -->
+                        </div>
+                        <button class="slider-btn" id="nextTestimonial" aria-label="Next testimonial">
+                            <i class="bi bi-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CALL TO ACTION BANNER ==================== -->
+    <section class="section">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Ready to Begin Your Chess Journey?</h2>
+                <p>
+                    Whether your goal is introducing your child to strategic thinking or competing for national honors, our doors in Francistown are open.
+                </p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg">
+                        <i class="bi bi-calendar2-check"></i> Schedule an Assessment
+                    </a>
+                    <a href="schedule.html" class="btn btn-secondary btn-lg" style="color: var(--gray-900); background: #FFFFFF;">
+                        <i class="bi bi-clock"></i> View Class Schedule
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-        <div class="footer-content">
-            <!-- About Section -->
-            <div>
-                <h4>Francistown School Of Chess</h4>
-                <p style="color: #cbd5e1;">Building champions since 2018</p>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1 -->
+                <div class="footer-brand">
+                    <div class="footer-brand-title">
+                        <img src="logo.png" alt="Francistown School of Chess Logo" style="height: 38px; width: auto;">
+                        <span>Francistown School of Chess</span>
+                    </div>
+                    <p>
+                        Botswana's premier chess institution dedicated to fostering cognitive growth, sportsmanship, and national championship excellence since 2018.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/26777012390" class="footer-social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" class="footer-social-btn" title="Facebook" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="mailto:info@francistownschoolofchess.com" class="footer-social-btn" title="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="programs.html">Programs</a>
+                        <a href="coaches.html">Trainers</a>
+                        <a href="schedule.html">Timetable</a>
+                        <a href="achievements.html">Achievements</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <!-- Col 3 -->
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <!-- Col 4 -->
+                <div class="footer-col">
+                    <h4>Academy Studio</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Francistown, Botswana</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+267 77 012 390</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@francistownschoolofchess.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Mon-Fri: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
             </div>
-            <!-- Quick Links -->
-            <div>
-                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
-                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
-                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
-                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
-                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Francistown School of Chess. All rights reserved.</div>
+                <div style="color: var(--gray-500);">FIDE-Accredited Curriculum · Francistown, Botswana</div>
             </div>
-            <!-- Contact Information -->
-            <div>
-                <h4>Contact Us</h4>
-                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
-                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
-            </div>
-            <!-- Legal Links -->
-            <div>
-                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
-                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
-                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
-                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
-            </div>
-        </div>
-        <!-- Copyright -->
-        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- ========== FLOATING BUTTONS (WhatsApp & Share) ========== -->
-    <div class="floating-buttons">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess" 
-           class="floating-btn whatsapp-btn" 
+    <!-- ==================== FLOATING ACTIONS ==================== -->
+    <div class="floating-actions">
+        <!-- Share Popover -->
+        <div class="share-popover" id="sharePopover">
+            <button onclick="shareOnPlatform('facebook')" title="Share on Facebook"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnPlatform('twitter')" title="Share on X"><i class="bi bi-twitter-x"></i></button>
+            <button onclick="shareOnPlatform('linkedin')" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></button>
+            <button onclick="shareOnPlatform('email')" title="Share via Email"><i class="bi bi-envelope"></i></button>
+            <button onclick="copyPageUrl()" title="Copy link to clipboard"><i class="bi bi-link-45deg"></i></button>
+        </div>
+
+        <!-- Share Trigger -->
+        <button class="floating-action-btn btn-share" id="shareBtn" title="Share this page" aria-label="Share">
+            <i class="bi bi-share"></i>
+        </button>
+
+        <!-- WhatsApp Quick Chat -->
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess%2C%20I%20am%20interested%20in%20chess%20lessons"
+           class="floating-action-btn btn-whatsapp" 
            target="_blank" 
-           title="Chat on WhatsApp">
+           rel="noopener"
+           title="Chat on WhatsApp" 
+           aria-label="Chat on WhatsApp">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
-        <!-- Share Button with Popup -->
-        <div class="share-wrapper">
-            <button class="floating-btn share-btn" onclick="toggleSharePopup()" title="Share this page">
-                <i class="bi bi-share-fill"></i>
-            </button>
-            <!-- Share Popup Menu -->
-            <div class="share-popup" id="sharePopup">
-                <a href="#" onclick="shareOn('facebook')" target="_blank"><i class="bi bi-facebook"></i></a>
-                <a href="#" onclick="shareOn('twitter')" target="_blank"><i class="bi bi-twitter-x"></i></a>
-                <a href="#" onclick="shareOn('linkedin')" target="_blank"><i class="bi bi-linkedin"></i></a>
-                <a href="#" onclick="shareOn('email')"><i class="bi bi-envelope-fill"></i></a>
-                <a href="#" onclick="copyPageLink()"><i class="bi bi-link-45deg"></i></a>
-            </div>
-        </div>
     </div>
 
-    <!-- Osano Cookie Consent Library -->
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-    
-    
-    <script>
-        // COOKIE CONSENT - Osano Plugin Configuration
-        // Handles: GDPR compliance, user consent storage, popup display
-        window.cookieconsent.initialise({
-            "palette": {
-                "popup": {
-                    "background": "#ffffff",  // White background (matches design)
-                    "text": "#1e293b"         // Dark text for readability
-                },
-                "button": {
-                    "background": "#3b5b9b",  // Brand blue for Accept button
-                    "text": "#ffffff",
-                    "border": "transparent"
-                }
-            },
-            "theme": "classic",
-            "position": "bottom-left",        
-            "static": false,                    // Popup disappears after clicking
-            "content": {
-                "message": "We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.",
-                "dismiss": "Accept",            // Accept button text
-                "link": "Learn More",           // Learn More button text
-                "href": "privacy-policy.html"   // Link to privacy policy
-            },
-            "onAccept": function() {
-                console.log('Cookies accepted - popup hidden'); // Optional logging
-                // Popup auto-hides, this is just for debugging
-            }
-        });
-
-        // TESTIMONIAL SLIDER - Data and Functionality
-        // Handles: Rotating testimonials, auto-slide, dot navigation
-        
-        // Testimonial data array
-        const testimonials = [
-            {
-                text: "My son went from knowing how pieces move to winning his first tournament in 6 months. The coaches are phenomenal.",
-                name: "Priya M.",
-                detail: "parent of Arjun (age 9)",
-                rating: 5
-            },
-            {
-                text: "The online classes are very engaging. My daughter actually looks forward to chess every week. The coaches make learning fun!",
-                name: "Rajesh K.",
-                detail: "parent of Ananya (age 7)",
-                rating: 5
-            },
-            {
-                text: "As an adult beginner, I was nervous, but the coaches made learning chess fun and accessible. I've improved so much in just 3 months!",
-                name: "Thabo M.",
-                detail: "Adult Improver, 3 months",
-                rating: 5
-            },
-            {
-                text: "The Competitive Squad program prepared my son for national tournaments. He's now ranked in the top 10 for his age group in Botswana!",
-                name: "Keitumetse B.",
-                detail: "parent of Tshepo (age 12)",
-                rating: 5
-            },
-            {
-                text: "Excellent coaching staff and a very welcoming environment. My twins love their Saturday morning chess classes!",
-                name: "Lerato M.",
-                detail: "parent of twins (age 8)",
-                rating: 5
-            }
-        ];
-
-        let currentTestimonial = 0;
-        let autoSlideInterval;
-
-        // Updates the displayed testimonial based on index
-        function updateTestimonial(index) {
-            currentTestimonial = index;
-            const t = testimonials[currentTestimonial];
-            const card = document.getElementById('testimonialCard');
-            if (!card) return;
-            
-            // Fade out effect
-            card.style.opacity = '0.5';
-            
-            setTimeout(() => {
-                // Update text content
-                document.getElementById('testimonialText').innerHTML = `"${t.text}"`;
-                document.getElementById('testimonialName').innerHTML = t.name;
-                document.getElementById('testimonialDetail').innerHTML = t.detail;
-                
-                // Update rating stars
-                const ratingContainer = document.getElementById('testimonialRating');
-                ratingContainer.innerHTML = '';
-                for (let i = 0; i < 5; i++) {
-                    ratingContainer.innerHTML += i < t.rating ? 
-                        '<i class="bi bi-star-fill"></i>' : 
-                        '<i class="bi bi-star"></i>';
-                }
-                
-                // Fade in effect
-                card.style.opacity = '1';
-            }, 200);
-            
-            updateDots();
-        }
-
-        // Next testimonial (used by auto-slide and next button)
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            updateTestimonial(currentTestimonial);
-            resetAutoSlide();
-        }
-
-        // Previous testimonial (used by previous button)
-        function prevTestimonial() {
-            currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
-            updateTestimonial(currentTestimonial);
-            resetAutoSlide();
-        }
-
-        // Jump to specific testimonial (used by dots)
-        function goToTestimonial(index) {
-            updateTestimonial(index);
-            resetAutoSlide();
-        }
-
-        // Update navigation dots active state
-        function updateDots() {
-            const dots = document.querySelectorAll('.dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentTestimonial);
-            });
-        }
-
-        // Start auto-sliding
-        function startAutoSlide() {
-            autoSlideInterval = setInterval(nextTestimonial, 5000); // Change every 5 seconds
-        }
-
-        // Reset auto-slide timer (used when manually navigating)
-        function resetAutoSlide() {
-            clearInterval(autoSlideInterval);
-            startAutoSlide();
-        }
-
-     
-        // SHARE FUNCTIONALITY - Floating Share Button
-        // Handles: Share popup toggle, social media sharing, link copying
-
-        // Toggle share popup visibility
-        function toggleSharePopup() {
-            const popup = document.getElementById('sharePopup');
-            if (popup) {
-                popup.style.display = popup.style.display === 'flex' ? 'none' : 'flex';
-            }
-        }
-
-        // Share on social media platforms
-        function shareOn(platform) {
-            const url = encodeURIComponent(window.location.href);
-            const title = encodeURIComponent(document.title);
-            let shareUrl = '';
-
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${title}&body=Check out Francistown School Of Chess: ${url}`;
-                    break;
-            }
-
-            if (shareUrl) {
-                window.open(shareUrl, '_blank', 'width=600,height=400');
-            }
-            
-            // Close popup after sharing
-            const popup = document.getElementById('sharePopup');
-            if (popup) popup.style.display = 'none';
-        }
-
-        // Copy page link to clipboard
-        function copyPageLink() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('Link copied to clipboard!');
-                const popup = document.getElementById('sharePopup');
-                if (popup) popup.style.display = 'none';
-            });
-        }
-
-        
-        // EVENT LISTENERS
-        
-        // Close share popup when clicking outside
-        window.addEventListener('click', function(e) {
-            const popup = document.getElementById('sharePopup');
-            const shareBtn = document.querySelector('.share-btn');
-            
-            if (popup && shareBtn && 
-                popup.style.display === 'flex' &&
-                !popup.contains(e.target) && 
-                !shareBtn.contains(e.target)) {
-                popup.style.display = 'none';
-            }
-        });
-
-        // Initialize everything when page loads
-        window.addEventListener('load', function() {
-            // Start testimonial slider
-            if (document.getElementById('testimonialCard')) {
-                updateTestimonial(0);
-                startAutoSlide();
-                
-                // Pause auto-slide on hover
-                const testimonialCard = document.getElementById('testimonialCard');
-                if (testimonialCard) {
-                    testimonialCard.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-                    testimonialCard.addEventListener('mouseleave', startAutoSlide);
-                }
-            }
-        });
-
-        // Keyboard navigation for testimonials (left/right arrows)
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                prevTestimonial();
-            } else if (e.key === 'ArrowRight') {
-                nextTestimonial();
-            }
-        });
-    </script>
-
-
-<!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
-        </div>
-
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
-
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
-            });
-        </script>
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
-
-

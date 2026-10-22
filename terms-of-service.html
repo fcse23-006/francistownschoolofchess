@@ -3,327 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Francistown School Of Chess</title>
+    <title>Terms of Service - Francistown School of Chess</title>
+    <meta name="description" content="Terms of Service, academy rules, and policies for Francistown School of Chess.">
     <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="CSS/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Untitled UI Stylesheet -->
     <link rel="stylesheet" href="CSS/style.css">
-    <style>
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        .legal-content h1 {
-            color: #0f172a;
-            margin-bottom: 10px;
-        }
-        .legal-content h2 {
-            color: #1e293b;
-            font-size: 1.5rem;
-            margin-top: 30px;
-            margin-bottom: 15px;
-        }
-        .legal-content p, .legal-content li {
-            color: #334155;
-            line-height: 1.7;
-            margin-bottom: 15px;
-        }
-        .legal-content ul, .legal-content ol {
-            margin-bottom: 20px;
-            padding-left: 20px;
-        }
-        .legal-date {
-            color: #64748b;
-            font-style: italic;
-            margin-bottom: 30px;
-        }
-        .legal-box {
-            background: #f8fafc;
-            border-left: 4px solid #3b5b9b;
-            padding: 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 30px 0;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #3b5b9b;
-            text-decoration: none;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            border: 1px solid #cbd5e1;
-            padding: 12px;
-            text-align: left;
-        }
-        th {
-            background: #f1f5f9;
-        }
-    </style>
 </head>
-<body class="page-load">
+<body>
+
+    <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="index.html" class="logo slide-in-left">
-                <img src="logo.png" alt="Francistown School Of Chess" style="height: 150px; vertical-align: middle; margin-right: 70px;">
+            <a href="index.html" class="nav-brand">
+                <img src="logo.png" alt="Francistown School of Chess Crest" class="nav-logo-img">
+                <span class="nav-brand-title">Francistown School of Chess</span>
             </a>
-            <ul class="nav-links slide-in-right">
+
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="programs.html">Programs</a></li>
                 <li><a href="coaches.html">Trainers</a></li>
                 <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="achievements.html">Achievements</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
             </ul>
-            <a href="contact.html" class="btn btn-primary">
-                <i class="bi bi-envelope-fill" style="margin-right: 5px;"></i> Contact Us
-            </a>
+
+            <div class="nav-actions">
+                <a href="contact.html" class="btn btn-primary">
+                    <i class="bi bi-calendar2-check"></i> Enroll Now
+                </a>
+                <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                    <i class="bi bi-list"></i>
+                </button>
+            </div>
         </div>
     </nav>
 
-    <section class="hero" style="padding: 60px 0;">
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <div class="mobile-nav-links">
+            <a href="index.html">Home</a>
+            <a href="programs.html">Programs</a>
+            <a href="coaches.html">Trainers</a>
+            <a href="schedule.html">Schedule</a>
+            <a href="achievements.html">Achievements</a>
+            <a href="aboutUs.html">About Us</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-block">
+            <i class="bi bi-calendar2-check"></i> Enroll Today
+        </a>
+    </div>
+
+    <!-- ==================== HEADER ==================== -->
+    <section class="docs-header">
         <div class="container text-center">
-            <h1 class="fade-in-up">Terms of Service</h1>
-            <p class="fade-in-up" style="color: white; font-size: 1.2rem;">Rules and guidelines for using our services</p>
+            <h1 style="margin-top: 0; margin-bottom: 12px;">Terms of Service</h1>
+            <p style="font-size: 1.1rem; color: var(--gray-600); max-width: 620px; margin: 0 auto;">
+                Guidelines, academy etiquette, and enrollment conditions at Francistown School of Chess.
+            </p>
         </div>
     </section>
 
-    <section class="legal-content">
-        <a href="index.html" class="back-link"><i class="bi bi-arrow-left"></i> Back to Home</a>
-        
-        <p class="legal-date"><i class="bi bi-calendar"></i> Last Updated: February 21, 2026</p>
+    <!-- ==================== DOCS BODY ==================== -->
+    <main class="docs-body">
+        <a href="index.html" class="btn btn-secondary btn-sm" style="margin-bottom: 24px;">
+            <i class="bi bi-arrow-left"></i> Back to Home
+        </a>
 
-        <div class="legal-box">
-            <p><strong>Welcome to Francistown School Of Chess!</strong> By enrolling in our programs or using our website, you agree to these terms. Please read them carefully.</p>
+        <div style="font-size: 0.875rem; color: var(--gray-500); margin-bottom: 24px;">
+            <i class="bi bi-calendar3"></i> Last Updated: February 21, 2026
         </div>
 
-        <h2>1. Enrollment and Payment</h2>
-        <h3>Program Fees</h3>
-        <table>
-            <tr>
-                <th>Program</th>
-                <th>Duration</th>
-                <th>Fee (BWP)</th>
-            </tr>
-            <tr>
-                <td>Beginners (Ages 4-10)</td>
-                <td>4 weeks</td>
-                <td>from 300 Pula</td>
-            </tr>
-            <tr>
-                <td>Intermediate (Ages 11-16)</td>
-                <td>4 weeks</td>
-                <td>from 300 Pula</td>
-            </tr>
-            <tr>
-                <td>Advanced/Competitive</td>
-                <td>4 weeks</td>
-                <td>from 300 Pula</td>
-            </tr>
-            <tr>
-                <td>Private Lessons</td>
-                <td>Per hour</td>
-                <td>from 200 Pula</td>
-            </tr>
-
-             <tr>
-                <td>Registration fee</td>
-                <td>Once off</td>
-                <td>200 Pula</td>
-            </tr>
-        </table>
-
-        <h3>Payment Terms</h3>
-        <ul>
-            <li>Fees are payable in advance before the start of each term</li>
-            <li>We accept cash, bank transfer, or mobile money</li>
-            <li>Receipts will be provided for all payments</li>
-        </ul>
-
-        <h2>2. Class Attendance and Conduct</h2>
-        <ul>
-            <li><strong>Punctuality:</strong> Students should arrive 5-10 minutes before class</li>
-            <li><strong>Attendance:</strong> Regular attendance is essential for progress</li>
-            <li><strong>Make-up Classes:</strong> Available only for medical reasons with doctor's note</li>
-            <li><strong>Behavior:</strong> Respect coaches and fellow students at all times</li>
-            <li><strong>Equipment:</strong> Treat chess sets and equipment with care</li>
-            <li><strong>Zero Tolerance:</strong> Bullying, cheating, or disrespect will result in dismissal without refund</li>
-        </ul>
-
-        <h2>3. Code of Conduct for Students</h2>
-        <p>All students must:</p>
-        <ul>
-            <li>Listen to coaches and follow instructions</li>
-            <li>Raise hands before speaking during lessons</li>
-            <li>Keep phones on silent and put away during class</li>
-            <li>Be gracious winners and respectful losers</li>
-            <li>Shake hands before and after games</li>
-            <li>Help clean up equipment after class</li>
-        </ul>
-
-        <h2>4. Parent/Guardian Responsibilities</h2>
-        <ul>
-            <li>Ensure children arrive on time and are picked up promptly</li>
-            <li>Inform coaches of any medical conditions or special needs</li>
-            <li>Communicate absences at least 24 hours in advance</li>
-            <li>Support coaches' decisions regarding student placement and progress</li>
-            <li>Attend parent-teacher meetings when scheduled</li>
-            <li>Ensure fees are paid on time</li>
-        </ul>
-
-        <h2>5. Tournament Participation</h2>
-        <ul>
-            <li>Tournament registration is separate from class fees</li>
-            <li>Students must have coach approval to enter external tournaments</li>
-            <li>Parents are responsible for transportation to tournaments</li>
-            <li>School provides coaching support during tournaments</li>
-            <li>Results may be published on our website/social media (with consent)</li>
-        </ul>
-
-        <h2>6. Website Usage</h2>
-        <ul>
-            <li>Content on our website is for informational purposes</li>
-            <li>We strive for accuracy but don't guarantee error-free information</li>
-            <li>Don't copy or reproduce our content without permission</li>
-            <li>Links to third-party sites are for convenience only</li>
-            <li>We may update website content without notice</li>
-        </ul>
-
-        <h2>7. Intellectual Property</h2>
-        <p>All materials provided, including:</p>
-        <ul>
-            <li>Lesson plans and worksheets</li>
-            <li>Puzzle sets and training materials</li>
-            <li>Videos and online content</li>
-            <li>Logo and branding</li>
-        </ul>
-        <p>are the property of Francistown School Of Chess and may not be reproduced or distributed without written permission.</p>
-
-        <h2>8. Photography and Media</h2>
-        <p>We occasionally take photos/videos during:</p>
-        <ul>
-            <li>Classes and lessons</li>
-            <li>Tournaments and events</li>
-            <li>Award ceremonies</li>
-        </ul>
-        <p>These may be used for:</p>
-        <ul>
-            <li>Our website and social media</li>
-            <li>Promotional materials</li>
-            <li>Newsletters</li>
-        </ul>
-        <p>Parents may opt-out by written notice to info@francistownschoolofchess.com</p>
-
-        <h2>9. Limitation of Liability</h2>
-        <ul>
-            <li>We're not responsible for lost or damaged personal items</li>
-            <li>We're not liable for injuries during normal chess activities</li>
-            <li>We may cancel classes due to unforeseen circumstances (refunds provided)</li>
-            <li>Maximum liability is limited to fees paid for current term</li>
-        </ul>
-
-        <h2>10. Termination</h2>
-        <p>We reserve the right to terminate enrollment for:</p>
-        <ul>
-            <li>Non-payment of fees</li>
-            <li>Repeated behavioral issues</li>
-            <li>Disrespect toward coaches or students</li>
-            <li>Violation of these terms</li>
-        </ul>
-        <p>No refunds will be provided in case of termination for cause.</p>
-
-        <h2>11. Changes to Terms</h2>
-        <p>We may update these terms occasionally. Continued enrollment after changes constitutes acceptance of new terms.</p>
-
-        <h2>12. Governing Law</h2>
-        <p>These terms are governed by the laws of Botswana. Any disputes will be resolved in Francistown courts.</p>
-
-        <h2>13. Contact Information</h2>
-        <p>For questions about these terms:</p>
-        <p>
-            <strong>Email:</strong> legal@francistownschoolofchess.com<br>
-            <strong>Phone:</strong> +267 77 012 390<br>
-            <strong>Address:</strong> Francistown, Botswana
-        </p>
-
-        <div class="legal-box">
-            <p><strong>By enrolling in our programs or using our website, you acknowledge that you have read, understood, and agree to these Terms of Service.</strong></p>
+        <div class="docs-callout">
+            <p><strong>Welcome:</strong> By enrolling in classes, participating in tournaments, or using the website of Francistown School of Chess, you agree to comply with the following academy rules and conditions.</p>
         </div>
-    </section>
 
-    
+        <h2>1. Academy Etiquette & Code of Conduct</h2>
+        <p>Francistown School of Chess emphasizes classical sportsmanship and respect:</p>
+        <ul>
+            <li>Students must shake hands with opponents before and after every game.</li>
+            <li>FIDE touch-move rules apply during all structured studio games and tournament matches.</li>
+            <li>Distracting behavior, disrespectful speech, or disruptive phone use during lecture and tournament sessions is strictly prohibited.</li>
+            <li>We maintain a zero-tolerance policy against bullying or harassment.</li>
+        </ul>
+
+        <h2>2. Enrollment & Tuition Fees</h2>
+        <p>Tuition fees support certified coaches, tournament boards, digital clocks, and instructional materials:</p>
+        <ul>
+            <li>Monthly tuition (e.g. BWP 300 for standard programs) is due on or before the 1st day of each calendar month.</li>
+            <li>Fees ensure reserved seating in small group cohorts (max 1:4 to 1:6 coach ratio).</li>
+            <li>Make-up sessions for verified absences may be scheduled in parallel online cohorts subject to seat availability.</li>
+        </ul>
+
+        <h2>3. Equipment Care & Liability</h2>
+        <p>Tournament Staunton chess sets, DGT digital clocks, and demonstration boards provided in the studio are precision instructional equipment. Students are taught to treat all equipment with care and return pieces to designated cases after play.</p>
+
+        <h2>4. Media & Photography Permissions</h2>
+        <p>Photographs and video clips taken during tournaments and academy award ceremonies may occasionally be published on our official website or newsletter. Parents who prefer their child not be photographed may opt out by notifying academy staff in writing.</p>
+
+        <h2>5. Amendments to Terms</h2>
+        <p>Francistown School of Chess reserves the right to update these terms to reflect evolving instructional standards and tournament schedules. Current terms will remain posted on our website.</p>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer>
-        <div class="footer-content">
-            <div>
-                <h4>Francistown School Of Chess</h4>
-                <p style="color: #cbd5e1;">Building champions since 2018</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-brand-title">
+                        <img src="logo.png" alt="Francistown School of Chess Logo" style="height: 38px; width: auto;">
+                        <span>Francistown School of Chess</span>
+                    </div>
+                    <p>
+                        Botswana's premier chess institution dedicated to fostering cognitive growth, sportsmanship, and national championship excellence since 2018.
+                    </p>
+                    <div class="footer-social-row">
+                        <a href="https://wa.me/26777012390" class="footer-social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="https://facebook.com" class="footer-social-btn" title="Facebook" target="_blank" rel="noopener">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="mailto:info@francistownschoolofchess.com" class="footer-social-btn" title="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="programs.html">Programs</a>
+                        <a href="coaches.html">Trainers</a>
+                        <a href="schedule.html">Timetable</a>
+                        <a href="achievements.html">Achievements</a>
+                        <a href="aboutUs.html">About Us</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Policies</h4>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <a href="cookie-policy.html">Cookie Policy</a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Academy Studio</h4>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Francistown, Botswana</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>+267 77 012 390</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>info@francistownschoolofchess.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Mon-Fri: 9:00 AM - 8:00 PM</span>
+                    </div>
+                </div>
             </div>
-            <div>
-                <h4><i class="bi bi-link-45deg"></i> Quick Links</h4>
-                <p><a href="programs.html"><i class="bi bi-grid-3x3-gap-fill"></i> Programs</a></p>
-                <p><a href="coaches.html"><i class="bi bi-people-fill"></i> Trainers</a></p>
-                <p><a href="schedule.html"><i class="bi bi-calendar-week-fill"></i> Schedule</a></p>
-                <p><a href="aboutUs.html"><i class="bi bi-info-circle-fill"></i> About Us</a></p> 
-                <p><a href="contact.html"><i class="bi bi-envelope-fill"></i> Contact Us</a></p>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 Francistown School of Chess. All rights reserved.</div>
+                <div style="color: var(--gray-500);">FIDE-Accredited Curriculum · Francistown, Botswana</div>
             </div>
-            <div>
-                <h4>Contact Us</h4>
-                <p><i class="bi bi-envelope-fill"></i> info@francistownschoolofchess.com</p> 
-                <p><i class="bi bi-telephone-fill"></i> +267 77 012 390</p>
-                <p><i class="bi bi-geo-alt-fill"></i> Francistown</p> 
-            </div>
-            <div>
-                <h4><i class="bi bi-shield-lock-fill"></i> Legal</h4>
-                <p><a href="privacy-policy.html" class="legal-link"><i class="bi bi-shield-lock-fill"></i> Privacy Policy</a></p>
-                <p><a href="terms-of-service.html" class="legal-link"><i class="bi bi-file-text-fill"></i> Terms of Service</a></p>
-                <p><a href="cookie-policy.html" class="legal-link"><i class="bi bi-cookie-bite-fill"></i> Cookie Policy</a></p>
-            </div>
-        </div>
-        <div class="container text-center" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #334155;">
-            <p style="color: #94a3b8;">&copy; 2026 Francistown School Of Chess. All rights reserved.</p>
         </div>
     </footer>
-   
-    
-<!-- ========== SITE LOADER ========== -->
-        <div id="loader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(3px); display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.4s ease;">
-            <div style="text-align: center; background: rgba(255, 255, 255, 0.9); padding: 30px 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <!-- Three bouncing dots -->
-                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 16px;">
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.2s;"></div>
-                    <div style="width: 12px; height: 12px; background: #3b5b9b; border-radius: 50%; animation: bounce 1.4s infinite 0.4s;"></div>
-                </div>
-                <p style="color: #1e293b; font-size: 0.9rem; font-weight: 500; letter-spacing: 1px;">LOADING</p>
-            </div>
+
+    <!-- ==================== FLOATING ACTIONS ==================== -->
+    <div class="floating-actions">
+        <div class="share-popover" id="sharePopover">
+            <button onclick="shareOnPlatform('facebook')" title="Share on Facebook"><i class="bi bi-facebook"></i></button>
+            <button onclick="shareOnPlatform('twitter')" title="Share on X"><i class="bi bi-twitter-x"></i></button>
+            <button onclick="shareOnPlatform('linkedin')" title="Share on LinkedIn"><i class="bi bi-linkedin"></i></button>
+            <button onclick="shareOnPlatform('email')" title="Share via Email"><i class="bi bi-envelope"></i></button>
+            <button onclick="copyPageUrl()" title="Copy link to clipboard"><i class="bi bi-link-45deg"></i></button>
         </div>
 
-        <style>
-            @keyframes bounce {
-                0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
-                30% { transform: translateY(-12px); opacity: 1; }
-            }
-        </style>
+        <button class="floating-action-btn btn-share" id="shareBtn" title="Share this page" aria-label="Share">
+            <i class="bi bi-share"></i>
+        </button>
 
-        <script>
-            window.addEventListener('load', function() {
-                setTimeout(function() {
-                    const loader = document.getElementById('loader');
-                    loader.style.opacity = '0';
-                    setTimeout(function() {
-                        loader.style.display = 'none';
-                    }, 400);
-                }, 600);
-            });
-        </script>
+        <a href="https://wa.me/26777012390?text=Hello%20Francistown%20School%20of%20Chess"
+           class="floating-action-btn btn-whatsapp" 
+           target="_blank" 
+           rel="noopener"
+           title="Chat on WhatsApp" 
+           aria-label="Chat on WhatsApp">
+            <i class="bi bi-whatsapp"></i>
+        </a>
+    </div>
 
+    <script src="js/main.js"></script>
 </body>
 </html>
-
